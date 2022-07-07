@@ -4,8 +4,8 @@ class Main{
 	//분으로 환산
 	public int getTime(String time){
 		String[] tmp = time.split(":");
-		int hour = Integer.parseInt((tmp[0]));
-		int minute = Integer.parseInt((tmp[1]));
+		int hour = Integer.parseInt(tmp[0]);
+		int minute = Integer.parseInt(tmp[1]);
 
 		return hour * 60 + minute;
 	}
