@@ -11,7 +11,7 @@ class Main{
 
 		for(int i=n-1; i>=0; i--){
 			//절대값 쓰고 
-			if(Math.abs(nums[left] < nums[right])){
+			if(Math.abs(nums[left]) < Math.abs(nums[right])){
 				answer[i] = nums[right] * nums[right];
 				right--;
 			}
@@ -26,11 +26,14 @@ class Main{
 	}
 	public static void main (String[] args){
 		Main T = new Main();
-		int[] tmp1 = new int[]{"-4, -1, 0, 3, 10"};
+		int[] tmp1 = new int[]{-4, -1, 0, 3, 10};
 		for(int x : T.solution(tmp1)){
-			System.out.println(T.solution(tmp1));
+			System.out.print(x+" ");
 		}
-		//String[] tmp2 = new String[]{"-7, -3, 2, 3, 11"};
-		//System.out.println(T.solution(tmp2));
+
+		//String[] tmp2 = new String[]{-7, -3, 2, 3, 11};
+		//for(int x : T.solution(tmp1)){
+			//System.out.print(x+" ");
+		//}
 	}
 }
