@@ -3,8 +3,10 @@ import java.util.*;
 class Main {
     public String Solution(String s){
         String answer = "";
+        //KK 로 중복됬으면 2가 되어야한다.
         int cnt = 1;
         //이거 안 쓰면 마지막 글자 E가 출력되지 않음
+        //s의 마지막 문자도 비교할 문자가 존재해야 한다.
         s = s + ' ';
 
         //s.length()는 11
