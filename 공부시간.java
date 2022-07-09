@@ -10,6 +10,7 @@ class Main{
 		return hour * 60 + minute;
 	}
 	public String solution(String[] times){
+		//tmp에는 getTime() 으로 시간을 분으로 변환한 값이 들어감
 		ArrayList<Integer> tmp = new ArrayList<>();
 		//for(int i=0; i<times.length; i++){
 			//tmp.add(getTime(times[i]));
