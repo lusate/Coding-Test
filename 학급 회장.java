@@ -21,7 +21,9 @@ class Main{
 		for(char key : map.keySet()){
 			//카운팅하여 map.get(key) 는 각 기호들의 투표 수를 센
 			//key : 3,3,5,2,2 가 출력됨
-			//System.out.println("key : " + map.get(key));
+			
+			//System.out.println("key:" + key); key가 출력됨
+			//System.out.println("key : " + map.get(key)); 각 key가 몇 개 있는지 개수를 셈
 			if(map.get(key) > max){
 				max = map.get(key);
 				answer = key;
