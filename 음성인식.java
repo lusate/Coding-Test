@@ -33,8 +33,7 @@ class Main{
 		
 		return answer;
 	}
-		public static void main (String[] args) throws java.lang.Exception
-	{
+	public static void main (String[] args){
 		Main T = new Main();
 		System.out.println(T.solution("abcabcdefabc"));
 		System.out.println(T.solution("ABCabcA"));
