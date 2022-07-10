@@ -9,9 +9,12 @@ class Main{
 
 		for(int i=0; i < nums.length-1; i++){
 			if(nums[i] < nums[i+1]){
+				//차를 구할 때 nums[1] - nums[0]으로 바로 옆에 있는 값끼리만 구하는 게 아니라
+				//거리가 떨어져 있는 값끼리의 차를 구해야 하므로 +=을 한다.
 				height += nums[i+1] - nums[i];
 			}
 			else{
+				//증가수열이 아닌 경우로 answer, height 최대값을 구하고 height를 0으로 초기화
 				answer = Math.max(answer, height);
 				height = 0;
 			}
