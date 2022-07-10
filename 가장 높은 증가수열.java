@@ -11,10 +11,11 @@ class Main{
 			if(nums[i] < nums[i+1]){
 				//차를 구할 때 nums[1] - nums[0]으로 바로 옆에 있는 값끼리만 구하는 게 아니라
 				//거리가 떨어져 있는 값끼리의 차를 구해야 하므로 +=을 한다.
+				//즉 2,3,7은 증가수열로 차가 5가 되어야 한다.
 				height += nums[i+1] - nums[i];
 			}
 			else{
-				//증가수열이 아닌 경우로 answer, height 최대값을 구하고 height를 0으로 초기화
+				//증가수열이 아닌 경우
 				answer = Math.max(answer, height);
 				height = 0;
 			}
