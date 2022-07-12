@@ -20,7 +20,6 @@ class Main {
 				else{ // ')' 만났는데 연속으로 나오면
 					answer++;
 				}
-				
 			}
 		}
 		
