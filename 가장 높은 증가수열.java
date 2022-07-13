@@ -20,6 +20,7 @@ class Main{
 				height = 0;
 			}
 		}
+		//위에서 구한 증가수열일 때 height를 answer에 저장
 		answer = Math.max(answer, height);
 
 		return answer;
