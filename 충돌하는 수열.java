@@ -20,9 +20,12 @@ class Main{
 					while(!stack.empty() && stack.peek() > 0){
 						int left = stack.pop();
 						System.out.println(left);
+						//x 절댓값이 left 보다 크면 flag는 true하고 다시 반복
 						if(Math.abs(x) > left){
 							flag = true;
-							//x 절댓값이 left 보다 크면 flag는 true하고 다시 반복
+							//System.out.println(x);
+							//[-2,-1,2,1,-3,2] 일 때 x는 -3, -3 이고
+							//left = 1,2
 						}
 						else if(Math.abs(x) == left){
 							//같은 경우로 둘 다 push하지 않고 끝냄
