@@ -19,6 +19,7 @@ class Main{
 		}
 
 		//스택이 비어있지 않은 경우 (즉 '(' 가 남아있는 경우)
+		//'(' , ')' 가 pop() 되어 스택이 비어져야 YES다
 		if(!stack.empty()) return "NO";
 		return answer;
 		
