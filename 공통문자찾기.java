@@ -9,7 +9,7 @@ class Main{
 		}
 		//System.out.println("map: " + map);
 		//출력하면 map: {a=1, s=2, t=1, e=2, u=1}
-
+		
 		//words.length = 3 단어가 3개 여서
 		for(int i=1; i<words.length; i++){
 			//tmp에는 문자열 3개의 HashMap이 모두 들어가도록
@@ -21,13 +21,16 @@ class Main{
 				//2121212 21222021 0222212
 
 				if(map.getOrDefault(x, 0) > 0){
-					map.put(x, map.get(x)-1); //?
+					map.put(x, map.get(x) - 1);
+					//알파벳이 나온 횟수에서 -1을 해서 중복된 횟수의 최소를 구함
+					//예시로 s는 4개가 최대이고 2번 -1을 해서 2가 된다.
+					//e는 -1해서 1이 된다.
 					//System.out.println(map);
 					tmp.put(x, tmp.getOrDefault(x, 0)+1);
 					//System.out.println(tmp);
 				}
 			}
-			map = new HashMap<Character, Integer>(tmp); //?
+			map = new HashMap<Character, Integer>(tmp);
 		}
 		
 		for(char key:map.keySet()){
@@ -41,10 +44,10 @@ class Main{
 		Main T = new Main();
 		String[] arr1 = new String[]{"steasue", "sasseysu", "kseseas"};
 		System.out.println(T.solution(arr1));
-		String[] arr2 = new String[]{"ackky", "kabck", "yokkcs"};
-		System.out.println(T.solution(arr2));
-		String[] arr3 = new String[]{"longlong", "longtong", "longbig"};
-		System.out.println(T.solution(arr3));
+		//String[] arr2 = new String[]{"ackky", "kabck", "yokkcs"};
+		//System.out.println(T.solution(arr2));
+		//String[] arr3 = new String[]{"longlong", "longtong", "longbig"};
+		//System.out.println(T.solution(arr3));
 	}
 }
 
