@@ -32,8 +32,8 @@ class Main {
 			}
 		}
 		return answer;
-
-		//x와 다른 경우와 비어있지 않은 경우 둘 다 만족해서 NO가 2번 나옴
+		//FGCDAB의 경우 순서가 A,B로 맞지도 않고 Q가 비어있지도 않기 때문에 
+		//둘 다 만족해서 NO가 2번 나옴 그래서 flag로 한 번만 나오도록 해줌
 	}
 	public static void main(String[] args){
 		Main T = new Main();
