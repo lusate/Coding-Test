@@ -11,7 +11,7 @@ class Main {
 				System.out.println(cnt);
 			}
 			while(cnt > k){ // 홀수 개수가 k개 이상
-				if(nums[left] == 1) cnt--;
+				if(nums[left] % 2 == 1) cnt--;
 				left++;
 			}
 			//cnt > k인 상태에서 nums[left] == 1 이어야 left가 움직인다.
