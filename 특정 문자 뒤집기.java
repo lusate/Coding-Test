@@ -1,7 +1,7 @@
 import java.util.*;
 
 class Main {
-    public String Solution(String s){
+    public String solution(String s){
         String answer = "";
         //s 라는 문자열을 char로 바꾼다
         char[] str = s.toCharArray();
@@ -33,6 +33,6 @@ class Main {
     }
     public static void main(String[] args){
         Main T = new Main();
-        System.out.println(T.Solution("a#b!GE*T@S"));
+        System.out.println(T.solution("a#b!GE*T@S"));
     }
 }
