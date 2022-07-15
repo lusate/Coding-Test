@@ -1,5 +1,4 @@
 import java.util.*;
-
 class Main{	
 	public ArrayList<Character> solution(String[] words){
 		HashMap<Character, Integer> map = new HashMap<>();
@@ -12,7 +11,7 @@ class Main{
 		//출력하면 map: {a=1, s=2, t=1, e=2, u=1}
 
 		//words.length = 3 단어가 3개 여서
-		for(int i=0; i<words.length; i++){
+		for(int i=1; i<words.length; i++){
 			//tmp에는 문자열 3개의 HashMap이 모두 들어가도록
 			HashMap<Character, Integer> tmp = new HashMap<>();
 			for(char x : words[i].toCharArray()){
@@ -40,9 +39,12 @@ class Main{
 	}
 	public static void main (String[] args){
 		Main T = new Main();
-		String[] tmp = new String[]{"steasue", "sasseysu", "kseseas"};
-		System.out.println(T.solution(tmp));
-		//System.out.println(T.solution("ackky", "kabck", "yokkcs"));
+		String[] arr1 = new String[]{"steasue", "sasseysu", "kseseas"};
+		System.out.println(T.solution(arr1));
+		String[] arr2 = new String[]{"ackky", "kabck", "yokkcs"};
+		System.out.println(T.solution(arr2));
+		String[] arr3 = new String[]{"longlong", "longtong", "longbig"};
+		System.out.println(T.solution(arr3));
 	}
 }
 
