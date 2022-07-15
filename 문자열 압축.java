@@ -1,7 +1,7 @@
 import java.util.*;
 
 class Main {
-    public String Solution(String s){
+    public String solution(String s){
         String answer = "";
         //KK 로 중복됬으면 2가 되어야한다.
         int cnt = 1;
@@ -32,6 +32,6 @@ class Main {
     }
     public static void main(String[] args){
         Main T = new Main();
-        System.out.println(T.Solution("KKHSSSSSSSE"));
+        System.out.println(T.solution("KKHSSSSSSSE"));
     }
 }
