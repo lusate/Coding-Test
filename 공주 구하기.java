@@ -5,8 +5,8 @@ class Main {
 		int answer=0;
 		Queue<Integer> Q = new LinkedList<>();
 
-		//n명의 왕자를 모두 큐에 삽입
-		for(int i=0; i<n; i++){
+		//n명의 왕자를 모두 큐에 삽입, n(왕자 수) = 8
+		for(int i=1; i<=n; i++){
 			Q.offer(i);
 		}
 
