@@ -22,8 +22,11 @@ class Main {
 
 	public static void main(String[] args){
 		Main T = new Main();
-		int[] arr = new int[]{1, 2, 1, 3, 1, 1, 1, 2};
-		System.out.println(T.solution(arr, 6));
-		
+		int[] arr1 = new int[]{1, 2, 1, 3, 1, 1, 1, 2};
+		System.out.println(T.solution(arr1, 6));
+		int[] arr = new int[]{1, 1, 1, 1, 1, 1};
+		System.out.println(T.solution(arr, 3));
+		int[] arr = new int[]{1, 2, 1, 2, 1, 2, 1};
+		System.out.println(T.solution(arr, 3));
 	}
 }
