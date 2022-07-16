@@ -30,7 +30,7 @@ class Main{
 				}
 			}
 			map = new HashMap<Character, Integer>(tmp);
-			//각 문자열에서 사용하지 않는 문자를 없애고 중복되는 문자 출력을 없애기 위해서 두 HashMap을 합침
+			//각 문자열에서 사용하지 않는 문자를 없애고 중복되는 문자 출력을 없애기 위해서 두 HashMap을 교집합함
 		}
 		
 		for(char key:map.keySet()){
