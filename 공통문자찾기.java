@@ -22,15 +22,15 @@ class Main{
 
 				if(map.getOrDefault(x, 0) > 0){
 					map.put(x, map.get(x) - 1);
-					//알파벳이 나온 횟수에서 -1을 해서 중복된 횟수의 최소를 구함
-					//예시로 s는 4개가 최대이고 2번 -1을 해서 2가 된다.
-					//e는 -1해서 1이 된다.
 					//System.out.println(map);
+					//-1 을 안 하면 [a, s, s, s, e, e] 이 된다
+					
 					tmp.put(x, tmp.getOrDefault(x, 0)+1);
 					//System.out.println(tmp);
 				}
 			}
 			map = new HashMap<Character, Integer>(tmp);
+			//각 문자열에서 사용하지 않는 문자를 없애고 중복되는 문자 출력을 없애기 위해서 두 HashMap을 합침
 		}
 		
 		for(char key:map.keySet()){
