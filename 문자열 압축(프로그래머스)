@@ -1,0 +1,57 @@
+class Solution {
+    public int solution(String s) {
+        int answer = 1000;
+        int len = s.length();
+        
+        // 길이가 1이라면 탐색의 필요 X
+        if(len==1){
+            return 1;
+        }
+        
+        // 1~최대 압축 길이까지의 기준으로 문자열 압축
+        for(int split=1; split<len/2 + 1; split++){
+            String str = new String();
+            // 0 ~ 압축 길이 만큼의 문자열 분리 
+            String comp = s.substring(0, split);
+            int cnt=1;
+            
+            for(int i=split;i<len;i+=split){
+            	// 현재 탐색의 분리 문자열이 초기 문자열의 길이를 넘어간다면
+                if(i+split>len){
+                    // 이전 까지의 비교를 결과에 포함
+                    if(cnt>1)
+                        str+=cnt+comp;
+                    else
+                        str+=comp;
+                    // 현재 부터 남은 문자열을 끝에 추가
+                    comp = s.substring(i);
+                    cnt=1;
+                    continue;
+                }
+                // 현재(i~split)의 문자열과 비교 문자열 비교
+                else if(comp.equals(s.substring(i, i+split)))
+                    cnt++;
+                
+                else{
+                    if(cnt>1)
+                        str+=cnt+comp;
+                    else
+                        str+=comp;
+                    comp = s.substring(i, i+split);
+                    cnt=1;
+                }
+            }
+            
+            if(cnt>1)
+                str+=cnt+comp;
+            else
+                str+=comp;
+            
+            // 최소 길이 결과 갱신
+            if(answer>str.length()){
+                answer=str.length();
+            }
+        }
+        return answer;
+    }
+}
