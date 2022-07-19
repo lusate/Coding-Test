@@ -13,17 +13,17 @@ class Main {
 		int s = nums[0][0];
 		int e = nums[0][1];
 		for(int i=1; i<nums.length; i++){
-			if(nums[i][0] <= e && nums[i][1] > e){
+			if(nums[i][0] <= e && nums[i][1] > e){ //겹치는 부분이 있는 경우
 				e = nums[i][1];
 			}
-			else if(nums[i][0] > e){ //새롭게 시작임
+			else if(nums[i][0] > e){ // 겹쳐지지 않는 부분
 				answer+=(e-s);
 				s = nums[i][0];
 				e = nums[i][1];
 			}
 		}
 
-		//마지막 겹치지 않는 선의 길이도 더해야함.
+		//처음 선의 길이도 더해야함.
 		answer += (e-s);
 		
 		return answer;
