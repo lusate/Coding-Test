@@ -3,7 +3,7 @@ class Main{
 	public int solution(int[] nums, int m){
 		int answer=0;  //보트 개수
 		int left=0;
-		int right=nums.length;
+		int right=nums.length-1;
 
 		Arrays.sort(nums);
 		//양쪽에서 2개를 비교
