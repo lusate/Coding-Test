@@ -14,6 +14,7 @@ class Main {
 		if(n % 2 == 1){
 			n++; //0을 추가하기 위해 길이 한 칸 늘림
 			tmp = new Integer[n];
+			//n 이 1 증가한 상태 이므로 n이 아닌 abilities.length 로 해야한다.
 			for(int i=0; i<abilities.length; i++){
 				tmp[i] = abilities[i];
 			}
