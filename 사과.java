@@ -23,7 +23,7 @@ class Main{
 				sum += apples[right];
 			}
 
-			if(power[right-m] == 0) sum -= apples[right-m];
+			if(power[left] == 0) sum -= apples[left];
 			left++;
 			answer = Math.max(answer, sum);
 		}
