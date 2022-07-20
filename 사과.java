@@ -5,15 +5,15 @@ class Main{
 		int sum = 0;
 		int left = 0;
 
-		for(int right=0; right<apples.length; right++){
-			if(power[right] == 1){
-				sum += apples[right];
+		for(int i=0; i<apples.length; i++){
+			if(power[i] == 1){
+				sum += apples[i];
 			}
 		}
-		for(int right=0; right<m; right++){
+		for(int i=0; i<m; i++){
 			//연속된 m은 무조건 점프를 해서 사과를 딸 수 있음.
-			if(power[right] == 0){
-				sum += apples[right];
+			if(power[i] == 0){
+				sum += apples[i];
 			}
 		}
 
