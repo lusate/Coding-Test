@@ -1,0 +1,39 @@
+//코드 포맷을 암기
+import java.util.*;
+class Main{
+	public int solution(int[][] nums){
+		int answer=0;
+		PriorityQueue<Integer> pQ = new PriorityQueue<>(Collections.reverseOrder());
+		Arrays.sort(nums, (a,b) -> b[1] - a[1]);
+		//날짜로 내림차순
+
+		int max = nums[0][1];
+		int j=0;
+		for(int i=max; i>=1; i--){
+			//for문에서 j가 0 아님
+			for( ; j<nums.length; j++){
+				//i=3 일 때 j = 0,1,2 / i=2 일 때 j = 2,3,4 / i=1 일 때 j = 4,5
+				if(nums[j][1] < i) break; //i 보다 날짜가 작으면 break
+				//즉 3일 금액이 들어갈 때 2일 금액이 들어가면 안됌.
+
+				pQ.offer(nums[j][0]); //가장 큰 것만 offer
+				//우선 순위 큐 이므로 pQ에는 40, 30, 20, 30 이 있다.
+				//System.out.println(pQ);
+			}
+
+			if(!pQ.isEmpty()) answer+=pQ.poll();
+			//pQ가 비어있지 않으면 answer는 빼낸 60+50+40 해서 150
+		}
+
+		return answer;
+	}
+	public static void main(String[] args){
+		Main T = new Main();
+		System.out.println(T.solution(new int[][]{{50, 5}, {20, 4}, {40, 4}, {60, 3}, {30, 3}, {30, 2}}));
+	}
+}
+//for 문 
+//i = 3 일 때 (60, 3), (30, 3) 으로 2가지 있으므로 j는 0,1,2 로 3개 
+//i = 2 일 때 (50, 2), (40, 2) 2가지 있으므로 j는 2,3,4
+//i = 1 일 때는 j는  j<length 까지 해서 4,5
+//즉 j는 가지 수 +1만큼 반복
