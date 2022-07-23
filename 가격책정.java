@@ -20,10 +20,12 @@ class Main{
 
 		//if로 해도 됨. return을 했기 때문에
 		else if(prices[n-2] - prices[1] <= d){
-			return getAverage(prices, 1, n-2);			}
+			return getAverage(prices, 1, n-2);			
+		}
 
 		//3번 조건 정도의 사고력이 필요
 		for(int i=0; i<=n-k; i++){
+			//k개 가격을 가지고 고려해야 함
 			if(prices[i+k-1] - prices[i] <= d){
 				return getAverage(prices, i, i+k-1);
 			}
