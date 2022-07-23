@@ -26,8 +26,8 @@ class Main{
 		ArrayList<Time> list = new ArrayList<>();
 
 		for(int[] x : times){
-			list.add(new Time(x[0], 1));
-			list.add(new Time(x[1], 2));
+			list.add(new Time(x[0], 1)); // 상태가 1인(들어온) 시간들
+			list.add(new Time(x[1], 2)); // 상태가 2인(나간) 시간들
 		}
 		
 		//[14, 1] [18,2] [12,1] [15,2] [15,1] [20,2] [30,2] [5,1] [14,2]
