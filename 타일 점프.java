@@ -5,15 +5,16 @@ class Main {
 		int[] ch = new int[n];
 		Queue<Integer> Q = new LinkedList<>();
 		Q.offer(0); //0번 인덱스를 넣음
-		ch[0] = 1;
+		ch[0] = 1; //0번 인덱스에서 출발하므로 처음 ch[0]은 1로 초기화
 		int L=0;
 		while(!Q.isEmpty()){
 			int len=Q.size();
 			for(int i=0; i<len; i++){
 				int x = Q.poll();
+				// nums -> 2,2,0,2,1,1, x는 인덱스로 nums 안에 값 이하로 점프함
 				for(int j=1; j<=nums[x]; j++){
 					int nx = x + j;
-					if(nx == n-1) return L+1;
+					if(nx == n-1) return L+1; //타일이 도착하면 L+1
 					if(nx < n && ch[nx] == 0){
 						ch[nx] = 1;
 						Q.offer(nx);
