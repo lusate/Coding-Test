@@ -1,6 +1,6 @@
 import java.util.*;
 class Main {
-	int target, answer=0;
+	int answer=0;
 	//큰 List 안에 객체들이 들어간다. (ArrayList 객체들이 Integer로 들어간다.)
 	ArrayList<ArrayList<Integer>> graph;
 	int[] ch;
@@ -19,7 +19,6 @@ class Main {
 			graph.add(new ArrayList<Integer>());
 		}
 		ch = new int[n+1];
-		target = n; //목표는 정점개수
 		for(int[] x : edge){
 			graph.get(x[0]).add(x[1]);
 			graph.get(x[1]).add(x[0]); // 무방향 그래프이므로 반대로도 해줌
