@@ -1,5 +1,5 @@
 import java.util.*;
-class Main {
+class Main { //송아지처럼 목적지를 찾아서 가는 것이 아니고 섬이 몇 개 있는지 구하는 것이므로 BFS 쓰지 않는다.
 	int answer=0, n;
 	int[] dx={-1, -1, 0, 1, 1, 1, 0, -1};
 	int[] dy={0, 1, 1, 1, 0, -1, -1, -1};
