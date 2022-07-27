@@ -5,6 +5,7 @@ class Main {
 	ArrayList<ArrayList<Integer>> graph;
 	int[] ch;
 	public void DFS(int v){
+		//출발 정점에서 도착정점으로 가는 것이 아닌 무방향 그래프로 만드므로 if(v == target) 이게 필요가 없다.
 		for(int nv : graph.get(v)){
 			if(ch[nv] == 0){
 				ch[nv] = 1;
