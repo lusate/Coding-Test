@@ -2,6 +2,7 @@ import java.util.*;
 class Main {
 	//3명 뽑고 나머지 3명은 다른 팀으로 순열이 아닌 조합
 	int n, answer=2147000000;
+	//n 인원 수가 문제처럼 정해지지 않은 경우 Integer의 범위로 정함 (대충 2147000000 으로)
 	int[] ch;
 	public void DFS(int L, int s, int[][] cans){
 		if(L == n/2){
