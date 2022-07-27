@@ -6,14 +6,14 @@ class Main {
 	int[][] relation;
 
 	public void DFS(int L){
-		if(L == 7){
+		if(L == 7){ // 1~7까지 완성된 순열을 카운트
 			answer++;
 		}
 		else{
 			for(int i=1; i<8; i++){
 				//1 2 4 가 되면 안되므로 4 이후는 의미없음
 				//그래서 relation에서 1을 만나는 경우로 싸우게 되면
-				//continue로 다음 if문 pass함
+				//continue로 다음 if문 pass함 (즉 순열을 마저 만들지 않고 넘어감)
 				if(!pm.empty() && relation[pm.peek()][i] == 1) continue;
 				if(ch[i] == 0){
 					pm.push(i);
