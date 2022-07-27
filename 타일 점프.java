@@ -1,5 +1,5 @@
 import java.util.*;
-class Main {
+class Main { //시작점에서 도착점으로 이동을 하므로 BFS로 한다.
 	public int solution(int[] nums){
 		int n = nums.length;
 		int[] ch = new int[n];
