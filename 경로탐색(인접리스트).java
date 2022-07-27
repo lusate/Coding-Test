@@ -8,6 +8,7 @@ class Main {
 		if(v == target) answer++;
 		else{
 			for(int nv : graph.get(v)){
+			//nv는 정점들로 입력값대로 1 2 2 3 4 4 2 1 3 4 2 2 2 4 1 4 2 2 3 2 4 가 된다.
 				if(ch[nv] == 0){
 					ch[nv] = 1;
 					DFS(nv);
