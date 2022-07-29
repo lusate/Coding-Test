@@ -76,6 +76,6 @@ class Main {
         }
  
         visited = new boolean[n][m][k+1];
-        System.out.println(T.solution(0, 0));
+        System.out.println(T.solution(1, 1));
 	}
 }
