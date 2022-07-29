@@ -50,10 +50,10 @@ class Solution {
         
         int maxd = 0;
         for(int x : dis){ //dis는 시작에서 도착까지의 비용
-            maxd = Math.max(maxd, x); 
+            maxd = Math.max(maxd, x); //문제에서는 최대 거리 2이다
         }
         for(int x : dis){
-            if(x == maxd) answer++;
+            if(x == maxd) answer++; //2인 것의 개수를 세주면 
         } //maxd와 같은 정점들을 카운트
         return answer;
     }
