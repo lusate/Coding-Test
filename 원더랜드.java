@@ -1,17 +1,19 @@
 import java.util.*;
 class Edge implements Comparable<Edge>{
-    public int v1; 
+	public int v1; 
 	public int v2;
 	public int cost;
-    Edge(int v1, int v2, int cost) {
+	
+	Edge(int v1, int v2, int cost) {
         this.v1 = v1;
-		this.v2 = v2;
+	this.v2 = v2;
         this.cost = cost;
-    }
-    @Override //cost 값에 의해서 오름차순
-    public int compareTo(Edge ob){
-        return this.cost-ob.cost;
-    }
+    	}
+	
+	@Override //cost 값에 의해서 오름차순
+	public int compareTo(Edge ob){
+		return this.cost-ob.cost;
+	}
 }
 
 class Main {
