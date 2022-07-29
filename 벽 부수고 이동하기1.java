@@ -2,13 +2,13 @@ import java.util.*;
 class Point{
 	public int x;
 	public int y;
-	public int count; //이동거리
+	public int dist; //이동거리
 	public int wall; //벽을 부시면서 왔는지 아닌지(0|1) 1이면 벽을 부심.
 
-	public Point(int x, int y, int count, int wall){
+	public Point(int x, int y, int dist, int wall){
 		this.x = x;
 		this.y = y;
-		this.count = count; //이동거리
+		this.dist = dist; //이동거리
 		this.wall = wall; //0이면 벽을 부시지 않음 / 1이면 벽을 부쉼
 	}
 }
@@ -16,7 +16,6 @@ class Main {
 	static int n, m;
 	static int[][] board;
 	static boolean[][][] visited;
-	//int[][] dist = new int[n][m];
 	
 	public int solution(int x, int y){
 		int[] dx = {-1, 0, 1, 0};
@@ -30,7 +29,7 @@ class Main {
         while (!Q.isEmpty()) {
 			Point tmp = Q.poll();
 			//cur.x , cur.y는 현재 좌표
-			if (tmp.x == n - 1 && tmp.y == m - 1) return tmp.count;
+			if (tmp.x == n - 1 && tmp.y == m - 1) return tmp.dist;
 			// 문제에서  (1, 1)과 (N, M)은 항상 0이라고 가정하자. 이동거리를 리턴
 	
 			for (int i = 0; i < 4; i++) {
@@ -42,13 +41,13 @@ class Main {
 						if (visited[nx][ny][tmp.wall] == false) { 
 							//(벽을 부쉈는지 아닌지)으로 방문한 적이 없다면 방문한다.
 							visited[nx][ny][tmp.wall] = true;
-							Q.offer(new Point(nx, ny, tmp.count + 1, tmp.wall));
+							Q.offer(new Point(nx, ny, tmp.dist + 1, tmp.wall));
 						}
 					}    
 					else if (board[nx][ny] == 1) { //벽일때
 						if (tmp.wall == 0 && visited[nx][ny][1] == false) { //현재까지 벽을 부순적이 없고, 벽을 부숴서 방문한 적이 없다면 방문한다.
 							visited[nx][ny][1] = true;
-							Q.offer(new Point(nx, ny, tmp.count + 1, 1));
+							Q.offer(new Point(nx, ny, tmp.dist + 1, 1));
 						}
 					}
 				}
@@ -75,6 +74,6 @@ class Main {
         }
  
         visited = new boolean[n][m][2];
-        System.out.println(T.solution(0, 0));
+        System.out.println(T.solution(1, 1));
 	}
 }
