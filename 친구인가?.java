@@ -29,6 +29,6 @@ class Main {
     }
 	public static void main(String[] args){
 		Main T = new Main();
-		System.out.println(T.solution(9, new int[][]{{1, 2}, {2, 3}, {3, 4}, {1, 5}, {6, 7}, {7, 8}, {8, 9}}, 6, 9));
+		System.out.println(T.solution(9, new int[][]{{1, 2}, {2, 3}, {3, 4}, {1, 5}, {6, 7}, {7, 8}, {8, 9}}, 3, 8));
 	}
 }
