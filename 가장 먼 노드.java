@@ -57,4 +57,9 @@ class Solution {
         } //maxd와 같은 정점들을 카운트
         return answer;
     }
+
+	public static void main(String[] args){
+		Main T = new Main();
+		System.out.println(T.solution(6, new int[][]{{3, 6}, {4,3}, {3,2}, {1,3}, {1,2}, {2,4} ,{5,2}}));
+	}
 }
