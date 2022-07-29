@@ -12,7 +12,7 @@ class Edge implements Comparable<Edge>{
     }
 }
 
-class Solution {
+class Main {
     public int solution(int N, int[][] road, int K){
 		int answer=0;
 		ArrayList<ArrayList<Edge>> graph=new ArrayList<>();
@@ -50,7 +50,7 @@ class Solution {
     }
 
 	public static void main(String[] args){
-		Solution T = new Solution();
+		Main T = new Main();
 		System.out.println(T.solution(5, new int[][]{{1, 2, 1}, {2, 3, 3}, 
 			{5, 2, 2}, {1, 4, 2}, {5, 3, 1}, {5, 4, 2}}, 3));
 	}
