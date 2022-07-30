@@ -135,11 +135,11 @@ class Main {
 
 		for(int i=0; i<=k; i++){
 			if(dist[n-1][m-1][i] != 0){
-				answer = Math.min(answer, dist[n-1][m-1][i]);
+				answer = Math.min(answer, dist[n-1][m-1][i]); //도착한 경우 최소를 리턴
 			}
 		}
 
-		return answer != Integer.MAX_VALUE? answer : -1;
+		return answer != Integer.MAX_VALUE? answer : -1; //answer가 무한대가 아니면 answer 출력
 	}
 		
 	public static void main(String[] args){
