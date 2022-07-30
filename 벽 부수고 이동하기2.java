@@ -79,3 +79,87 @@ class Main {
         System.out.println(T.solution(1, 1));
 	}
 }
+
+------------------------------------------------------------------------------------------
+//dist 배열 사용한 방법
+import java.util.*;
+class Point{
+	public int x;
+	public int y;
+	public int wall; //벽을 부시면서 왔는지 아닌지(0|1) 1이면 벽을 부심.
+
+	public Point(int x, int y, int wall){
+		this.x = x;
+		this.y = y;
+		this. wall = wall;
+	}
+}
+class Main {
+	static int n, m, k;
+	static int[][] board;
+	static int[][][] dist;
+	public int solution(int x, int y){
+		int answer = Integer.MAX_VALUE;
+		int[] dx = {-1, 0, 1, 0};
+		int[] dy = {0, 1, 0, -1};
+
+		for(int i=0; i<n; i++){
+			for(int j=0; j<m; j++){
+				for(int m=0; m<k+1; m++){
+					dist[i][j][m] = 0;
+				}
+			}
+		}
+
+		Queue<Point> Q = new LinkedList<>();
+		dist[0][0][0] = 1;
+		Q.offer(new Point(0,0,0));
+
+		while(!Q.isEmpty()){
+			Point tmp = Q.poll();
+			for(int i=0; i<4; i++){
+				int nx = tmp.x + dx[i];
+				int ny = tmp.y + dy[i];
+				if(nx >= 0 && nx < n && ny >= 0 && ny < m){
+					if(board[nx][ny] == 0 && dist[nx][ny][tmp.wall] == 0){
+						dist[nx][ny][tmp.wall] = dist[tmp.x][tmp.y][tmp.wall] + 1;
+						Q.offer(new Point(nx, ny, tmp.wall));
+					}
+					else if(board[nx][ny] == 1 && tmp.wall+1 <= k && dist[nx][ny][tmp.wall+1] == 0){
+						dist[nx][ny][tmp.wall+1] = dist[tmp.x][tmp.y][tmp.wall]+1;
+						Q.offer(new Point(nx, ny, tmp.wall+1));
+					}
+				}
+			}
+		}
+
+		for(int i=0; i<=k; i++){
+			if(dist[n-1][m-1][i] != 0){
+				answer = Math.min(answer, dist[n-1][m-1][i]);
+			}
+		}
+
+		return answer != Integer.MAX_VALUE? answer : -1;
+	}
+		
+	public static void main(String[] args){
+		Main T = new Main();
+		Scanner sc = new Scanner(System.in);
+ 
+        n = sc.nextInt();
+        m = sc.nextInt();
+		k = sc.nextInt();
+        sc.nextLine();
+        
+        board = new int[n][m];
+		dist = new int[n][m][k+1];
+        for (int i = 0; i < n ; i++) {
+            String str = sc.nextLine();
+            for (int j = 0; j < m; j++) {
+                board[i][j] = str.charAt(j) - '0';
+            }
+        }
+ 
+        System.out.println(T.solution(1, 1));
+	}
+}
