@@ -16,6 +16,7 @@ class Main {
 				//continue로 다음 if문 pass함 (즉 순열을 마저 만들지 않고 넘어감)
 				if(!pm.empty() && relation[pm.peek()][i] == 1) continue;
 				if(ch[i] == 0){
+					ch[i]=1;
 					pm.push(i);
 					DFS(L+1);
 					ch[i]=0;
