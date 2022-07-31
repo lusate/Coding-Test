@@ -24,6 +24,7 @@ class Main {
 			for(int j=0; j<reserve.length; j++){
 				//잃어버린 사람 앞 번호 또는 뒷 번호가 reserve와 같다면 빌려주어서 answer++
 				if(lost[i]-1 == reserve[j] || lost[i]+1 == reserve[j]){
+					//즉 lost 가 2,4 일 때 1,3에게 빌려주거나(lost[i]-1) 3,5 (lost[i]+1)에게 빌려줌
 					answer++;
 					reserve[j] = -1; //빌려주고 난 후 -1로 resereve에서 제외
 					break;
