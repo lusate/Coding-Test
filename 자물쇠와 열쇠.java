@@ -4,21 +4,21 @@ class Main {
 	public boolean check(int[][] map, int[][] key, int locklen){
 		int keylen = key.length; //3
 		int maplen = map.length; //5
-
+		
 		//키를 돌리면서 이동시킬 때 5번 이동시키면서 확인함
-		for(int i=0; i<maplen-keylen+1; i++){
-			for(int j=0; j<maplen-keylen+1; j++){
+		for(int i=0; i<maplen-keylen+1; i++){ //7-3+1=5
+			for(int j=0; j<maplen-keylen+1; j++){ //7-3+1=5
 				//map에 key를 더함
 				for(int k=0; k<keylen; k++){
 					for(int l=0; l<keylen; l++){
 						map[i+k][j+l] += key[k][l];
 					}//map은 길이가 7, key는 길이가 3 / k,l은 key를 위한 범위
 				}// 그래서 2중 for문으로 map에 key를 더함
-
 				//자물쇠 부분이 전부 1이 됐는지 확인
 				boolean flag = true;
 				for(int k=keylen-1; k<keylen+locklen-1; k++){
 					for(int l=keylen-1; l<keylen+locklen-1; l++){
+						//keylen-1 = 2 , keylen+locklen-1 = 3+3-1=5
 						if(map[k][l] != 1){
 							flag = false;
 							break;
@@ -32,7 +32,7 @@ class Main {
 				//map을 원상 복귀 시킴, map에서 key를 뺌
 				for(int k=0; k<keylen; k++){
                     for(int l=0; l<keylen; l++){
-                        map[i+k][j+l] -= key[k][l];
+                        map[i+k][j+l] -= key[k][l];					
                     }
                 }
 			}
@@ -62,13 +62,13 @@ class Main {
 		int m = key.length;
 		int n = lock.length;
 
-		int len = n*m-2;
+		int len = n*m-2; //3*3-2 = 7
 		int[][] map = new int[len][len];
 
 		//확장 시킨 배열에 Lock 표시
-		for(int i=n-1; i<len-n; i++){
-			for(int j=m-1; j<len-m; j++){
-				map[i][j] = lock[i-2][j-2];
+		for(int i=m-1; i<m+n-1; i++){
+			for(int j=m-1; j<m+n-1; j++){
+				map[i][j] = lock[i-(m-1)][j-(m-1)];
 			}
 		}
 
