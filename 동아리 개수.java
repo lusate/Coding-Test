@@ -42,3 +42,5 @@ class Main {
 		System.out.println(T.solution(7, new int[][]{{1, 2}, {2, 3}, {1, 4}, {1, 5}}));
 	}
 }
+
+3
