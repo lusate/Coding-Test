@@ -65,11 +65,11 @@ class Main{
 
 	public int[] solution(String[][] places) {
 		int n = places.length;
-        int[] result = new int[n];
+        int[] answer = new int[n];
         for(int i = 0; i < n; i++){
-            result[i] = isCorrext(places[i]);
+            answer[i] = isCorrext(places[i]);
         }
-        return result;
+        return answer;
     }
 	public static void main(String[] args){
 		Main T = new Main();
