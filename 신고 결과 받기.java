@@ -12,7 +12,6 @@ class Main{
 		//Map 초기화
         for (int i = 0; i < id_list.length; i++) {
             String name = id_list[i];
-			//System.out.println(name);
 
             map.put(name, new HashSet<>());
 			//System.out.println(map);
@@ -30,10 +29,12 @@ class Main{
 			map.get(to).add(from);
 			//신고한 ID에 대해 누가 신고했는지 Map에 저장
 			//{muzi=[apeach], neo=[muzi, frodo], frodo=[muzi, apeach], apeach=[]}
+			//앞이 신고 받은 쪽, [] 안 ID가 신고 한 쪽
 		}
 
 		for (int i = 0; i < id_list.length; i++) {
             HashSet<String> send = map.get(id_list[i]);
+			//send는 신고한 쪽의 Set으로 send.size() 는 1,2,0,2
             if (send.size() >= k) {
                 for (String name : send) {
                     answer[idxMap.get(name)]++;
