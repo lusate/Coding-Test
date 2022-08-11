@@ -21,7 +21,8 @@ public class Main {
 				a++; //A 가 있으면 인덱스 + 해서 다음 것으로 넘어감
 			}//A가 연속해서 있을 수도 있음  ex) _ _ _ A A A _ _
 
-			cnt = Math.min(cnt, i+n-a+i);
+			cnt = Math.min(cnt, i+n-a+Math.min(i,n-a));
+			//A가 마지막 까지 있는 경우도 생각
 		}
 		answer += cnt;
 		return answer;
