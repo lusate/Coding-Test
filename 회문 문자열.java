@@ -52,3 +52,8 @@ class Main {
         System.out.println(T.solution("Moon"));
     }
 }
+
+
+답
+YES
+NO
