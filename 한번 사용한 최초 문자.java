@@ -25,7 +25,14 @@ class Main{
 	public static void main(String args[]){
 		Main T = new Main();
 		System.out.println(T.solution("statitsics"));
-		//System.out.println(T.solution("aabb"));
+		System.out.println(T.solution("aabb"));
+		System.out.println(T.solution("stringshowtime"));
 	}
 
 }
+
+
+//답
+//3
+//-1
+//3
