@@ -33,5 +33,10 @@ class Main {
     public static void main(String[] args){
         Main T = new Main();
         System.out.println(T.solution("KKHSSSSSSSE"));
+        System.out.println(T.solution("AAABCCCDD"));
     }
 }
+
+답
+K2HS7E
+A2BC3D2
