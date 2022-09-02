@@ -36,6 +36,12 @@ class Main{
 	public static void main(String[] args){
 		Main T = new Main();
 		System.out.println(T.solution("BACBACCACCBDEDE"));
-		//System.out.println(T.solution("AAAAABBCCDDDD"));
+		System.out.println(T.solution("AAAAABBCCDDDD"));
 	}
 }
+
+
+
+//답
+//C
+//A
