@@ -54,3 +54,9 @@ class Main{
 //get 메소드를 이용하면 value 값을 얻을 수 있다
 //그런데 map의 key에 해당하는 value가 없을 경우 get 메소드를 사용하면 null이 리턴된다
 //그래서 null 대신 디폴트 값을 얻고 싶은 경우에 getOrDefault() 를 사용한다.
+
+
+//답
+//["s", "s", "e", "a"]
+//["k", "k", "c"]
+//["l", "o", "n", "g", "g"]
