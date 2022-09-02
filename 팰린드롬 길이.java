@@ -26,10 +26,20 @@ class Main{
 
 		//answer는 s의 길이
 		//cnt가 0보다 크면 앞에 실행 0보다 작으면 홀수가 없으므로 그대로 answer(s의 길이) 출력
-		return cnt > 0 ? answer - cnt + 1 : answer;
+		if(cnt > 0) return answer - cnt + 1;
+		else return answer;
+		//return cnt > 0 ? answer - cnt + 1 : answer;
 	}
 	public static void main (String[] args) throws java.lang.Exception{
 		Main T = new Main();
 		System.out.println(T.solution("abcbbbccaa"));
+		System.out.println(T.solution("abcde"));
+		System.out.println(T.solution("ccc"));
 	}
 }
+
+
+//답
+//9
+//1
+//3
