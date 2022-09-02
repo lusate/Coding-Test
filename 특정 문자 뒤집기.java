@@ -34,5 +34,11 @@ class Main {
     public static void main(String[] args){
         Main T = new Main();
         System.out.println(T.solution("a#b!GE*T@S"));
+        System.out.println(T.solution("###ab*@@Sty"));
     }
 }
+
+
+//답
+//S#T!EG*b@a
+//###yt*@@Sba
