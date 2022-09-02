@@ -37,5 +37,14 @@ class Main{
 		Main T = new Main();
 		System.out.println(T.solution("abcabcdefabc"));
 		System.out.println(T.solution("ABCabcA"));
+		System.out.println(T.solution("abcabca"));
+		System.out.println(T.solution("ABCabcA"));
 	}
 }
+
+
+//답
+//def
+//BCbc
+//bcbc
+//BCbc
