@@ -31,9 +31,14 @@ class Main{
 			System.out.print(x+" ");
 		}
 
-		//String[] tmp2 = new String[]{-7, -3, 2, 3, 11};
-		//for(int x : T.solution(tmp1)){
-			//System.out.print(x+" ");
-		//}
+		String[] tmp2 = new String[]{-7, -3, 2, 3, 11};
+		for(int x : T.solution(tmp1)){
+			System.out.print(x+" ");
+		}
 	}
 }
+
+
+//답
+//[0, 1, 9, 16, 100]
+//[4, 9, 9, 49, 121]
