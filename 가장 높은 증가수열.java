@@ -34,3 +34,8 @@ class Main{
 		System.out.println(T.solution(tmp2));
 	}
 }
+
+
+//답
+//14
+//8
