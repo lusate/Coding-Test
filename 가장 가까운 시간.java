@@ -42,3 +42,8 @@ class Main{
 		System.out.println(T.solution(str2));
 	}
 }
+
+
+//답
+//8
+//1
