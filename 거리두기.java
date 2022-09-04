@@ -55,3 +55,7 @@ class Main{
 		System.out.println(T.solution(tmp1));
 	}
 }
+
+
+//답
+//2
