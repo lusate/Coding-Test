@@ -49,3 +49,7 @@ class Main{
 		System.out.println(T.solution(4, arr, 2));
 	}
 }
+
+
+//답
+//[1, 0, 2, 1]
