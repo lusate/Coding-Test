@@ -42,3 +42,9 @@ class Main{
 		System.out.println(T.solution(tmp3));
 	}
 }
+
+
+//답
+//YES
+//NO
+//NO
