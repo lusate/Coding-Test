@@ -14,6 +14,7 @@ class Main {
 					if(nx>=0 && nx<n && ny>=0 && ny<n && board[nx][ny]>=board[i][j]){
 						//범위는 board[n][n] 안 &&
 						//봉우리(board[i][j])가 상하좌우 값보다 작은 경우 false하고 break
+						//즉 봉우리가 아닌 경우(false) 하고 break
 						flag=false;
 						break;
 					}
@@ -36,3 +37,6 @@ class Main {
 	}
 }
 
+
+//답
+//10
