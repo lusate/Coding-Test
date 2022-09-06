@@ -30,3 +30,8 @@ class Main{
 		System.out.println(T.solution("(())()"));
 	}
 }
+
+
+//답
+//NO
+//YES
