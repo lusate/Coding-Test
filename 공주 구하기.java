@@ -35,3 +35,7 @@ class Main {
 		System.out.println(T.solution(8, 3));
 	} 
 }
+
+
+//답
+//7
