@@ -41,3 +41,7 @@ class Main {
 		System.out.println(T.solution("CBA", plans));
 	}
 }
+
+
+//답
+//[YES, NO, YES]
