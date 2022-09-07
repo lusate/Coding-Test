@@ -37,3 +37,8 @@ class Main {
 		System.out.println(T.solution(arr2, 5));
 	}
 }
+
+
+//답
+//17
+//26
