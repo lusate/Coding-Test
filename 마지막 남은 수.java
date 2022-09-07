@@ -29,3 +29,8 @@ class Main {
 		System.out.println(T.solution(arr2));
 	} 
 }
+
+
+//답
+//1
+//0
