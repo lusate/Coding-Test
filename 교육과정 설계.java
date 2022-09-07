@@ -15,7 +15,7 @@ class Main {
 			for(char x : plan.toCharArray()){
 				//x는 plans의 모든 문자들
 				if(Q.contains(x)){//Q에 포함되어 있는지 확인
-					if(Q.poll() != x){ //Q에서 제외한게 x와 다르면 NO
+					if(Q.poll() != x){ //Q에서 제외한게 x와 다르면 NO, 즉 CBA 순서대로 있는지 확인하기 위함
 						answer.add("NO");
 						flag = false;
 						break;
