@@ -32,3 +32,9 @@ class Main {
 		System.out.println(T.solution(arr3, 5));
 	}
 }
+
+
+//답
+//10
+//15
+//22
