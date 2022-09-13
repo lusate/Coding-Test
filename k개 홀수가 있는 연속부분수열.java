@@ -39,3 +39,8 @@ class Main {
 		//System.out.println(T.solution(arr2, 2));
 	}
 }
+
+
+//답
+//5
+//16
