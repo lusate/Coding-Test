@@ -25,3 +25,9 @@ class Main {
 		System.out.println(T.solution(98765));
 	}
 }
+
+
+//답
+//3
+//7
+//3
