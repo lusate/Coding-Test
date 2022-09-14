@@ -56,18 +56,22 @@ class Main{
 }
 
 
-//Comparable, Comparator 둘 다 implements 해야하고 
-//<> 사이에 들어갈 타입은 Time 객체와 또 다른 Time 객체를 비교하고 싶다면, <> 사이에 들어갈 타입 또한 Time이 되어야 한다.
-
-//Comparable 구현 할 때
-//class Student implements Comparable<Student> {}
-//public int compareTo(Student o) {}
-
-//Comparator 구현할 때
-//class Student implements Comparator<Student> {}
-//public int compare(Student o1, Student o2) {}
-
-
-
 //답
 //2
+
+/*
+Comparable, Comparator 둘 다 implements 해야하고 
+<> 사이에 들어갈 타입은 Time 객체와 또 다른 Time 객체를 비교하고 싶다면, <> 사이에 들어갈 타입 또한 Time이 되어야 한다.
+
+
+Comparable 구현 할 때
+class Student implements Comparable<Student> {}
+public int compareTo(Student o) {}
+
+
+Comparator 구현할 때
+class Student implements Comparator<Student> {}
+public int compare(Student o1, Student o2) {}
+*/
+
+
