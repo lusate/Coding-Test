@@ -36,3 +36,9 @@ class Main {
 		System.out.println(T.solution(new int[][]{{5, 6}, {1, 3}, {7, 8}, {9, 10}}));
 	}
 }
+
+
+
+//답
+//7
+//5
