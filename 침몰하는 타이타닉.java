@@ -27,3 +27,8 @@ class Main{
 		System.out.println(T.solution(new int[]{10, 20, 30, 40, 50, 60, 70, 80, 90}, 100));
 	}
 }
+
+
+//답
+//3
+//5
