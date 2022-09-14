@@ -66,3 +66,8 @@ class Main{
 //Comparator 구현할 때
 //class Student implements Comparator<Student> {}
 //public int compare(Student o1, Student o2) {}
+
+
+
+//답
+//2
