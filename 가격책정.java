@@ -41,3 +41,9 @@ class Main{
 		System.out.println(T.solution(new int[]{1, 8, 1, 8, 1, 8}, 6, 4));
 	}
 }
+
+
+//답
+//6
+//6
+//1
