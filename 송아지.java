@@ -11,7 +11,7 @@ public class Main {
 		while(!Q.isEmpty()){
 			int len = Q.size(); //처음에 L(레벨) 은 1이다. -> 원소 1개.
 			for(int i=0; i<len; i++){
-				int x = Q.poll();
+				int x = Q.poll(); //각 레벨의 원소
 				for(int j=0; j<3; j++){ // 가는 게 1, -1, 5로 3개이기 때문
 					int nx = x + dis[j]; //nx : x의 자식노드
 					if(nx == e) return L+1; // 송아지를 찾을 때
