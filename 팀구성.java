@@ -32,7 +32,7 @@ class Main {
 		
 		//우선권이 없는 경우
 		for(int i=0; i<n/2; i++){ // 라운드 개수 n/2 만큼
-			answer += tmp[i*2+1]; //짝수 인덱스가 내가 선택한 사람
+			answer += tmp[i*2+1]; //홀수 인덱스가 내가 선택한 사람
 		}
 
 		Integer[] diff = new Integer[n/2];  // 매라운드마다의 차를 저장(얘도 내림차순 할거임)
