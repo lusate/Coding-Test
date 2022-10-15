@@ -27,3 +27,7 @@ class Main{
 		System.out.println(T.solution(people, 100));
 	}
 }
+
+
+//답
+//3
