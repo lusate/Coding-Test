@@ -9,28 +9,26 @@ class Solution
 		int T;
 		T=sc.nextInt();
 
-		long answer = 0; //이익
-		int sum = 0;
+		
 
 		for(int test_case = 1; test_case <= T; test_case++){
 			
 			int n = sc.nextInt(); //일
-			
+			long answer = 0; //이익
 			int max_value = 0;
 			int[] arr = new int[n];
 			for(int i=0; i<n; i++){
 				arr[i] = sc.nextInt();
 			}
-			for(int i=n-1; i>=0; i--){ //뒤에서부터 최대값을 설정하면서 빼줌
+			for(int i=n-1; i>=0; i--){
 				if(arr[i] > max_value) max_value = arr[i];
-				
 				answer += max_value - arr[i];
-				System.out.println("answer = " + answer);
 			}
 			System.out.println("#" + test_case + " " + answer);
 		}
 	}
 }
+
 // 1 1 3 1 2  일 경우 
 // 최대값을 2로 시작해서 2-2 = 0
 // 2 - 1 = 1
