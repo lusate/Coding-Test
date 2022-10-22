@@ -46,6 +46,8 @@ class Solution{
 				visited[board[nx][ny] - 'A'] = true;
 				dfs(nx, ny, depth+1);
 				visited[board[nx][ny] - 'A'] = false;
+				//다시 통로로 체크를 풀어주어야 한다.
+				//풀어주지 않으면 다음 경우의 수를 볼 수 없음.
 			}
 		}
 	}
