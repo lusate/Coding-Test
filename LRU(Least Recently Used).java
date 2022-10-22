@@ -14,15 +14,13 @@ public class Main{
 				for(int i=size-1; i>=1; i--){
 					cache[i] = cache[i-1];
 				}
-				cache[0] = x;
 			}
 			else{ // 히트라면
 				for(int i=pos; i>=1; i--){
 					cache[i] = cache[i-1];
 				}
-				cache[0] = x;
 			}
-			
+			cache[0] = x;
 		}
 		return cache;
 	}
