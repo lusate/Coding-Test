@@ -13,18 +13,30 @@ class Solution{
 			int arr[][] = new int[n][n];
 			
 			int x = 0, y = 0;
-			int d = 0;
-			for(int i=1; i<=n*n; i++) {
-				arr[x][y] = i;
-				int nx = x + dx[d];
-				int ny = y + dy[d];
-				if (nx < 0 || nx >= n || ny < 0 || ny >= n || arr[nx][ny] != 0) {  //경계 벗어나거나, 숫자가 이미 존재하면
-					d = (d + 1) % 4;  //방향바꿈  
-					nx = x + dx[d];
-					ny = y + dy[d];
+			int d = 1; //첫 번째로 입력하는 숫자.
+			arr[x][y] = d; //해당하는 위치에 숫자 입력
+			d++; //입력 후 숫자 올려주기
+
+			for(int i=1; i<=2*n-1; i++) { // 2n-1 로 방향이 바뀌는 횟수
+				while(true){
+					int nx = x + dx[i%4]; // 처음은 +(0,1) -> 우측으로 진행
+                    int ny = y + dy[i%4]; // 두번째 +(1,0) v 아래로 방향 진행
+                                           // 세번째 +(0,-1) <- 왼쪽으로 진행
+                                           // 네번째 +(-1,0) ^ 위로 방향 진행
+                    //System.out.println(nr + " " + nc);
+                    if(nx >= 0 && nx < n && ny >= 0 && ny < n && arr[nx][ny] == 0) {
+                        // arr[][]==0 -> 이미 뭔가 들어 있으면 안된다.
+
+                        arr[nx][ny] = d; // 위 세가지 조건이 되면 그 자리에 값을 넣고
+                        
+                        d++; //인풋 값 하나 올려주고
+                    } 
+					else { //조건이 안되면 방향을 바꿔줘야하므로 break
+                        break;
+                    }
+                    x = nx; //위치 업데이트
+                    y = ny;
 				}
-				x = nx;
-				y = ny;
 			}
 			System.out.println("#" + test_case);
 			for (int r = 0; r < n; r++) {
