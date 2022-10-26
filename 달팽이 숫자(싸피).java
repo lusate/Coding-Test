@@ -18,18 +18,16 @@ class Solution{
 			d++; //입력 후 숫자 올려주기
 
 			for(int i=1; i<=2*n-1; i++) { // 2n-1 로 방향이 바뀌는 횟수
-				while(true){
+				while(x <= n){
 					int nx = x + dx[i%4]; // 처음은 +(0,1) -> 우측으로 진행
                     int ny = y + dy[i%4]; // 두번째 +(1,0) v 아래로 방향 진행
                                            // 세번째 +(0,-1) <- 왼쪽으로 진행
                                            // 네번째 +(-1,0) ^ 위로 방향 진행
-                    //System.out.println(nr + " " + nc);
+                    
                     if(nx >= 0 && nx < n && ny >= 0 && ny < n && arr[nx][ny] == 0) {
                         // arr[][]==0 -> 이미 뭔가 들어 있으면 안된다.
 
-                        arr[nx][ny] = d; // 위 세가지 조건이 되면 그 자리에 값을 넣고
-                        
-                        d++; //인풋 값 하나 올려주고
+                        arr[nx][ny] = d++;
                     } 
 					else { //조건이 안되면 방향을 바꿔줘야하므로 break
                         break;
@@ -39,9 +37,9 @@ class Solution{
 				}
 			}
 			System.out.println("#" + test_case);
-			for (int r = 0; r < n; r++) {
-				for (int c = 0; c < n; c++)
-					System.out.print(arr[r][c] + " ");
+			for (int i = 0; i < n; i++) {
+				for (int j = 0; j < n; j++)
+					System.out.print(arr[i][j] + " ");
 				System.out.println();
 			}
 		}
