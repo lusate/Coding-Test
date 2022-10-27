@@ -25,25 +25,27 @@ class Main{
 
 			//뒤로 한 칸
 			if(tmp.x - 1 >= 0 && tmp.x - 1 < 100001){
-				if(ch[tmp.x - 1] == 0 || ch[tmp.x - 1] > tmp.time+1){
+				if(ch[tmp.x - 1] == 0 || ch[tmp.x - 1] > tmp.time + 1){
 					ch[tmp.x - 1] = tmp.time + 1;
-					Q.offer(new Point(tmp.x-1, tmp.time+1));
+					Q.offer(new Point(tmp.x - 1, tmp.time + 1));
 				}
-			}
+			}//ch[tmp.x - 1] > tmp.time+1 은 이동해서 방문한 time 이 지금 time+1 보다 크면 다시 방문
+			//즉 5에서 출발해서 가다가 10을 이미 방문했었는데 또 10이 나오는 경우는 다시 방문처리를 해둔다.
+			
 
 			//앞으로 한 칸
 			if(tmp.x + 1 >= 0 && tmp.x + 1 < 100001){
-				if(ch[tmp.x + 1] == 0 || ch[tmp.x + 1] > tmp.time+1){
+				if(ch[tmp.x + 1] == 0 || ch[tmp.x + 1] > tmp.time + 1){
 					ch[tmp.x + 1] = tmp.time + 1;
 					Q.offer(new Point(tmp.x + 1, tmp.time + 1));
 				}
 			}
 
 			//순간이동
-			if(tmp.x*2 >= 0 && tmp.x*2 < 100001){
-				if(ch[tmp.x*2] == 0 || ch[tmp.x*2] > tmp.time){
-					ch[tmp.x*2] = tmp.time;
-					Q.offer(new Point(tmp.x*2, tmp.time));
+			if(tmp.x * 2 >= 0 && tmp.x * 2 < 100001){
+				if(ch[tmp.x * 2] == 0 || ch[tmp.x * 2] > tmp.time){
+					ch[tmp.x * 2] = tmp.time;
+					Q.offer(new Point(tmp.x * 2, tmp.time));
 				}
 			}
 		}
