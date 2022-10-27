@@ -16,9 +16,6 @@ class Main{
 		int n = sc.nextInt();
 		int k = sc.nextInt();
 
-		L = Integer.MAX_VALUE;
-		cnt = 0;
-
 		Queue<Point> Q = new LinkedList<>();
 		ch = new int[100001];
 		ch[n] = 1;
