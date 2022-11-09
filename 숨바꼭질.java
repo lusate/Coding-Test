@@ -36,3 +36,11 @@ class Main{
 		System.out.println(T.solution(n, k));
 	}
 }
+
+/* 입력
+5 17
+*/
+
+/* 출력
+4
+*/
