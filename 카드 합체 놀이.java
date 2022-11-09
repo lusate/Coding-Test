@@ -1,25 +1,25 @@
 import java.util.*;
-public class Solution {
+class Solution{
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		PriorityQueue<Integer> pq = new PriorityQueue<>();
+		PriorityQueue<Long> pq = new PriorityQueue<>();
 		
 		int n = sc.nextInt();
 		int m = sc.nextInt();
 		
 		for(int i=0; i<n; i++) {
-			int num = sc.nextInt();
+			long num = sc.nextLong();
 			pq.add(num);
 		}
 		
 		for(int i=0; i<m; i++) {
-			int a = pq.poll();
-			int b = pq.poll();
+			long a = pq.poll();
+			long b = pq.poll();
 			pq.add(a+b);
 			pq.add(a+b);
 		}
-		int answer = 0;
+		long answer = 0;
 		
 		while(!pq.isEmpty()) {
 			answer += pq.poll();
