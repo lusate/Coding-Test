@@ -9,9 +9,11 @@ class Point implements Comparable<Point>{
 	public int compareTo(Point o) {
 		if(this.x == o.x) {
 			return this.y - o.y; //오름차순
+//			return o.y - this.y; //내림차순
 		}
 		else {
 			return this.x - o.x;
+//			return o.x - this.x;
 		}
 	}
 }
@@ -35,3 +37,20 @@ class Main{
 		}
 	}
 }
+
+/* 입력
+5
+2 7
+1 3
+1 2
+2 5
+3 6
+*/
+
+/* 출력
+1  2
+1  3
+2  5
+2  7
+3  6
+*/
