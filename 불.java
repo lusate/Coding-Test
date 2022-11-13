@@ -1,83 +1,81 @@
 import java.util.*;
 class Point{
-	int x, y;
-	static int time;
-	public Point(int x, int y, int time){
-		this.x=x;
-		this.y=y;
-		this.time = time;
-	}
+    int x, y;
+    public Point(int x, int y){
+        this.x=x;
+        this.y=y;
+    }
 }
-class Solution{
-	static int r,c,answer;
-	static char[][] board;
-	static int[] dx = {-1, 0, 1, 0};
-	static int[] dy = {0, 1, 0, -1};
-	static Queue<Point> Q1 = new LinkedList<>(); //지훈
-	static Queue<Point> Q2 = new LinkedList<>(); //불
-	public static boolean bfs() {
-		while(!Q1.isEmpty()) {
-			int fire_len = Q2.size();
-			for(int i=0; i<fire_len; i++) {
-				Point tmp = Q2.poll();
-				for(int d=0; d<4; d++) {
-					int nx = tmp.x + dx[d];
-					int ny = tmp.y + dy[d];
-					if(nx >= 0 && nx < r && ny >= 0 && ny < c) {
-						if(board[nx][ny] != '#' && board[nx][ny] != 'F') {
-							Q2.offer(new Point(nx, ny, Point.time+1));
-						}
-					}
-				}
-			}
-			
-			int ji_len = Q1.size();
-			for(int i=0; i<ji_len; i++) {
-				Point tmp = Q1.poll();
-				for(int d=0; d<4; d++) {
-					int nx = tmp.x + dx[d];
-					int ny = tmp.y + dy[d];
-					if(nx >= 0 && nx < r && ny >= 0 && ny < c) {
-						if(board[nx][ny] != '#' && board[nx][ny] != 'F' && board[nx][ny] != 'J') {
-							answer = Point.time + 1;
-							Q1.offer(new Point(nx, ny, Point.time+1));
-							board[nx][ny] = 'J';
-						}
-					}
-					
-				}
-			}
-			
-		}
-		return true;
+class Main {
+	static int[] dx = {-1,0,1,0};
+    static int[] dy = {0,1,0,-1};
+    static int r,c;
+    static int[][] map, visited;
+    static Queue<Point> jQ = new LinkedList<>();
+    static Queue<Point> fQ = new LinkedList<>();
+    static boolean[][] jQvisited;
+    static boolean[][] fQvisited;
+	public void bfs(){
+        int time = 0;
+        while(!jQ.isEmpty()){
+            int jQlen = jQ.size();
+            int fQlen = fQ.size();
+            for(int i=0; i<fQlen; i++){
+                Point fire = fQ.poll();
+                for(int j=0; j<4; j++){
+                    int nx = fire.x + dx[j];
+                    int ny = fire.y + dy[j];
+                    if(nx>=0 && nx<r && ny>=0 && ny<c && map[nx][ny] != '#' && !fQvisited[nx][ny]){
+                        fQvisited[nx][ny] = true;
+                        map[nx][ny] = 'F';
+                        fQ.offer(new Point(nx, ny));
+                    }
+                }
+            }
+            
+            for(int i=0; i<jQlen; i++){
+                Point ji = jQ.poll();
+                for(int j=0; j<4; j++){
+                    int nx = ji.x + dx[j];
+                    int ny = ji.y + dy[j];
+                    if(nx>=0 && nx<r && ny>=0 && ny<c){
+                        if(map[nx][ny] == '.' && !jQvisited[nx][ny]){
+                            jQvisited[nx][ny] = true;
+                            jQ.offer(new Point(nx, ny));
+                        }    
+                    }
+                }
+            }
+            time++;
+        }
+        System.out.println(time);
 	}
-	public static void main(String[] args) {
+
+	public static void main(String[] args) throws Exception{
+		Main T = new Main();
 		Scanner sc = new Scanner(System.in);
-		
-		int r = sc.nextInt();
-		int c = sc.nextInt();
-		board = new char[r][c];
-		
-		for(int i=0; i<r; i++) {
-			String tmp = sc.next();
-			
-			for(int j=0; j<c; j++) {
-				board[i][j] = tmp.charAt(j);
-				if(board[i][j] == 'J') {
-					Q1.offer(new Point(i, j, 0));
-				}
-				if(board[i][j] == 'F') {
-					Q2.offer(new Point(i, j, 0));
-				}
-				
+		r = sc.nextInt();
+        c = sc.nextInt();
+		map = new int[r][c];
+        jQvisited = new boolean[r][c];
+        fQvisited = new boolean[r][c];
+
+		for(int i=0; i<r; i++){
+            String s = sc.next();
+			for(int j=0; j<c; j++){
+				map[i][j] = s.charAt(j);
+                if(map[i][j] == 'J'){
+                    map[i][j] = '.';
+                    jQ.offer(new Point(i, j));
+                    jQvisited[i][j] = true;
+                }
+                else if(map[i][j] == 'F'){
+                    fQ.offer(new Point(i, j));
+                    fQvisited[i][j] = true;
+                }
 			}
 		}
-		answer = 0;
-		if(bfs()) {
-			System.out.println("IMPOSSIBLE");
-		} else {
-			System.out.println(answer);
-		}
+        T.bfs();
 	}
 }
 
