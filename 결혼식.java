@@ -1,6 +1,69 @@
 import java.util.*;
 class Time implements Comparable<Time>{
 	public int time;
+	public int state;
+	Time(int time, int state){
+		this.time = time;
+		this.state = state;
+	}
+	@Override
+	public int compareTo(Time ob){
+		if(this.time== ob.time) return ob.state - this.state;
+		else return this.time-ob.time;
+	}
+}
+class Main {
+	public int solution(ArrayList<Time> times){
+		int answer=Integer.MIN_VALUE;
+		
+		Collections.sort(times);
+		int cnt = 0; // 현재 몇 명이 존재하는지
+		for(Time ob : times){
+			if(ob.state == 1){ //들어감
+				cnt++;
+			}
+			else{
+				cnt--; //나감
+			}
+			answer = Math.max(answer, cnt);
+		}
+		System.out.println(answer);
+		return answer;
+	}
+	public static void main(String[] args) throws Exception {
+		Main T = new Main();
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		ArrayList<Time> times = new ArrayList<>();
+		for(int i=0; i<n; i++){
+			int st = sc.nextInt();
+			int et = sc.nextInt();
+			times.add(new Time(st, 1));
+			times.add(new Time(et, 2));
+		}
+		
+		T.solution(times);
+	}
+}
+
+/* 입력
+5
+14 18
+12 15
+15 20
+20 30
+5 14
+*/
+
+/* 출력
+2
+*/
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+import java.util.*;
+class Time implements Comparable<Time>{
+	public int time;
 	public int state; //들어왔으면 1 나갔다면 2 
 	
 	Time(int time, int state){
