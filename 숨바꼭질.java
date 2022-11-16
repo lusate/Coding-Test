@@ -1,4 +1,46 @@
 import java.util.*;
+class Main {
+	public void bfs(int n, int k){
+		Queue<Integer> Q = new LinkedList<>();
+		Q.offer(n);
+		int[] visited = new int[100001];
+		visited[n] = 1;
+		int L = 0;
+		if(n == k){
+			System.out.println(0);
+			System.exit(0);
+		}
+		while(!Q.isEmpty()){
+			int len = Q.size();
+			for(int i=0; i<len; i++){
+				int x = Q.poll();
+				for(int nx : new int[]{x-1, x+1, x*2}){
+					if(nx == k){
+						System.out.println(L+1);
+						System.exit(0);
+					}
+					if(nx >= 0 && nx < 100001 && visited[nx] == 0){
+						visited[nx] = 1;
+						Q.offer(nx);
+					}
+				}
+			}
+			L++;
+		}
+	}
+	public static void main(String[] args) throws Exception {
+		Main T = new Main();
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt(); //수빈 위치
+		int k = sc.nextInt(); //동생 위치
+		
+		T.bfs(n, k);
+	}
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+import java.util.*;
 class Main{
 	public int solution(int n, int k){
 		Queue<Integer> Q = new LinkedList<>();
