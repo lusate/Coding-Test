@@ -29,6 +29,7 @@ class Main {
 		}
 	}
 	public static void main(String[] args) throws Exception{
+		Main T = new Main();
 		Scanner sc = new Scanner(System.in);	
 		F = sc.nextInt(); //총 층수
 		S = sc.nextInt(); //강호 위치
@@ -37,6 +38,14 @@ class Main {
 		D = sc.nextInt(); //내려갈 층 수
 		visited = new int[F+1];
 		
-		bfs(F, S, G, U, D);
+		T.bfs(F, S, G, U, D);
 	}
 }
+
+/* 입력
+10 1 10 2 1
+*/
+
+/* 출력
+6
+*/
