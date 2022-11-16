@@ -8,8 +8,8 @@ class Time implements Comparable<Time>{
 	}
 	@Override
 	public int compareTo(Time ob){
-		if(this.time== ob.time) return ob.state - this.state;
-		else return this.time-ob.time;
+		if(this.time== ob.time) return ob.state - this.state; //상태를 기준으로 내림차순
+		else return this.time-ob.time; //시작점인 시간으로 오름차순
 	}
 }
 class Main {
