@@ -1,13 +1,13 @@
 import java.util.*;
 class Main{
-	static String answer="NO";
+	static String answer = "NO";
 	static int n, total=0;
 	boolean flag = false;
 	public void dfs(int L, int sum, int[] arr){
 		if(flag) return;
 		if(sum > total/2) return;
 		if(L == n){
-			if(total/2 == sum){
+			if((total-sum) == sum){
 				answer = "YES";
 				flag = true; //true가 되면 더 이상 트리에서 내려가면서 탐지할 필요없으므로 리턴함.
 			}
