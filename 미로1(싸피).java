@@ -1,61 +1,52 @@
 import java.util.*;
-import java.io.*;
-
 class Point{
 	public int x, y;
 	Point(int x, int y){
-		this.x = x;
-		this.y = y;
+		this.x=x;
+		this.y=y;
 	}
 }
-class Solution
-{
-	static char[][] visited;
+class Solution{
 	static int[] dx = {-1, 0, 1, 0};
 	static int[] dy = {0, 1, 0, -1};
-	public static void main(String args[]) throws Exception
-	{
+	static int n = 16;
+	static char[][] visited;
+	public static void bfs(int x, int y){
+		Queue<Point> Q = new LinkedList<>();
+		Q.offer(new Point(x, y));
+		visited[x][y] = '1';
+		while(!Q.isEmpty()){
+			Point tmp = Q.poll();
+			for(int i=0; i<4; i++){
+				int nx = tmp.x + dx[i];
+				int ny = tmp.y + dy[i];
+				if(nx >= 0 && nx < n && ny >= 0 && ny < n && visited[nx][ny] == '0'){
+					Q.offer(new Point(nx, ny));
+					visited[nx][ny] = '1';
+				}
+				if(visited[nx][ny] == '3'){
+					System.out.println("1");
+					System.exit(0);
+				}
+			}
+		}
+		System.out.println("0");
+	}
+	public static void main(String args[]) throws Exception{
 		Scanner sc = new Scanner(System.in);
-		int n = 16;
-		visited = new char[n][n]; // 0,1,2,3 을 숫자가 아닌 문자로
-
-		for(int test_case = 1; test_case <= 10; test_case++) // 테스트 케이스 10번
-		{
+		//int T = sc.nextInt();
+		visited = new char[n][n];
+		for(int test_case = 1; test_case <= 10; test_case++){
 			int test = sc.nextInt();
-			Queue<Point> Q = new LinkedList<>();
-
 			for(int i=0; i<n; i++){
-				String s = sc.next(); //s는 16개의 줄
+				String s = sc.next();
 				for(int j=0; j<n; j++){
-					visited[i][j] = s.charAt(j); //16 x 16 문자 입력
+					visited[i][j] = s.charAt(j);
 				}
 			}
 			System.out.print("#" + test + " ");
 			bfs(1, 1);
 		}
-	}
-
-	public static void bfs(int x, int y){
-		Queue<Point> Q = new LinkedList<>();
-		Q.offer(new Point(x, y));
-		visited[x][y] = '1'; // 1이면 방문. 그래서 (1, 1) 은 '1' 로 표시
-
-		while(!Q.isEmpty()){
-			Point tmp = Q.poll();
-			for(int i=0; i<4; i++){
-				int nx = tmp.x + dx[i];
-				int ny = tmp.y + dy[i]; //여기까지는 같음
-				if(visited[nx][ny] == '0'){ // '0' 이면 방문하지 않았으므로 방문 했다고 표시 -> '1'로
-					Q.offer(new Point(nx, ny));
-					visited[nx][ny] = '1';
-				}
-				if(visited[nx][ny] == '3'){ //도착
-					System.out.println("1"); //도착했으므로 1 출력
-					return; //빠져나옴
-				}
-			}
-		}
-		System.out.println("0"); // 도착 못했으면 0 출력
 	}
 }
 
