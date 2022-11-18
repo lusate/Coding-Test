@@ -3,7 +3,7 @@ class Main {
 	public int dfs(int n, int r){
 		int[][] dy = new int[n+1][r+1];
 		if(dy[n][r] > 0) return dy[n][r];
-		if(n==r||r==0) return 1;
+		if(n == r || r == 0) return 1;
 		else return dfs(n-1, r-1) + dfs(n-1, r);
 	}
 	public static void main(String[] args){
@@ -13,8 +13,7 @@ class Main {
 		int r = sc.nextInt();
 		//nCr
 
-		T.dfs(n, r);
-		System.out.println(T.dfs(n, r));
+		System.out.println(T.dfs(n,r));
 	} 
 }
 
