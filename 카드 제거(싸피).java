@@ -2,8 +2,6 @@ import java.util.*;
 import java.io.*;
 
 class Solution{
-	static int[] dx = { -1, 0, 1, 0 };
-	static int[] dy = { 0, 1, 0, -1 }; // 우하좌상 순서
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int T = sc.nextInt();
@@ -25,3 +23,16 @@ class Solution{
 		}
 	}
 }
+
+/* 입력
+3
+010
+0000
+11111
+*/
+
+/* 출력
+#1 yes
+#2 no
+#3 yes
+*/
