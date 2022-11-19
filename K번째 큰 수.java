@@ -13,9 +13,10 @@ class Main{
 			}
 		}
 		int cnt = 0;
+		//Tset.remove() 해서 삭제 가능
 		for(int x : Tset){
 			cnt++;
-			if(cnt == k) System.out.print(x + " ");
+			if(cnt == k) System.out.print(x);
 		}
 		return answer;
 	}
