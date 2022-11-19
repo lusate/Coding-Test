@@ -21,7 +21,7 @@ class Solution{
 				int max = Math.max(Math.max(building[i-2], building[i-1]), Math.max(building[i+1], building[i+2]));
 				
 				if(building[i] >= max){
-					cnt += building[i] - max; //cnt 는 현재 빌딩에서 max 를 빼면 2칸 이상 확보된 세대 수가 나옴
+					cnt += (building[i] - max); //cnt 는 현재 빌딩에서 max 를 빼면 2칸 이상 확보된 세대 수가 나옴
 				}
 				//System.out.println(cnt);
 			}
@@ -41,7 +41,7 @@ class Solution{
 */
 
 /* 출력
-#1 691
+#1 6
 #2 9092
 #3 9092
 */
