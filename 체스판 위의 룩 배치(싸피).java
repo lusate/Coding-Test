@@ -1,5 +1,4 @@
 import java.util.*;
- 
 class Solution {
 	static char[][] board;
 	static int cnt, look;
@@ -7,17 +6,18 @@ class Solution {
 		int[] row = new int[8]; //O 일 때 저장할 row
 		
 		for(int i=0; i<8; i++){
-			cnt = 0;
+			look = 0;
 			for(int j=0; j<8; j++){
 				if(board[i][j] == 'O'){
-					cnt++;
+					look++;
 					row[j]++; //O 발견할 때마다 row에 +1.
 				}
-				if(cnt == 2) return;
+				if(look == 2) return; //없으면 3번째 케이스가 yes가 되버린다.
+				//하나의 행에 'O' 이 2개 이상 있기 때문이다. 그래서 빠져나온다. 
 			}
 		}
 		for(int i=0; i<8; i++){
-			if(row[i] == 1) look++;
+			if(row[i] == 1) cnt++;
 		}
 	}
     public static void main(String[] args) throws Exception {
@@ -26,20 +26,20 @@ class Solution {
 		
 		for(int test_case=1; test_case <= T; test_case++){
 			board = new char[8][8];
-			cnt = 0;
+			look = 0;
 			for(int i=0; i<8; i++){
 				String s = sc.next();
 				for(int j=0; j<8; j++){
 					board[i][j] = s.charAt(j);
 					if(board[i][j] == 'O'){
-						cnt++; //룩 개수
+						look++; //룩 개수
 					}
 				}
 			}
 			
-			look = 0;
-			if(cnt == 8) solution();
-			if(look == 8) System.out.println("#" + test_case + " yes");
+			cnt = 0;
+			if(look == 8) solution();
+			if(cnt == 8) System.out.println("#" + test_case + " yes");
 			else System.out.println("#" + test_case + " no");
 		}
 	}
