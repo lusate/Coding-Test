@@ -20,10 +20,12 @@ class Solution {
             if (flag) {
                 if (ch == ')' || ch == '|') cnt++;
                 flag = false;
+				 // (| 이거나 () 이면 +1 하고 flag false로)
             } 
 			else if (ch == '(') flag = true;
             
 			else if (ch == ')' && (stack.peek() == '|' || stack.peek() == '(')) {
+				// |) 이거나 () 이면 +1
                 cnt++;
             }
             
