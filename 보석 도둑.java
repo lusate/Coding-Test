@@ -45,6 +45,7 @@ class Main {
         long priceSum = 0L;
         int idx = 0;
         for(int i=0; i<k; i++){ // 가방 개수만큼 보석을 한개 넣음
+            //idx는 ArrayList jewel 의 인덱스
             //idx 가 보석 개수를 넘을 때까지 반복, 보석의 무게가 가방의 무게보다 작아야함.
             while(idx < n && jewel.get(idx).weight <= bag.get(i)){
                 pQ.offer(jewel.get(idx).value);
