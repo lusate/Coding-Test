@@ -4,12 +4,12 @@ class Main{
 	static int n, total=0;
 	boolean flag = false;
 	public void dfs(int L, int sum, int[] arr){
-		if(flag) return;
-		if(sum > total/2) return;
+		if(flag) return; //넘어오는 재귀 모두 return
+		if(sum > total/2) return; //sum이 total보다 더 커질 때는 탐색을 더 이상 하지 않아도 되므로 return
 		if(L == n){
 			if((total-sum) == sum){
 				answer = "YES";
-				flag = true; //true가 되면 더 이상 트리에서 내려가면서 탐지할 필요없으므로 리턴함.
+				flag = true; // 조건이 맞아 answer 가 "YES"가 되면 더 이상 재귀하지 않음
 			}
 		}
 		else{
