@@ -7,6 +7,7 @@ class Main {
 			if(ch[i] == 0){
 				answer++;
 				for(int j=i; j<=n; j=j+i){ //j가 i의 배수로 돌아야 하기 때문에 i씩 증가
+					// i 배수라면 소수가 아니므로 1로 해준다.
 					ch[j] = 1;
 				}
 			}
