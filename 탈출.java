@@ -93,3 +93,26 @@ class Main {
 		else System.out.println(answer);
 	}
 }
+
+
+/* 입력
+3 6
+D...*.
+.X.X..
+....S.
+
+
+5 4
+.D.*
+....
+..X.
+S.*.
+....
+*/
+
+
+/* 출력
+6
+
+4
+*/
