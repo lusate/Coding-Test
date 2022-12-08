@@ -43,7 +43,7 @@ class Main {
 				arr[i] = arr[i] - k;
 			}
 
-			else if(arr[i] <= k){
+			else{
 				arr[i] = 0;
 			}
 		}
