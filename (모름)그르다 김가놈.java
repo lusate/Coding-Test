@@ -1,55 +1,57 @@
 import java.util.*;
 class Main {
-	private static int binary(int n, int m, int[] arr){
-		int answer = 0;
-		int left = Arrays.stream(arr).min().getAsInt();
-		int right = Arrays.stream(arr).max().getAsInt();
+	static ArrayList<Long> arr;
+	private static long binary(long n, long m){
+		long answer = 0;
+	
+		long max = Collections.max(arr);
+		long left = 1;
+		long right = (long)max;
 
 		while(left <= right){
-			int sum = 0;
-			int mid = (left + right) / 2; //조각 김밥의 최대 길이.
-			if(mid <= 0){
-				System.out.println("끝");
-				System.exit(0);
-			}
-			for(int i=0; i<n; i++){
-				sum += arr[i] / mid;
+			long sum = 0;
+			long mid = (left + right) / 2; //조각 김밥의 최대 길이.
+			
+			for(long x : arr){
+				sum += x / mid;
 			}
 
 			if(sum < m){
 				right = mid - 1;
 			}
 			else{
-				left = mid + 1;
 				answer = mid;
+				left = mid + 1;
 			}
 		}
 		return answer;
 	}
 	public static void main(String args[]) {
 		Scanner sc = new Scanner(System.in);
-		int n = sc.nextInt(); // 김밥 개수
-		int k = sc.nextInt(); // 꼬다리 길이
-		int m = sc.nextInt(); // 김밥조각
-		int[] arr = new int[n];
+		long n = sc.nextInt(); // 김밥 개수
+		long k = sc.nextInt(); // 꼬다리 길이
+		long m = sc.nextInt(); // 김밥조각
+		arr = new ArrayList<>();
 
 		for(int i=0; i<n; i++){
-			arr[i] = sc.nextInt(); //김밥 길이
+			int x = sc.nextInt(); //김밥 길이
 
-			if(arr[i] >= k*2){
-				arr[i] = arr[i] - 2*k;
+			if(x > k*2){
+				arr.add(x - 2*k);
 			}
-			else if(arr[i] < 2*k && arr[i] > k){
-				arr[i] = arr[i] - k;
+			else if(x < 2*k && x > k){
+				arr.add(x - k);
 			}
-
-			else{
-				arr[i] = 0;
-			}
+			
+			// 김밥 길이가 k이거나 그보다 짧으면 김밥 폐기.
+		}
+		if(arr.size() == 0){
+			System.out.println(-1);
+			System.exit(0);
 		}
 		
 		
-		System.out.println(binary(n,m,arr));
+		System.out.println(binary(n,m));
 	}
 }
 
