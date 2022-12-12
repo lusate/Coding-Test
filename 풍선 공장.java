@@ -11,12 +11,12 @@ class Main {
 			long sum = 0;
 
 			for(int i=0; i<n; i++){
-				sum += mid / arr[i];
+				sum += mid / arr[i]; // sum은 mid시간 일 때 총 풍선 개수.
 			}
 
-			if(sum < m) left = mid + 1;
+			if(sum < m) left = mid + 1; //총 풍선 개수가 m 보다 작으면 left를 늘림.
 			else{
-				answer = mid;
+				answer = mid; //mid시간일 때 총 풍선 개수가 m보다 같거나 크면 right 줄임.
 				right = mid - 1;
 			}
 		}
