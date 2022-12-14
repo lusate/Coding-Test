@@ -19,12 +19,21 @@ class Main {
 	static char[][] map;
 	static int[] dx = {-1, 0, 1, 0};
 	static int[] dy = {0, 1, 0, -1};
-	//static boolean[][] visit;
-	//static boolean[][] watervisit;
 	static Queue<Point> water = new LinkedList<>(); //물이 이동하는 Q
 	static Queue<Point> Q = new LinkedList<>(); //고슴도치가 이동하는 Q
 
 	private static void bfs() {
+		for(int i=0; i<r; i++){
+			for(int j=0; j<c; j++){
+				if(map[i][j] == 'S'){
+					Q.offer(new Point(i, j, 0)); // Q에 현재 고슴도치 위치 삽입
+				}
+				else if(map[i][j] == '*'){
+					water.offer(new Point(i, j)); //water에 현재 물 위치 삽입
+				}
+			}
+		}
+
 		while(!Q.isEmpty()){
 			int len = water.size();
 			for(int i=0; i<len; i++){
@@ -69,20 +78,11 @@ class Main {
 		r = sc.nextInt();
 		c = sc.nextInt(); 
 		map = new char[r][c];
-		//visit = new boolean[r+1][c+1];
-		//watervisit = new boolean[r+1][c+1];
 
 		for(int i=0; i<r; i++){
 			String s = sc.next();
 			for(int j=0; j<c; j++){
 				map[i][j] = s.charAt(j);
-				//map[r][c] = sc.next().charAt(j);
-				if(map[i][j] == 'S'){
-					Q.offer(new Point(i, j, 0));
-				}
-				else if(map[i][j] == '*'){
-					water.offer(new Point(i, j));
-				}
 			}
 		}
 
