@@ -24,6 +24,7 @@ public class Main {
         if(answer == cnt){
 			if(check()){
 				flag = true;
+				return;
 			}
 		}
 		for(int i=x; i<=H; i++){
