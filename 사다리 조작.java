@@ -34,7 +34,7 @@ public class Main {
 					map[i][j] = 1;
 					map[i][j+1] = 2;
 					dfs(i, cnt+1);
-					map[i][j] = 0; //dfs 끝나면 다시 초기화.
+					map[i][j] = 0; //dfs 끝나면 뒤로 빽해서 다시 초기화.
 					map[i][j+1] = 0;
 				}
 			}
