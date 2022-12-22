@@ -33,7 +33,7 @@ public class Main {
 				if(map[i][j] == 0 && map[i][j+1] == 0){
 					map[i][j] = 1;
 					map[i][j+1] = 2;
-					dfs(i, cnt+1);
+					dfs(i, cnt+1); //map에서 사다리 1개를 추가하는 경우, 2개를 추가하는 경우~~ 를 모두 탐색해본다.
 					map[i][j] = 0; //dfs 끝나면 뒤로 빽해서 다시 초기화.
 					map[i][j+1] = 0;
 				}
@@ -63,6 +63,7 @@ public class Main {
 			dfs(1, 0); // 1은 시작점, 0은 사다리 개수 0부터 시작.
 			if(flag) break;
 		}
+		//i 가 1 일 때 사다리 추가한 개수가 한 개이다. 사다리 한 개 추가했을 때 dfs() 돌려서 flag가 true면 answer = 1 아니면 answer = 2로 해서 다시.
 
 		System.out.println((flag) ? answer : -1);
 	}
