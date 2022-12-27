@@ -1,13 +1,7 @@
 import java.util.*;
 class Point{
 	int x, y, time;
-
-	public Point(int x, int y){ //blue
-		this.x=x;
-		this.y=y;
-	}
-
-	public Point(int x, int y, int time){ //red
+	public Point(int x, int y, int time){ 
 		this.x=x;
 		this.y=y;
 		this.time=time;
@@ -16,28 +10,30 @@ class Point{
 
 class Main {
 	static int n, m;
-	static int x1, y1, x2, y2;
+	static Point rball, bball;
 	static int result = -1;
 	static char[][] map;
 	static boolean[][][][] visit;
 	static int[] dx = {-1, 0, 1, 0};
 	static int[] dy = {0, 1, 0, -1};
-	private static void bfs(int x1, int y1, int x2, int y2) {
+	private static void bfs(Point rball, Point bball) {
 		Queue<Point> redQ = new LinkedList<>();
 		Queue<Point> blueQ = new LinkedList<>();
 
 		for(int i=0; i<n; i++){
 			for(int j=0; j<m; j++){
 				if(map[i][j] == 'R'){
-					redQ.offer(new Point(i, j, 0)); // red 현재 위치
+					rball = new Point(i, j, 0); // red 현재 위치
 				}
 				else if(map[i][j] == 'B'){
-					blueQ.offer(new Point(i, j)); // blue 현재 위치
+					bball = new Point(i, j, 0); // blue 현재 위치
 				}
 			}
 		}
 
-		visit[Point.x1][Point.y1][Point.x2][Point.y2] = true; //빨간, 파란 공 위치 방문처리.
+		redQ.offer(rball);
+        blueQ.offer(bball);
+		visit[rball.x][rball.y][bball.x][bball.y]= true; //빨간, 파란 공 위치 방문처리.
 
 		while(!blueQ.isEmpty() && !redQ.isEmpty()){ //visit 를 한 번에 처리해주기 위해서 Q를 2개 해줌.
 			Point tmpR = redQ.poll();
@@ -48,15 +44,22 @@ class Main {
 				return;
 			}
 			
-			if(tmpR.x1)
+			if(map[tmpB.x][tmpB.y] == 'O'){
+				continue;
+			}
+
+			if(map[tmpR.x][tmpR.y] == 'O'){
+				result = tmpR.time;
+				return;
+			}
 
 			for(int i=0; i<4; i++){
 				//기울일 때 #을 만날 때까지 이동하기 때문에 while
-				int bx = tmpB.x2;
-				int by = tmpB.y2;
+				int bx = tmpB.x;
+				int by = tmpB.y;
 				while(true){
-					bx = tmpB.x2 + dx[i];
-					by = tmpB.y2 + dy[i];
+					bx = bx + dx[i];
+					by = bx + dy[i];
 
 					if(map[bx][by] == 'O') break;
 					else if(map[bx][by] == '#'){
@@ -66,11 +69,11 @@ class Main {
 					}
 				}
 
-				int rx = tmpR.x1;
-				int ry = tmpR.y1;
+				int rx = tmpR.x;
+				int ry = tmpR.y;
 				while(true){
-					rx = tmpR.x1 + dx[i];
-					ry = tmpR.y1 + dy[i];
+					rx = rx + dx[i];
+					ry = rx + dy[i];
 
 					if(map[rx][ry] == 'O') break;
 					else if(map[rx][ry] == '#'){
@@ -80,18 +83,29 @@ class Main {
 					}
 				}
 
-				//두 구슬이 만날 경우
+				//기울였을 때 두 구슬이 만날 경우, 두 구슬이 빠져나가지 못하는 경우
 				if(rx == bx && ry == by && map[rx][ry] != 'O'){
+					int red = Math.abs(tmpR.x - rx) + Math.abs(tmpR.y - ry);
+					int blue = Math.abs(tmpB.x - bx) + Math.abs(tmpB.y - by);
 
+					//기울였을 때 빨강이 더 많이 움직였다면
+					if(red > blue){
+						rx = rx - dx[i];
+						ry = ry - dy[i];
+					}
+					else{
+						bx = bx - dx[i];
+						by = by - dy[i];
+					}
 				}
 
 
-				if(!visit[rx][tmp.y1][tmp.x2][tmp.y2]) {
+				if(!visit[rx][ry][bx][by]) {
                     // 방문처리
-                    visit[rx][tmp.y1][tmp.x2][tmp.y2] = true;
+                    visit[rx][ry][bx][by] = true;
                     // 두 구슬을 큐에 추가
-                    redQ.offer(new Ball(rx, ry, tmpR.count + 1));
-                    blueQ.offer(new Ball(bx, by, tmpB.count + 1));
+                    redQ.offer(new Point(rx, ry, tmpR.time + 1));
+                    blueQ.offer(new Point(bx, by, tmpB.time + 1));
                 }
 			}
 
@@ -112,8 +126,8 @@ class Main {
 			}
 		}
 
-		bfs(x1, y1, x2, y2);
-		System.out.println("답은 = {}", result);
+		bfs(rball, bball);
+		System.out.println(result);
 	}
 }
 
@@ -127,8 +141,22 @@ class Main {
 #####.#
 #O....#
 #######
+
+
+
+7 7
+#######
+#...RB#
+#.#####
+#.....#
+#####.#
+#O....#
+#######
 */
 
 /* 출력
+5
+
+
 5
 */
