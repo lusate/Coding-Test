@@ -1,4 +1,5 @@
 import java.util.*;
+//조금 비슷한 문제로 구슬 탈출2가 있다.
 class Point{
 	public int x, y, time;
 
