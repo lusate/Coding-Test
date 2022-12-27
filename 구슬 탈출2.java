@@ -33,9 +33,10 @@ class Main {
 
 		redQ.offer(rball);
         blueQ.offer(bball);
-		visit[rball.x][rball.y][bball.x][bball.y]= true; //빨간, 파란 공 위치 방문처리.
+		
+		visit[rball.x][rball.y][bball.x][bball.y] = true; //빨간, 파란 공 위치 방문처리.
 
-		while(!blueQ.isEmpty() && !redQ.isEmpty()){ //visit 를 한 번에 처리해주기 위해서 Q를 2개 해줌.
+		while(!redQ.isEmpty() && !blueQ.isEmpty()){ //visit 를 한 번에 처리해주기 위해서 Q를 2개 해줌.
 			Point tmpR = redQ.poll();
 			Point tmpB = blueQ.poll();
 
@@ -59,7 +60,7 @@ class Main {
 				int by = tmpB.y;
 				while(true){
 					bx = bx + dx[i];
-					by = bx + dy[i];
+					by = by + dy[i];
 
 					if(map[bx][by] == 'O') break;
 					else if(map[bx][by] == '#'){
@@ -73,7 +74,7 @@ class Main {
 				int ry = tmpR.y;
 				while(true){
 					rx = rx + dx[i];
-					ry = rx + dy[i];
+					ry = ry + dy[i];
 
 					if(map[rx][ry] == 'O') break;
 					else if(map[rx][ry] == '#'){
@@ -123,6 +124,7 @@ class Main {
 			String s = sc.next();
 			for(int j=0; j<m; j++){
 				map[i][j] = s.charAt(j);
+
 			}
 		}
 
@@ -152,6 +154,12 @@ class Main {
 #####.#
 #O....#
 #######
+
+
+3 10
+##########
+#.O....RB#
+##########
 */
 
 /* 출력
@@ -159,4 +167,7 @@ class Main {
 
 
 5
+
+
+-1
 */
