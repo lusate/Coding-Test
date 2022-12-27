@@ -1,5 +1,6 @@
 import java.util.*;
 //조금 비슷한 문제로 구슬 탈출2가 있다.
+//Point 타입의 객체로 만들어서 현재 위치를 방문처리 해주어도 된다.
 class Point{
 	public int x, y, time;
 
