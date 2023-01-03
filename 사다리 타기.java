@@ -9,6 +9,8 @@ class Main{
 
 		for(int[] line : map){
 			for(int x : line){
+				//1번과 2번을 바꿀려면 인덱스 상으로 0과 1의 위치를 바꿔야 하므로
+				//처음 x=1 이기 때문에 [x-1]을 해서 0과 바꾼다.
 				char tmp = answer[x];
 				answer[x] = answer[x-1];
 				answer[x-1] = tmp;
