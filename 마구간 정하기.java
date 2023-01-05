@@ -25,7 +25,7 @@ class Main {
         Arrays.sort(arr);
 
         while(left <= right){
-            int mid = (left+right) / 2;
+            int mid = (left+right) / 2; //mid를 답(가장 가까운 2마리의 거리)으로 선정해 놓고 탐색
             if(count(arr, mid) >= m){
                 answer = mid;
                 left = mid + 1;
