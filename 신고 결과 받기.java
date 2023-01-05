@@ -15,12 +15,14 @@ class Solution {
         for(String x : set){
             String a = x.split(" ")[0];
             String b = x.split(" ")[1];
+		
+		//HashMap 안에 HashSet이 있을 때 삽입하는 방법!!!
             map.putIfAbsent(a, new HashSet<String>());
             map.get(a).add(b);
             stop.put(b, stop.getOrDefault(b, 0) + 1);
         }
-		System.out.println(map);
-		System.out.println(stop);
+		//System.out.println(map);
+		//System.out.println(stop);
 		//{muzi=[neo, frodo], frodo=[neo], apeach=[muzi, frodo]}
 		//{muzi=1, neo=2, frodo=2}
 
