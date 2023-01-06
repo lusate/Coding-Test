@@ -21,8 +21,11 @@ class Main{
 			if(c.equals("in")){
 				map.put(a, getTime(b));
 			}
-			//out이면
+			//out이면 sum에 삽입.
 			else sum.put(a, (getTime(b) - map.get(a)) + sum.getOrDefault(a, 0));
+			//getTime(b) - map.get(a) 는 직원의 이용시간.
+			//sum.getOrDefault(a,0) 은 이전 직원의 이용시간.
+			//직원이 이용시간이 2번 이상이 있기 때문에 누적해서 더해줘야 한다.
 				
 		}
 		//System.out.println(map);
