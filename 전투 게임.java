@@ -1,10 +1,11 @@
 import java.util.*;
 class Info implements Comparable<Info>{
-	int num, at;
-	char c;
-	Info(int num, char c, int at){
+	int num;
+	char team;
+	int at;
+	Info(int num, char team, int at){
 		this.num=num;
-		this.c=c;
+		this.team=team;
 		this.at=at;
 	}
 	@Override
@@ -14,40 +15,48 @@ class Info implements Comparable<Info>{
 }
 class Main{
 	private static int[] solution(String[] students){
+		int n = students.length;
+		int[] answer = new int[n];
 		HashMap<Character, Integer> map = new HashMap<>();
 		ArrayList<Info> arr = new ArrayList<>();
-		int[] answer = new int[students.length];
-		
-		for(int i=0; i<students.length; i++){ //학생들 번호를 넣기 위해.
-			Character s = students[i].split(" ")[0].charAt(0);
-			int num = Integer.parseInt(students[i].split(" ")[1]);
 
-			arr.add(new Info(i, s, num));
+		for(int i=0; i<n; i++){ //학생들 번호를 넣기 위해.
+			char c = students[i].split(" ")[0].charAt(0); //문자로
+			int st = Integer.parseInt(students[i].split(" ")[1]); //숫자로
+			arr.add(new Info(i, c, st));
 		}
-
+		
 		Collections.sort(arr);
 
-		int j=0, sum = 0;
-		for(int i=1; i<students.length; i++){
-			for( ; j<students.length; j++){ //j는 초기화하지 않는다.
-				
-				if(arr.get(j).at < arr.get(i).at){ //잡힌다면
-					sum += arr.get(j).at; //팀 상관없이 at가 작으면 그냥 다 더해서 누적.
-					char x = arr.get(j).c;
+		/*
+		 * 2  a  10   j 시작    	0으로 더할 게 없으므로 패스
+		 * 3  c  11	  i 시작
+		 * 1  b  12
+		 * 4  e  12
+		 * 0  a  20
+		 */
 
-					//map에는 학생의 at를 저장.
-					map.put(x, map.getOrDefault(x, 0)+arr.get(j).at);
+		int sum=0, j = 0;
+		for(int i=1; i<n; i++){
+			for( ; j<n; j++){
+				if(arr.get(i).at > arr.get(j).at){
+					sum += arr.get(j).at;
+					char x = arr.get(j).team;
+					//sum에 더했던 학생들의 at를 저장
+					map.put(x, map.getOrDefault(x, 0) + arr.get(j).at);
 				}
 
-				else break;
+				else break; //잡지 못하면 at를 더하지 못하므로 빠져나옴.
 			}
-
-			answer[arr.get(i).num] = sum - map.getOrDefault(arr.get(i).c, 0);
-			//map.getOrDefault(arr.get(i).c, 0); 자기 팀의 값.
+			//{a=10, b=12, c=11, e=12}
+			answer[arr.get(i).num] = sum - map.getOrDefault(arr.get(i).team, 0);
+			//answer[3] = 10 - 0
+			//answer[1] = 21 - 0
+			//answer[2] = 0
+			//answer[4] = 21
+			//answer[0] = 45 - 10
 		}
-		//System.out.println(map);
-		//{a=10, b=12, c=11, e=12}
-
+		
 		return answer;
 	}
 	
