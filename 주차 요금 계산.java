@@ -20,7 +20,9 @@ class Main{
 			//map에 삽입.
 			if(c.equals("IN")){
 				map.put(b, getTime(a));
-				if(sum.containsKey(b) == false){ //최초로 들어온 차량이라면 0으로 초기화.
+				//최초로 들어온 차량이라면 0으로 초기화.
+				//초기화 안하면 sum에 null 에러 발생.
+				if(sum.containsKey(b) == false){ 
 					sum.put(b, 0);
 				}
 			}
