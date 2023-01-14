@@ -13,6 +13,7 @@ class Solution{
 
 		else{
 			for(int i=st; i<s.length(); i++){ //st부터 i까지 뽑아냄.
+				// 그냥 0은 되지만 "02" 는 불가
 				// 숫자가 0으로 시작하면 return -> D(1)에서 "02"처럼 st가 1인데 i가 2이면 return
 				if(s.charAt(st) == '0' && st < i) return;
 
