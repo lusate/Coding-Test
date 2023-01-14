@@ -17,7 +17,7 @@ class Solution{
 
 			if(num <= 26) res += dfs(st+2, s); //조건 맞으므로 그 다음으로 뻗어나감.
 			//res = 2 ,3 ,6
-			return dy[st] = res;
+			return dy[st] = res;  //마지막에는 res에서 값을 누적하여 더해서 D(0)의 값을 출력해야 한다.
 		}
 	}
 	private static int solution(String s) {
