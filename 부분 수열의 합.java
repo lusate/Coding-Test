@@ -14,6 +14,7 @@ class Solution{
 			}
 			else answer += arr[1];
 			
+			//sum이 홀수면 arr의 홀수 자리에 +1 누적
 			arr[sum%2] += 1;
 
 			//System.out.println(answer);
