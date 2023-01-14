@@ -7,9 +7,11 @@ class Solution{
 
 		int left=0;
 		for(int right=0; right<n; right++){
+			//원래는 map{a=2, b=3, c=2, d=1, e=1} 까지 하면 이제 map.size()가 5가 되므로 while문 실행
+			
 			map.put(s.charAt(right), map.getOrDefault(s.charAt(right), 0) + 1);
 			
-			while(map.size() == k){
+			while(map.size() == k){ //map size가 5라면 계속 반복.
 				answer = Math.min(answer, right-left+1);
 				map.put(s.charAt(left), map.get(s.charAt(left)) - 1);
 
