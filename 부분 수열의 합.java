@@ -17,6 +17,8 @@ class Solution{
 			//sum이 홀수면 arr의 홀수 자리에 +1 누적
 			arr[sum%2] += 1;
 
+			//sum이 홀수라면 홀수 + 짝수이다. 그래서 if문에서 짝수쪽에 +1 해주고 밑에 arr[홀수]에 +1 누적해주는 것이다.
+			//반대로 짝수라면 홀수 + 홀수 또는 짝수 + 짝수이므로 if문에 홀수쪽 +1, arr[홀수] +1
 			//System.out.println(answer);
 		}
 		
