@@ -24,7 +24,8 @@ class Main{
 				// 즉 3번째 테스트케이스처럼 k가 11인 상태이고 rest가 5이면 2바퀴를 더 돌리지 않게 하기 위해
 				// 바로 11 % 5 = 1로 k를 1로 함.
 				k = k % rest; //rest = 4
-				int cnt = 0;
+				int cnt = 0;  //마지막 k로 가기 전 초 카운트.
+				//27초까지 가고 3초 남았을 때 이 3초를 카운트하기 위함.
 				for(int j=0; j<tasks.length; j++){
 					if(tasks[j] >= copy[i]){
 						if(cnt == k){
