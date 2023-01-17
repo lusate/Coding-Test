@@ -35,6 +35,7 @@ class Main {
 		
 	public static void main(String[] args){
 		Main T = new Main();
+		//n은 정점 개수
 		System.out.println(T.solution(5, new int[][]{{1, 2, 6}, {1, 3, 3}, {3, 2, 2}, 
 			{2, 4, 1}, {2, 5, 13}, {3, 4, 5}, {4, 2, 3}, {4, 5, 7}}));
 	}
