@@ -2,6 +2,7 @@ import java.util.*;
 class Solution {
 	//k번 노드를 지나야 한다고 했으므로 다익스트라처럼이지만 bfs로 함.
 	//우선순위 큐를 사용하면 순서쌍의 순서가 뒤바껴 레벨 탐색을 못함.
+	//우선 순위 큐는 최솟값을 우선 순위로 함.
     public int solution(int n, int[][] flights, int s, int e, int k) {
 		int answer = 0;
 		int INF = 10000000;
