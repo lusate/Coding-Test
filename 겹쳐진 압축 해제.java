@@ -6,12 +6,12 @@ class Solution{
 		
 		for(char x : s.toCharArray()){
 			if(x == ')'){
-				String tmp = "";
+				String str = "";
 				while(!stack.empty()){
-					String str = stack.pop();
+					String tmp = stack.pop();
 					//System.out.print(str + " ");
 					//d  c  (  cd  (  cdcdcd  b  a  (
-					if(str.equals("(")){
+					if(tmp.equals("(")){
 						//숫자화
 						String num = "";
 						while(!stack.empty() && Character.isDigit(stack.peek().charAt(0))){
@@ -25,7 +25,7 @@ class Solution{
 
 						String res = "";
 						for(int i=0; i<cnt; i++){
-							res += tmp; //3이면 3번 더해줌. -> cdcdcd
+							res += str; //3이면 3번 더해줌. -> cdcdcd
 						}
 						stack.push(res);
 						System.out.println(stack);
@@ -34,8 +34,7 @@ class Solution{
 					}
 
 					else{
-						tmp = str + tmp;
-						//System.out.print(tmp + " ");
+						str = tmp + str;
 						//d  cd  cd  cdcdcd  bcdcdcd  abcdcdcd
 					}
 
