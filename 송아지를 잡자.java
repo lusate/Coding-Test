@@ -20,8 +20,7 @@ class Main{
 					}
 				}
 			}
-			//L++; 여기 있어도 됨.
-			e += L;
+			e += L; //송아지 위치 이동
 			if(e > 200000) return -1;
 			if(ch[L%2][e] == 1) return L;
 		}
