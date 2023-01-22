@@ -1,6 +1,6 @@
 import java.util.*;
 class Data {
-	//원래 숫자 num, 원래 인덱스 idx, 왼쪽에 큰 값들이 몇개 있는지 big
+	//원래 숫자 num, 원래 인덱스 idx, 현재 num보다 왼쪽에 큰 값들이 몇개 있는지 big
 	public int num, idx, big;
 	Data(int num, int idx, int big){
 		this.num = num;
