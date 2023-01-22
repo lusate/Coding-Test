@@ -26,7 +26,7 @@ class Main{
 				res[roomNum]++; //방 번호 카운트
 				pq.add(new int[]{x[1], roomNum}); //x의 끝나는 시간, room 번호
 			}
-			else { //방이 비어있지 않으면 -> rooms에 방이 없으면
+			else { //방이 비어있으면 -> rooms에 방이 없으면
 				int[] tmp = pq.poll(); // [5, 0]이 빠짐.
 				// tmp[0]은 끝나는 시간, tmp[1]은 방 번호.
 				res[tmp[1]]++; //방 번호 카운트
