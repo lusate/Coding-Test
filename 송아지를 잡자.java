@@ -3,8 +3,8 @@ class Main{
 	private static int solution(int s, int e){
 		int[][] ch = new int[2][200001];
 		Queue<Integer> Q = new LinkedList<>();
-		ch[0][s] = 1;
-		ch[1][s] = 1;
+		ch[0][s] = 1; //짝수 체크
+		ch[1][s] = 1; //홀수 체크
 
 		Q.offer(s);
 		int L=0;
@@ -20,8 +20,10 @@ class Main{
 					}
 				}
 			}
-
+			//L++; 여기 있어도 됨.
 			e += L;
+			if(e > 200000) return -1;
+			if(ch[L%2][e] == 1) return L;
 		}
 
 		
