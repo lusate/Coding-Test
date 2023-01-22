@@ -6,7 +6,7 @@ class Solution{
 		//dy[st]에 값이 있다면 (메모이제이션)
 		if(dy[st] > 0) return dy[st];
 
-		//인덱스 st가 0이면 뻗어가지 못하게 0을 리턴
+		//인덱스 st인 부분이 0이면 뻗어가지 못하게 0을 리턴
 		if(st < s.length() && s.charAt(st) == '0') return 0;
 		if(st == s.length()-1 || st == s.length()){
 			return 1; //끝까지 도착하면 return 1.
