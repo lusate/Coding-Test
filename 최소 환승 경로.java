@@ -20,7 +20,7 @@ class Solution {
 			int len = q.size();
 			for(int i=0; i<len; i++){
 				int tmp = q.poll(); //정지한 역번호
-				for(int line : graph.get(tmp)){
+				for(int line : graph.get(tmp)){ //호선 번호
 					if(visit[line] == 1) continue;
 					
 					for(int stop : routes[line]){
