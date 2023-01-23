@@ -34,3 +34,12 @@ class Main{
 		System.out.println(solution("aaabbbccde"));
 	}
 }
+
+
+
+/* 출력
+2
+0
+2
+4
+*/
