@@ -2,7 +2,7 @@ import java.util.*;
 class Solution{
 	int[] ryan;
 	int[] res;
-	int max = Integer.MAX_VALUE;
+	int max = Integer.MIN_VALUE;
 	public void dfs(int n, int cnt, int[] info){
 		if(cnt == n){ //cnt는 발사한 화살 개수
 			int apeachSum = 0; //어피치 점수 합
