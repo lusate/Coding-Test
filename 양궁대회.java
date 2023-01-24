@@ -8,10 +8,13 @@ class Solution{
 			int apeachSum = 0; //어피치 점수 합
 			int ryanSum = 0; //라이언 점수 합
 			for(int i=0; i<=10; i++){
-				if(info[i] != 0 || ryan[i] != 0){
-					if(info[i] < ryan[i]) ryanSum += 10 - i;
-					else apeachSum += 10 - i; //맞힌 개수가 같아도 어피치가 이김
-				}
+// 				if(info[i] != 0 || ryan[i] != 0){
+// 					if(info[i] < ryan[i]) ryanSum += 10 - i;
+// 					else apeachSum += 10 - i; //맞힌 개수가 같아도 어피치가 이김
+// 				}
+				if(ryan[i] == 0 && info[i] == 0) continue;
+				if(ryan[i] > info[i]) ryanSum += 10 - i;
+				else apeachSum += 10 - i;
 			}
 
 			if(apeachSum < ryanSum){
