@@ -11,7 +11,7 @@ class Solution {
 			int shift = 0;
 
 			for(int j=0; j<s.length; j++){
-				// 
+				// 부분 집합에 속하는지를 판단
 				if((i & (1 << j)) == 0) continue;
 
 				int score = s[j].length();
