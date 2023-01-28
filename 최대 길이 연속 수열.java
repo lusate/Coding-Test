@@ -8,7 +8,7 @@ class Solution {
 	  	//[0, 1, 2, 3, 4, 8, 9, 10]
 
 		for(int x : set){
-			if(set.contains(x-1)) continue;
+			if(set.contains(x-1)) continue; //이미 확인했던 숫자면 continue
 
 			int cnt = 0;
 			while(set.contains(x)){
