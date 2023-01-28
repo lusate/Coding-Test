@@ -16,7 +16,7 @@ class Solution {
 		int curT = 0;
 		while(!list.isEmpty() || !pq.isEmpty()){
 			//시작한 프로그램이 없을 경우 프로그램 시작 시간으로 교체.
-			if(pq.isEmpty()) Math.max(curT, list.peek()[1]);
+			if(pq.isEmpty()) curT = Math.max(curT, list.peek()[1]);
 
 			while(!list.isEmpty() && list.peek()[1] <= curT){
 				int[] x = list.pollFirst();
