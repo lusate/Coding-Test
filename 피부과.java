@@ -30,7 +30,7 @@ class Solution{
 				pos++;
 			}
 			
-			if(t == finish && !Q.isEmpty()){
+			if(!Q.isEmpty() && t == finish){
 				int idx = Q.poll();
 				finish = finish + laser[idx];
 			}
