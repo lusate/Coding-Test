@@ -49,8 +49,8 @@ class Solution {
 	public static void main(String[] args){
 		Solution T = new Solution();
 		System.out.println(T.solution("AAABBCDEFFG"));
-    System.out.println(T.solution("ABCABCAD"));
-    System.out.println(T.solution("ABCDEFGAAABDEFGFFGE"));
+    		System.out.println(T.solution("ABCABCAD"));
+    		System.out.println(T.solution("ABCDEFGAAABDEFGFFGE"));
 	}
 }
 
