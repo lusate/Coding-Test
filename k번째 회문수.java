@@ -48,8 +48,8 @@ class Solution{
 	}
 	
 	public static void main(String[] args){
-		//System.out.println(Arrays.toString(solution(new int[]{1, 12, 24})));
-		//System.out.println(Arrays.toString(solution(new int[]{10, 15, 30})));
+		System.out.println(Arrays.toString(solution(new int[]{1, 12, 24})));
+		System.out.println(Arrays.toString(solution(new int[]{10, 15, 30})));
 		System.out.println(Arrays.toString(solution(new int[]{345, 3456, 2352, 939595})));
 	}
 }
