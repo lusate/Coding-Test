@@ -20,9 +20,6 @@ class Solution {
 		}
 		
 		Queue<int[]> q = new LinkedList<>();
-		for(int i=0; i<n; i++){
-			costs[i] = INF;
-		}
 
 		q.offer(new int[]{s,0});
 		costs[0] = 0;
