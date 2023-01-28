@@ -25,7 +25,7 @@ class Solution {
 			dist[b][a] = c; //양방향.
 		}
 
-		for(int k=0; i<n; i++){
+		for(int k=0; k<n; k++){
 			for(int i=0; i<n; i++){
 				for(int j=0; j<n; j++){
 					if(dist[i][j] > dist[i][k] + dist[k][j]){
@@ -43,12 +43,11 @@ class Solution {
 
 		for(String x : cars){
 			int a = map.get(x.split(" ")[0]);
-			int b = Integter.parseInt(x.split(" ")[1]);
+			int b = Integer.parseInt(x.split(" ")[1]);
 			int c = Integer.parseInt(x.split(" ")[2]);
 
 			carList.get(a).add(new int[]{b,c});
 		}
-		System.out.println(carList);
 
 
 		int s = map.get(customer.split(" ")[0]); //customer에서 출발 도시 번호
@@ -96,10 +95,16 @@ class Solution {
 		Solution T = new Solution();
 		System.out.println(T.solution(new String[]{"rome", "busan", "daegu"}, 
 		new String[]{"rome busan 1", "rome daegu 1", "busan daegu 2"}, 
+		new String[]{"rome 50 10", "busan 100 20", "daegu 40 8", "rome 80 14", "rome 30 8"}, 
+		"busan daegu 40"));
+
+		System.out.println(T.solution(new String[]{"rome", "busan", "daegu"}, 
+		new String[]{"rome busan 1", "rome daegu 1", "busan daegu 2"}, 
 		new String[]{"rome 50 10", "busan 100 20", "busan 50 15", "daegu 40 8", "rome 80 14", "rome 30 8"}, 
 		"busan daegu 40"));
 	}
 }
+
 
 
 /* 출력
