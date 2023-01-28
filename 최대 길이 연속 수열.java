@@ -5,6 +5,7 @@ class Solution {
 		HashSet<Integer> set = new HashSet<>(); //()안에 asList은 int[] 불가.
 		
 		for(int x : nums) set.add(x);
+	  	//[0, 1, 2, 3, 4, 8, 9, 10]
 
 		for(int x : set){
 			if(set.contains(x-1)) continue;
