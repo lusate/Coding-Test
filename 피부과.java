@@ -23,7 +23,8 @@ class Solution{
 		int finish = list[0][0];
 		int pos = 1;
 		for(int t = finish; t<=1200; t++){
-			if(pos < n && t == list[pos][0]){ //여기서 finish가 653이 됐다고 해서 t가 653으로 갱신되는 것이 아니다.
+			if(pos < n && t == list[pos][0]){ 
+				//여기서 finish가 653이 됐다고 해서 t가 653으로 갱신되는 것이 아니다.
 				if(Q.isEmpty() && finish < list[pos][0]) finish = list[pos][0];
 				Q.offer(list[pos][1]);
 				pos++;
