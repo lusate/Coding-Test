@@ -50,8 +50,8 @@ class Main{
 	
 	public static void main(String[] args){
 		System.out.println(solution(2, new int[][]{{0,5}, {2,7}, {4,5}, {7,10}, {9,12}}));
-		//System.out.println(solution(3, new int[][]{{3, 9}, {1, 10}, {5, 8}, {10, 15}, {9, 14}, {12, 14}, {15, 20}}));
-		//System.out.println(solution(4, new int[][]{{3,20}, {1,25}, {5,8}, {10,15}, {9,14}, {12,14}, {15,20}}));
+		System.out.println(solution(3, new int[][]{{3, 9}, {1, 10}, {5, 8}, {10, 15}, {9, 14}, {12, 14}, {15, 20}}));
+		System.out.println(solution(4, new int[][]{{3,20}, {1,25}, {5,8}, {10,15}, {9,14}, {12,14}, {15,20}}));
 	}
 }
 
