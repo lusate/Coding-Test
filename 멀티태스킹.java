@@ -27,7 +27,7 @@ class Main{
 				int cnt = 0;  //마지막 k로 가기 전 초 카운트.
 				//27초까지 가고 3초 남았을 때 이 3초를 카운트하기 위함.
 				for(int j=0; j<tasks.length; j++){
-					if(tasks[j] >= copy[i]){
+					if(tasks[j] >= copy[i]){ //완전히 0초로 끝나버린 작업은 카운트 하지 않기 위함
 						if(cnt == k){
 							return j+1; //다시 시작해야 할 인덱스.
 						}
