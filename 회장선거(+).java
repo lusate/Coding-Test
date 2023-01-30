@@ -31,7 +31,7 @@ class Main{
 			}
 
 			present.put(a, cnt); //a ->선물 받은 사람들(추천한 사람들 중에서)
-			//cnt -> 받은 사람들 수
+			//cnt -> 출마한 사람들에게 선물 받은 수.
 			max = Math.max(max, cnt);
 		}
 		//System.out.println(present);
