@@ -27,9 +27,9 @@ class Main{
 	}
 	
 	public static void main(String[] args){
-		//System.out.println(Arrays.toString(solution(new int[]{1, 10, 2, 3, 5, 6})));
+		System.out.println(Arrays.toString(solution(new int[]{1, 10, 2, 3, 5, 6})));
 		System.out.println(Arrays.toString(solution(new int[]{1, 1, 6, 2, 2, 7, 3, 14})));
-		//System.out.println(Arrays.toString(solution(new int[]{14, 4, 2, 6, 3, 10, 10, 5, 5, 7, 7, 14})));
+		System.out.println(Arrays.toString(solution(new int[]{14, 4, 2, 6, 3, 10, 10, 5, 5, 7, 7, 14})));
 	}
 }
 
@@ -37,8 +37,6 @@ class Main{
 
 /* 출력
 [1, 3, 5]
-
 [1, 1, 3, 7]
-
 [2, 3, 5, 5, 7, 7]
 */
