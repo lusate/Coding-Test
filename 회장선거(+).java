@@ -55,9 +55,10 @@ class Main{
 	public static void main(String[] args){
 		System.out.println(solution(new String[]{"john tom", "daniel luis", "john luis", "luis tom", 
 		"daniel tom", "luis john"}, 2));
-		// System.out.println(solution(new String[]{"john tom", "park luis", 
-		// "john luis", "luis tom", "park tom", "luis john", "luis park", "park john", "john park", 
-		// "tom john", "tom park", "tom luis"}, 3));
+		
+		System.out.println(solution(new String[]{"john tom", "park luis", 
+		"john luis", "luis tom", "park tom", "luis john", "luis park", "park john", "john park", 
+		"tom john", "tom park", "tom luis"}, 3));
 	}
 }
 
