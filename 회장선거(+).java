@@ -18,8 +18,8 @@ class Main{
 			candidate.put(b, candidate.getOrDefault(b, 0)+1);
 		}
 
-		System.out.println(map);
-		System.out.println(candidate);
+// 		System.out.println(map);
+// 		System.out.println(candidate);
 
 
 		int max = Integer.MIN_VALUE;
