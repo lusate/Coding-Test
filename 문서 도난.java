@@ -1,6 +1,6 @@
 import java.util.*;
-
 //이름과 시간이 쌍이되도록 만들어줘야 한다.
+//이름 순이 아닌 시간 순으로 만들어야 하므로 HashMap으로는 어려움.
 class Info implements Comparable<Info>{
 	public String name;
 	public int time;
