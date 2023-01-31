@@ -63,9 +63,9 @@ class Solution{
 	public static void main(String[] args){
 		Solution T = new Solution();
 		System.out.println(Arrays.toString(T.solution("aaaabba")));
-		// System.out.println(Arrays.toString(T.solution("aaaabb")));
-		// System.out.println(Arrays.toString(T.solution("abbcc")));
-		// System.out.println(Arrays.toString(T.solution("abbccee")));
+		System.out.println(Arrays.toString(T.solution("aaaabb")));
+		System.out.println(Arrays.toString(T.solution("abbcc")));
+		System.out.println(Arrays.toString(T.solution("abbccee")));
 	}
 }
 
