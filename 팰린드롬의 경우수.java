@@ -75,4 +75,5 @@ class Solution{
 [baaaab, abaaba, aabbaa]
 [cbabc, bcacb]
 [ecbabce, cebabec, ebcacbe, becaceb, cbeaebc, bceaecb]
+[]
 */
