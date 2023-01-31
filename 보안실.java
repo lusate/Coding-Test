@@ -1,12 +1,12 @@
 import java.util.*;
 class Solution{
-	private static int getTime(String s){
+	public int getTime(String s){
 		int H = Integer.parseInt(s.split(":")[0]);
 		int M = Integer.parseInt(s.split(":")[1]);
 
 		return H*60+M;
 	}
-	private static String[] solution(String[] reports, int k) {
+	public String[] solution(String[] reports, int k) {
 		HashMap<String, ArrayList<Integer>> map = new HashMap<>();
 		
 		for(String x : reports){
@@ -40,8 +40,9 @@ class Solution{
 			}
 		}
 
-		// res.sort((a, b) -> a.compareTo(b)); //a와 b 비교해서 오르차순으로
 		String[] answer = new String[res.size()];
+		res.sort((a, b) -> a.compareTo(b)); //a와 b 비교해서 오르차순으로
+		
 		for(int i=0; i<res.size(); i++){
 			answer[i] = res.get(i);
 		}
@@ -50,9 +51,12 @@ class Solution{
 	}
 	
 	public static void main(String[] args){
-		System.out.println(Arrays.toString(solution(new String[]{"luis 08:11", "daniel 10:21", "luis 09:12", 
+		Solution T = new Solution();
+		System.out.println(Arrays.toString(T.solution(new String[]{"luis 08:11", "daniel 10:21", "luis 09:12", 
 		"emily 08:34", "luis 09:45", "luis 08:45", "luis 18:48", "emily 09:12", 
 		"daniel 11:15", "emily 09:34", "luis 10:35", "luis 10:45"}, 3)));
+		
+		System.out.println(Arrays.toString(T.solution(new String[]{"james 08:35", "james 08:50", "james 00:00"}, 3)));
 	}
 }
 
