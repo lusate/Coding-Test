@@ -27,7 +27,10 @@ class Solution{
 		int answer = 0;
 
 		//진수로 변환한 숫자
-		String num = k==10 ? String.valueOf(n) : convert(n, k);
+		if(k == 10){
+			num = String.valueOf(n);
+		}
+		else num = convert(n, k);
 		String[] nums = num.split("0+");
 
 		for(String x : nums){ //nums 부분 타입이 long이 될 수도 있음
