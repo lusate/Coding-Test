@@ -7,8 +7,8 @@ class Solution {
 
 		int rest = food_times.length;
 		for(int i=1; i<copy.length; i++){
-			long time = (long) rest * (copy[i] - copy[i-1]);
-			if(k < time){
+			//k가 long 이므로 rest * (copy[i] - copy[i-1]) 도 long으로 해서 비교
+			if(k < (long)rest * (copy[i] - copy[i-1])){
 				long idx = k % rest;
 				int cnt = 0;
 				for(int j=0; j<food_times.length; j++){
