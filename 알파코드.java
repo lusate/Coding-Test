@@ -2,7 +2,7 @@ import java.util.*;
 class Solution{
 	static LinkedList<String> tmp;
 	static int[] dy;
-	private static int dfs(int st, String s){
+	public int dfs(int st, String s){
 		//dy[st]에 값이 있다면 (메모이제이션)
 		if(dy[st] > 0) return dy[st];
 
@@ -20,15 +20,18 @@ class Solution{
 			return dy[st] = res;  //마지막에는 res에서 값을 누적하여 더해서 D(0)의 값을 출력해야 한다.
 		}
 	}
-	private static int solution(String s) {
+	public int solution(String s) {
 		dy = new int[101];
 		int answer = dfs(0, s);
 		return answer;
 	}
 	
 	public static void main(String[] args){
-		System.out.println(solution("25114"));
-      System.out.println(solution("23251232"));
+		Solution T = new Solution();
+		System.out.println(T.solution("25114"));
+		System.out.println(T.solution("23251232"));
+		System.out.println(T.solution("21020132"));
+		System.out.println(T.solution("21350" ));
 	}
 }
 
