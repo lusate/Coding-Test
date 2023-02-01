@@ -1,6 +1,6 @@
 import java.util.*;
 class Main{
-	private static int solution(int[] pool, int a, int b, int home){
+	public int solution(int[] pool, int a, int b, int home){
 		int[][] ch = new int[2][10001];
 		for(int x : pool){
 			ch[0][x] = 1;
@@ -39,10 +39,11 @@ class Main{
 	}
 	
 	public static void main(String[] args){
-		System.out.println(solution(new int[]{11,7,20}, 3, 2, 10));
-		// System.out.println(solution(new int[]{1,15,11}, 3, 2, 5));
-		// System.out.println(solution(new int[]{9,15,35,30,20}, 2, 1, 25));
-		// System.out.println(solution(new int[]{5,12,7,19,23}, 3, 5, 18));
+		Solution T = new Solution();
+		System.out.println(T.solution(new int[]{11,7,20}, 3, 2, 10));
+		System.out.println(T.solution(new int[]{1,15,11}, 3, 2, 5));
+		System.out.println(T.solution(new int[]{9,15,35,30,20}, 2, 1, 25));
+		System.out.println(T.solution(new int[]{5,12,7,19,23}, 3, 5, 18));
 	}
 }
 
