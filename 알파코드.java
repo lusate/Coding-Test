@@ -1,6 +1,5 @@
 import java.util.*;
 class Solution{
-	static LinkedList<String> tmp;
 	static int[] dy;
 	public int dfs(int st, String s){
 		//dy[st]에 값이 있다면 (메모이제이션)
