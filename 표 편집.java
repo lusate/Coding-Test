@@ -14,7 +14,7 @@ class Solution{
 			}
 			else c = x.charAt(0);
 
-			//stack에 들어가는 것들은 모두 인덱스가 아닌 이름들.
+			//k는 행호번호
 			if(c == 'D'){
 				k += num;
 			}
