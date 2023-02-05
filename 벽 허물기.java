@@ -15,25 +15,22 @@ class Solution {
 
 		pq.offer(new int[]{0,0,0});
 		while(!pq.isEmpty()){
-			int len = pq.size();
-			for(int i=0; i<len; i++){
-				int[] tmp = pq.poll();
-				if(tmp[2] > cost[tmp[0]][tmp[1]]) continue;
+			int[] tmp = pq.poll();
+			if(tmp[2] > cost[tmp[0]][tmp[1]]) continue;
 
-				for(int k=0; k<4; k++){
-					int nx = tmp[0] + dx[k];
-					int ny = tmp[1] + dy[k];
+			for(int k=0; k<4; k++){
+				int nx = tmp[0] + dx[k];
+				int ny = tmp[1] + dy[k];
 
-					if(nx < 0 || nx >= n || ny < 0 || ny >= m) continue;
-					if(board[nx][ny] == 0 && cost[nx][ny] > tmp[2]){
-						cost[nx][ny] = tmp[2];
-						pq.offer(new int[]{nx, ny, tmp[2]});
-					}
+				if(nx < 0 || nx >= n || ny < 0 || ny >= m) continue;
+				if(board[nx][ny] == 0 && cost[nx][ny] > tmp[2]){
+					cost[nx][ny] = tmp[2];
+					pq.offer(new int[]{nx, ny, tmp[2]});
+				}
 
-					if(board[nx][ny] == 1 && cost[nx][ny] > tmp[2] + 1){
-						cost[nx][ny] = tmp[2] + 1;
-						pq.offer(new int[]{nx, ny, tmp[2] + 1});
-					}
+				if(board[nx][ny] == 1 && cost[nx][ny] > tmp[2] + 1){
+					cost[nx][ny] = tmp[2] + 1;
+					pq.offer(new int[]{nx, ny, tmp[2] + 1});
 				}
 			}
 		}
