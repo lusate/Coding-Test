@@ -41,7 +41,7 @@ class Solution {
 	public static void main(String args[]){
 		Solution T = new Solution();
 		System.out.println(T.solution(new String[]{"Ges Big", "Ges in Big", "Big size", "Ges size"}, 7));
-		// System.out.println(T.solution(new String[]{"Time is Gold", "Gold", "Gold line Ggg"}, 9));
+		System.out.println(T.solution(new String[]{"Time is Gold", "Gold", "Gold line Ggg"}, 9));
 	}
 }
 
