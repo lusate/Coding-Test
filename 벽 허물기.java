@@ -16,7 +16,7 @@ class Solution {
 		pq.offer(new int[]{0,0,0});
 		while(!pq.isEmpty()){
 			int[] tmp = pq.poll();
-			if(tmp[2] > cost[tmp[0]][tmp[1]]) continue;
+			if(cost[tmp[0]][tmp[1]] < tmp[2]) continue;
 
 			for(int k=0; k<4; k++){
 				int nx = tmp[0] + dx[k];
