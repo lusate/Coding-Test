@@ -66,50 +66,54 @@ class Solution {
 	//ex) 3 -> 0000000011 -> W, W, L, L, L, L, L, L, L, L
 	// 22 -> 0000010110 -> L, W, W, L, W, L, L, L, L, L
     public int[] solution(int n, int[] info) {
-		int answer = new int[11];
-		int[] tmp = new int[11];
+		int[] answer = new int[11];
+		int[] tmp = new int[11]; //라이언이 쏜 화살 개수를 저장.
 
 		int maxDif = 0;
-		for(int i=1; i<(1 << 10); i++){
+		for(int i=1; i<(1 << 10); i++){ //이진수 이므로 2 ** 10까지
 			int ryan = 0, apeach = 0;
 			int cnt = 0; //라이언이 쏜 화살 카운트
 
 			for(int j=0; j<10; j++){
-				if((i & (1 << i)) != 0){
-					ryan += 10 - i;
-					tmp[i] = info[i] + 1;
-					cnt += tmp[i];
+				if((i & (1 << j)) != 0){ //부분 집합이 존재하는지. -> 0이 아니면
+					//라이언이 이길 때 -> 22의 이진수 01101000000 에서 1이면 라이언이 이김. (앞에서부터 10점.)
+					ryan += 10 - j;
+					tmp[j] = info[j] + 1; //apeach가 맞힌 화살 개수보다 1만 더 크면 라이언이 이김.
+					cnt += tmp[j];
 				}
 				else{ //비기거나 apeach가 이기는 경우
-					tmp[i] = 0;
-					if(info[i]  > 0){
-						apeach += 10 - i;
+					tmp[j] = 0; //라이언이 한 발도 안 쏘게 함.
+					if(info[j] > 0){ //apeach가 맞추면 apeach가 점수 가져감.
+						apeach += 10 - j;
 					}
 				}
 			}
 
-			//apeach가 ryan보다 화살을 더 쓰면 안됌.
+			//apeach가 ryan보다 화살을 더 쓰면 안됨.
 			if(cnt > n) continue;
 
-			tmp[10] = n - cnt; //남은 화살 개수를 저장.
+			tmp[10] = n - cnt; //남은 화살 개수를 저장.  tmp[1] 이면 0점.
 
 			//maxDif보다 더 큰 값을 찾음
-			if(ryan - apeach > maxDif){
-				maxDif = ryan - apeach;
-				answer = Arrays.copyOf(tmp, tmp.length);
-			}
+			
        		
 			//라이언이 가장 큰 점수 차이로 우승할 수 있는 방법이 여러가지인 경우 가장 낮은 점수를 더 많이 맞힌 경우를 return
-			else if(ryan - apeach == maxDif){
+			if(ryan - apeach == maxDif){
 				for(int k=10; k>=0; k--){
 					if(tmp[k] > answer[k]){
 						maxDif = ryan - apeach;
 						answer = Arrays.copyOf(tmp, tmp.length);
+						break;
 					}
 					else if(tmp[k] < answer[k]){
 						break;
 					}
 				}
+				
+			}
+			else if(ryan - apeach > maxDif){
+				maxDif = ryan - apeach;
+				answer = Arrays.copyOf(tmp, tmp.length);
 			}
 		}
 
