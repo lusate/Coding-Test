@@ -16,6 +16,7 @@ class Info implements Comparable<Info>{
 }
 class Solution {
     public String solution(int n, int m, int x, int y, int r, int c, int k) {
+	    	String answer = "impossible";
 		int[] dx = {-1, 0, 1, 0};
 		int[] dy = {0, 1, 0, -1};
 		String[] dir = {"u", "r", "d", "l"};
@@ -52,7 +53,7 @@ class Solution {
 			}
 		}
         
-        return "impossible";
+        return answer;
     }
 
 	public static void main(String args[]){
