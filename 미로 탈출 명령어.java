@@ -25,12 +25,18 @@ class Solution {
 
 		while(!pq.isEmpty()){
 			Info tmp = pq.poll();
+			//도착지점까지 최소 거리 계산
 			int minDist = Math.abs(tmp.r - r) + Math.abs(tmp.c - c);
+			//남은 거리 계산
 			int remainDist = k - tmp.dist;
 
-			if(remainDist < minDist || (remainDist - minDist) % 2 != 0) continue;
-
-			if(tmp.dist == k && r == tmp.r && c == tmp.c){
+			//최소 거리가 3인데 남은 거리가 3보다 작아질 수 없음.
+			//0이 되면 continue -> 0으로 홀수가 되면 
+			// remainDist - minDist가 홀수면 E에 도착했다가 이동하고나서 다시 E로 갈 수가 없음.
+			if(remainDist < minDist || (remainDist - minDist) % 2 != 0){
+				continue;
+			}
+			if(tmp.dist == k && r == tmp.r && c == tmp.c){ //도착
 				return tmp.path;
 			}
 
@@ -38,7 +44,7 @@ class Solution {
 				int nx = tmp.r + dx[t];
 				int ny = tmp.c + dy[t];
 
-				if(nx<1 || ny<1 || nx>n || ny>m || tmp.dist >= k) continue;
+				if(nx<1 || ny<1 || nx>n || ny>m || tmp.dist > k) continue;
 				pq.add(new Info(nx, ny, tmp.dist+1, tmp.path + dir[t]));
 				// if(tmp.dist < k && nx >= 1 && nx <= n && ny >= 1 && ny <= m) {
                 //     pq.offer(new Info(nx, ny, tmp.dist + 1, tmp.path + dir[t]));
@@ -51,7 +57,7 @@ class Solution {
 
 	public static void main(String args[]){
 		Solution T = new Solution();
-		System.out.println(T.solution(3, 4, 2, 3, 3, 1, 5));
+		System.out.println(T.solution(3, 4, 2, 4, 3, 1, 5));
 		System.out.println(T.solution(2, 2, 1, 1, 2, 2, 2));
 		System.out.println(T.solution(3, 3, 1, 2, 3, 3, 4));
 	}
