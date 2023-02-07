@@ -20,7 +20,7 @@ class Solution {
 			}
 
 			else{
-				k -= time;
+				k -= rest * (copy[i] - copy[i-1]);
 				rest--;
 			}
 		}
@@ -28,9 +28,9 @@ class Solution {
 		return -1;
     }
 
-	private static void main(String args[]){
+	public static void main(String args[]){
 		Solution T = new Solution();
-		System.out.println(new int[]{3,1,2}, 5);
+		System.out.println(T.solution(new int[]{3,1,2}, 5));
 	}
 }
 
