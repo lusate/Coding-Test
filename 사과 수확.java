@@ -41,9 +41,9 @@ class Solution {
 	public static void main(String args[]){
 		Solution T = new Solution();
 		System.out.println(T.solution(new int[][]{{0, 10},{2,3},{5,8},{6,5},{8,6},{9,5},{10,2},{12,3}}, 7, 5));
-		// System.out.println(T.solution(new int[][]{{0, 9},{4,5},{5,7},{6,2},{7,4},{9,3},{10,9}}, 5, 4));
-		// System.out.println(T.solution(new int[][]{{0,9},{4,1},{5,7},{6,2},{7,4},{10,9}}, 5, 4));
-		// System.out.println(T.solution(new int[][]{{0,12},{2,10},{12,5}}, 8, 3));
+		System.out.println(T.solution(new int[][]{{0, 9},{4,5},{5,7},{6,2},{7,4},{9,3},{10,9}}, 5, 4));
+		System.out.println(T.solution(new int[][]{{0,9},{4,1},{5,7},{6,2},{7,4},{10,9}}, 5, 4));
+		System.out.println(T.solution(new int[][]{{0,12},{2,10},{12,5}}, 8, 3));
 	}
 }
 
