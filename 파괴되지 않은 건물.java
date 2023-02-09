@@ -43,14 +43,9 @@ class Solution {
                 map[j][i] = sum;
             }
         }
+	//map은 (x1, y1) ~ (x2, y2) 해서 공격하고 회복한 값들이 있음.
         
-        for(int i=0; i<n; i++){
-            for(int j=0; j<m; j++){
-                System.out.print(map[i][j]);
-            }
-            System.out.println();
-        }
-        
+	//map의 값들을 board에 더해서 0보다 크면 살아있는 건물들.
         for(int i=0; i<n; i++){
             for(int j=0; j<m; j++){
                 if(map[i][j] + board[i][j] > 0) answer++;
