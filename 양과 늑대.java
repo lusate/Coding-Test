@@ -1,29 +1,25 @@
 import java.util.*;
 class Solution {
     ArrayList<ArrayList<Integer>> graph;
-    int[] infos;
     int maxSheep;
-    public void dfs(int sheep, int wolf, int now, boolean[] visit){
-        if(infos[now] == 0) sheep++;
-        else if(infos[now] == 1) wolf++;
+    public void dfs(int now, int sheep, int wolf, boolean[] visit, int[] info){
+        if(info[now] == 0) sheep++;
+        else if(info[now] == 1) wolf++;
+        if(sheep <= wolf) return;
         
-        if(wolf >= sheep) return;
-        //visited가 false면 dfs 재귀를 하고나서 visited를 초기화하기 위함.
+	//visited가 false면 dfs 재귀를 하고나서 visited를 초기화하기 위함.
         //즉 다음 노드로 이동하고 나서 이전 노드로 다시 돌아올 수 있기 때문.
         boolean[] visited = visit.clone();
         visited[now] = true;
-        
         maxSheep = Math.max(maxSheep, sheep);
         
         for(int i=0; i<visited.length; i++){
             if(visited[i] == true){
                 for(int j=0; j<graph.get(i).size(); j++){
-                    //grpah의 도착 노드들
                     int tmp = graph.get(i).get(j);
                     
-                    //도착 노드들을 방문하지 않았다면 dfs
                     if(visited[tmp] == false){
-                        dfs(sheep, wolf, tmp, visited);
+                        dfs(tmp, sheep, wolf, visited, info);
                     }
                 }
             }
@@ -32,16 +28,15 @@ class Solution {
     }
     public int solution(int[] info, int[][] edges) {
         int answer = 0;
-        int n = info.length;
         graph = new ArrayList<>();
+        int n = info.length;
         boolean[] visit = new boolean[n];
         maxSheep = 0;
         
-        infos = info;
-        for(int i=0; i<info.length; i++){
+        for(int i=0; i<n; i++){
             graph.add(new ArrayList<>());
         }
-
+        
         for(int i=0; i<edges.length; i++){
             int a = edges[i][0];
             int b = edges[i][1];
@@ -49,11 +44,10 @@ class Solution {
             graph.get(a).add(b);
             graph.get(b).add(a);
         }
-        System.out.println(graph);
         
-        dfs(0,0,0, visit);
+        dfs(0,0,0,visit,info);
+        
         answer = maxSheep;
-        
         return answer;
     }
 }
