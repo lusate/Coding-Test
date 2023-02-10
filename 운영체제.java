@@ -46,4 +46,7 @@ class Solution {
 /* 출력
 [20, 5, 0, 16, 0, 0, 0, 0, 0, 0, 0]
 [19, 0, 0, 4, 3, 14, 0, 0, 0, 0, 0]
+
+
+https://school.programmers.co.kr/learn/courses/15008/15008-pccp-%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC-1%ED%9A%8C
 */
