@@ -34,6 +34,8 @@ class Solution{
 		else num = convert(n, k);
 		
 		String[] nums = num.split("0+");
+		//211020101011 -> 21121111  0 모두 제외.
+		
 		for(String x : nums){ //nums 부분 타입이 long이 될 수도 있음
 			if(check(Long.parseLong(x))){
 				answer++;
