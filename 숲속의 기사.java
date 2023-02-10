@@ -41,12 +41,12 @@ class Main{
 			}
 		}
 
-		for(int i=0; i<r; i++){
-			for(int j=0; j<c; j++){
-				System.out.print(dist[i][j] + " ");
-			}
-			System.out.println();
-		}
+// 		for(int i=0; i<r; i++){
+// 			for(int j=0; j<c; j++){
+// 				System.out.print(dist[i][j] + " ");
+// 			}
+// 			System.out.println();
+// 		}
 
 		int min = Integer.MAX_VALUE;
 		for(int i=0; i<r; i++){
