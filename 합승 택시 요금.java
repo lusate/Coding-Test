@@ -1,5 +1,5 @@
 import java.util.*;
-class Main {
+class Solution {
 	public int solution(int n, int s, int a, int b, int[][] fares) {
 		int answer=Integer.MAX_VALUE;
 		int[][] dy = new int[n+1][n+1];
@@ -31,7 +31,7 @@ class Main {
 	}
 		
 	public static void main(String[] args){
-		Main T = new Main();
+		Solution T = new Solution();
 		System.out.println(T.solution(6, 4, 6, 2, new int[][]{{4,1,10}, {3,5,24},{5,6,2},{3,1,41},{5,1,24},{4,6,50},
 		{2,4,66},{2,3,22},{1,6,25}}));
 
@@ -41,3 +41,11 @@ class Main {
 		{2,4,8},{4,3,9}}));
 	}
 }
+
+
+
+/* 출력
+82
+14
+18
+*/
