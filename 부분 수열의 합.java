@@ -27,9 +27,9 @@ class Solution{
 	}
 	
 	public static void main(String[] args){
-		System.out.println(solution(new int[]{1,3,5}));
+		System.out.println(solution(new int[]{1, 3, 5}));
 		System.out.println(solution(new int[]{2, 3, 2, 4, 5}));
-		//System.out.println(solution(new int[]{1, 2, 6, 2, 4, 3, 5, 3, 5, 3, 6, 3, 5, 4, 2, 3, 5, 1, 4, 3, 6}));
+		System.out.println(solution(new int[]{1, 2, 6, 2, 4, 3, 5, 3, 5, 3, 6, 3, 5, 4, 2, 3, 5, 1, 4, 3, 6}));
 	}
 }
 
