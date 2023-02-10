@@ -25,14 +25,15 @@ class Solution{
 	}
 	public int solution(int n, int k) {
 		int answer = 0;
-
+		String num = "";
+		
 		//진수로 변환한 숫자
 		if(k == 10){
 			num = String.valueOf(n);
 		}
 		else num = convert(n, k);
+		
 		String[] nums = num.split("0+");
-
 		for(String x : nums){ //nums 부분 타입이 long이 될 수도 있음
 			if(check(Long.parseLong(x))){
 				answer++;
