@@ -1,7 +1,6 @@
 import java.util.*;
 class Solution {
 	public int[] solution(String[] info, String[] query) {
-		int n = info.length;
 		HashMap<String, ArrayList<Integer>> map = new HashMap<>();
 
 		for(String x : info){
@@ -35,7 +34,7 @@ class Solution {
 		}
 
 		
-		int[] answer = new int[n];
+		int[] answer = new int[query.length];
 		int idx = 0;
 		for(String x : query){
 			String[] data = x.split(" and ");
