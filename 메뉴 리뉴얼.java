@@ -1,5 +1,24 @@
 import java.util.*;
 class Solution {
+	//현재까지 조합된 상태, 아직 사용하지 않은 알파벳, 몇개를 더 조합해야 하는지 카운트.
+	public void dfs(String order, String other, int cnt){
+		
+	}
+	public String[] solution(String[] orders, int[] course) {
+        
+    }
+
+	public static void main(String args[]){
+		Solution T = new Solution();
+		System.out.println(Arrays.toString(T.solution(new String[]{"ABCFG", "AC", "CDE", "ACDE", "BCFG", "ACDEH"}, new int[]{2,3,4})));
+		System.out.println(Arrays.toString(T.solution(new String[]{"ABCDE", "AB", "CD", "ADE", "XYZ", "XYZ", "ACD"}, new int[]{2,3,5})));
+		System.out.println(Arrays.toString(T.solution(new String[]{"XYZ", "XWY", "WXA"}, new int[]{2,3,4})));
+	}
+}
+
+----------------------------------------------------------------------------------------------------------------
+import java.util.*;
+class Solution {
     List<Map<String, Integer>> map = new ArrayList<>();
     //메뉴 별로 최대 주문 횟수
     int[] maxCnt = new int[11];
