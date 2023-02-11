@@ -1,18 +1,72 @@
 import java.util.*;
 class Solution {
+    List<String> res = new ArrayList<>();
+    Map<String, Integer> map = new HashMap<>();
+
 	//현재까지 조합된 상태, 아직 사용하지 않은 알파벳, 몇개를 더 조합해야 하는지 카운트.
 	public void dfs(String order, String other, int cnt){
-		
+		if(cnt == 0){ //더 이상 붙일 게 없을 때
+            //조합된 order를 map에 저장.
+            map.put(order, map.getOrDefault(order, 0) + 1);
+            return;
+        }
+
+
+        for(int i=0; i<other.length(); i++){
+            dfs(order + other.charAt(i), other.substring(i+1), cnt-1);
+        }
 	}
 	public String[] solution(String[] orders, int[] course) {
         
+        for(int i=0; i<orders.length; i++){ //정렬해서 다시 넣어줌.
+            char[] arr = orders[i].toCharArray();
+            Arrays.sort(arr);
+            orders[i] = String.valueOf(arr);
+        }
+        
+
+        //order를 기준으로 courseLength만큼의 조합 만듦.
+        for(int courseLength : course){
+            for(String order : orders){
+                //order라는 String을 기반으로 courseLength 개수 만큼의 조합을 만들어 주는 재귀함수.
+                dfs("", order, courseLength);
+            }
+
+            
+            //가장 많은 조합을 answer에 저장.
+            if(!map.isEmpty()){ //조합이 하나라도 잘 만들어졌다면
+                //list는 courseLength가 2,3,5일 때 map의 value들을 저장.
+                List<Integer> list = new ArrayList<>(map.values());
+                int max = Collections.max(list); //2, 3, 5일 때 각각 value들의 최댓값.
+
+                if(max > 1){
+                    for(String key : map.keySet()){
+                        if(map.get(key) == max){
+                            res.add(key);
+                        }
+                    }
+                }
+                map.clear();
+            }
+        }
+        // map
+        // {AB=2, BC=1, CD=3, DE=2, XY=2, YZ=2, AC=2, BD=1, CE=1, XZ=2, AD=3, BE=1, AE=2}
+        // {ABC=1, ACD=2, ADE=2, BCD=1, BDE=1, ABD=1, ACE=1, ABE=1, BCE=1, CDE=1, XYZ=2}
+        // {ABCDE=1}
+        
+
+        Collections.sort(res);
+        String[] answer = new String[res.size()];
+
+        for(int i=0; i<res.size(); i++) answer[i] = res.get(i);
+        return answer;
     }
 
 	public static void main(String args[]){
 		Solution T = new Solution();
-		System.out.println(Arrays.toString(T.solution(new String[]{"ABCFG", "AC", "CDE", "ACDE", "BCFG", "ACDEH"}, new int[]{2,3,4})));
+		// System.out.println(Arrays.toString(T.solution(new String[]{"ABCFG", "AC", "CDE", "ACDE", "BCFG", "ACDEH"}, new int[]{2,3,4})));
 		System.out.println(Arrays.toString(T.solution(new String[]{"ABCDE", "AB", "CD", "ADE", "XYZ", "XYZ", "ACD"}, new int[]{2,3,5})));
-		System.out.println(Arrays.toString(T.solution(new String[]{"XYZ", "XWY", "WXA"}, new int[]{2,3,4})));
+		// System.out.println(Arrays.toString(T.solution(new String[]{"XYZ", "XWY", "WXA"}, new int[]{2,3,4})));
 	}
 }
 
