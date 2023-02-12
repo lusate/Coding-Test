@@ -30,7 +30,7 @@ class Solution {
         int[] answer = new int[n];
         
         for(int i=0; i<n; i++){
-            String str = Long.toBinaryString(numbers[i]);
+            String str = Long.toBinaryString(numbers[i]);  //10진수를 2진수로
             // System.out.println(str);
             
             int m = 0;
