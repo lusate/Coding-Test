@@ -105,12 +105,14 @@ class Solution {
 				if(Gidong[i][j]){
 					answer[cnt][0] = i; //x좌표
 					answer[cnt][1] = j; //y좌표
-					answer[cnt++][2] = 0; //기둥
+					answer[cnt][2] = 0; //기둥
+					cnt++;
 				}
 				if(Bo[i][j]){
 					answer[cnt][0] = i;
 					answer[cnt][1] = j;
-					answer[cnt++][2] = 1;
+					answer[cnt][2] = 1;
+					cnt++;
 				}
 			}
 		}
