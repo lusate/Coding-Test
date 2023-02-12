@@ -12,7 +12,7 @@ class Solution {
 		}
 
 		//보 위, 보 끝에
-		if((Bo[x-1][y] && x > 0) || Bo[x][y]){
+		if((x > 0 && Bo[x-1][y]) || Bo[x][y]){
 			return true;
 		}
 
@@ -26,7 +26,7 @@ class Solution {
 			return true;
 		}
 
-		//보 양옆
+		//보 위, 보 끝에 (x>0 를 꼭 먼저 해줘야 함.)
 		if(x > 0 && Bo[x-1][y] && Bo[x+1][y]){
 			return true;
 		}
