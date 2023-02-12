@@ -24,7 +24,10 @@ class Solution {
             
             //p[]를 연, 월, 일 별로 pDate에 저장
             String[] pDate = p[0].split("\\.");
-            
+            //정규식에서 .은 무작위 글자 하나만을 의미한다. 그래서 만약 "가.나.다.가나다"; 일 경우 "." 만 split하면 작동하지 않는다.
+		//따라서 이스케이프 문자(\\) 를 앞에 붙여줘야 한다.
+		
+		
             int pyear = Integer.parseInt(pDate[0]);
             int pmonth = Integer.parseInt(pDate[1]);
             int pday = Integer.parseInt(pDate[2]);
