@@ -4,7 +4,7 @@ class Main{
 		int answer=0;
 		int[] res = new int[n];
 		
-		//a는 끝나는 시간, b는 방 번호
+		//pq에는 [끝나는 시간, 방 번호]
 		PriorityQueue<int[]> pq = new PriorityQueue<>((a,b) -> a[0]==b[0] ? a[1]-b[1] : a[0]-b[0]);
 		TreeSet<Integer> rooms = new TreeSet<>();
 		for(int i=0; i<n; i++){
