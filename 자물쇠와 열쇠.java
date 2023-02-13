@@ -38,7 +38,7 @@ class Solution {
 			for(int j=0; j<point + lock.length; j++){
 				//회전
 				for(int r = 0; r<4; r++){
-					int[][] map = new int[key.length+lock.length*2][key.length+lock.length*2];
+					int[][] map = new int[key.length*lock.length-2][key.length*lock.length-2];
 
 					//가운데에 lock 위치시킴
 					for(int k=0; k<lock.length; k++){
