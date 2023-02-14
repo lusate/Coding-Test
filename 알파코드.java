@@ -11,7 +11,7 @@ class Solution{
 			return 1; //끝까지 도착하면 return 1.
 		}
 		else{//백하면서 res를 더해줌.
-			int res = dfs(st+1, s);
+			int res = dfs(st+1, s);  //알파벳으로 복원하는 방법의 가지 수
 			int num = Integer.parseInt(s.substring(st, st+2));
 
 			if(num <= 26) res += dfs(st+2, s); //조건 맞으므로 그 다음으로 뻗어나감.
