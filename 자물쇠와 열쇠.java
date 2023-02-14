@@ -1,5 +1,6 @@
 import java.util.*;
 class Solution {
+	//회전해서 매칭시킴.
     public void match(int[][] map, int[][] key, int r, int x, int y){
 		int len = key.length;
 		for(int i=0; i<len; i++){
@@ -20,6 +21,7 @@ class Solution {
 		}
 	}
     
+	//회전시켜서 매칭시켰을 때 lock을 풀 수 있는지 확인.
     public boolean check(int[][] map, int point, int len){
 		for(int i=0; i<len; i++){
 			for(int j=0; j<len; j++){
@@ -47,7 +49,7 @@ class Solution {
 						}
 					}
 
-					match(map, key, r, i, j);
+					match(map, key, r, i, j); // 회전 시킴.
 					if(check(map, point, lock.length)){
 						return true;
 					}
