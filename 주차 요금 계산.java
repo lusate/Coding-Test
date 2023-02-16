@@ -43,13 +43,13 @@ class Solution {
 		}
 
 
-		// int[] answer = new int[res.size()];
-// 		for(int i=0; i<res.size(); i++){
-//             answer[i] = fees[1];
-// 			if(res.get(i) > fees[0]){
-//                 answer[i] += Math.ceil((res.get(i) - fees[0]) / (double)fees[2]) * fees[3];
-//             }
-// 		}
+		int[] answer = new int[res.size()];
+		for(int i=0; i<res.size(); i++){
+            		answer[i] = fees[1];
+            		if(res.get(i) > fees[0]){
+                		answer[i] += Math.ceil((res.get(i) - fees[0]) / (double)fees[2]) * fees[3];
+            		}
+        	}
 
 		int[] answer = new int[res.size()];
 		int idx=0;
