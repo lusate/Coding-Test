@@ -51,19 +51,16 @@ class Solution {
             		}
         	}
 
-		int[] answer = new int[res.size()];
-		int idx=0;
-		for(int val : res){
-			answer[idx] = fees[1]; //기본 요금
-			if(val > fees[0]){ //추가 요금
-				answer[idx] += Math.ceil((val - fees[0]) / (double)fees[2]) * fees[3];
-			}
+// 		int[] answer = new int[res.size()];
+// 		int idx=0;
+// 		for(int val : res){
+// 			answer[idx] = fees[1]; //기본 요금
+// 			if(val > fees[0]){ //추가 요금
+// 				answer[idx] += Math.ceil((val - fees[0]) / (double)fees[2]) * fees[3];
+// 			}
 
-			idx++;
-		}
-
-
-		//answer[idx] += Math.ceil((val - fees[0]) / (double)fees[2]) * fees[3];
+// 			idx++;
+// 		}
 
         return answer;
     }
