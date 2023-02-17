@@ -99,7 +99,7 @@ class Solution {
        		
 			//라이언이 가장 큰 점수 차이로 우승할 수 있는 방법이 여러가지인 경우 가장 낮은 점수를 더 많이 맞힌 경우를 return
 			if(ryan - apeach == maxDif){
-				for(int k=10; k>=0; k--){
+				for(int k=10; k>=0; k--){ //가장 낮은 점수가 마지막 인덱스에 있기 때문에 거꾸로 for문 돌림
 					if(tmp[k] > answer[k]){
 						maxDif = ryan - apeach;
 						answer = Arrays.copyOf(tmp, tmp.length);
