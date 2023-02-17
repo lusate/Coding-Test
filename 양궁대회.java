@@ -92,7 +92,7 @@ class Solution {
 			//apeach가 ryan보다 화살을 더 쓰면 안됨.
 			if(cnt > n) continue;
 
-			tmp[10] = n - cnt; //남은 화살 개수를 저장.  tmp[1] 이면 0점.
+			tmp[10] = n - cnt; //남은 화살 개수를 저장.  tmp[10] 이면 0점.
 
 			//maxDif보다 더 큰 값을 찾음
 			
