@@ -1,6 +1,6 @@
 import java.util.*;
 class Solution{
-	private static int solution(String s, int k) {
+	public int solution(String s, int k) {
 		int answer=300000;
 		int n = s.length();
 		HashMap<Character, Integer> map = new HashMap<>();
@@ -29,8 +29,9 @@ class Solution{
 	}
 	
 	public static void main(String[] args){
-		System.out.println(solution("abacbbcdede", 5));
-		System.out.println(solution("acbbcdbbedeade", 4));
+		Solution T = new Solution();
+		System.out.println(T.solution("abacbbcdede", 5));
+		System.out.println(T.solution("acbbcdbbedeade", 4));
 	}
 }
 
