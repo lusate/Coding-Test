@@ -30,7 +30,7 @@ class Solution {
             cur += totalSec[i];
         }
         //adv_time이 한 칸씩 오른쪽으로 이동하면서 최대값을 구함
-        long max = cur;
+        long max = cur; //max에 초기값을 넣어주기 위함.
         int maxIdx = 0; //가장 클 때의 처음 인덱스
         for(int i=adv; i<play; i++){
             cur = cur + totalSec[i] - totalSec[i - adv];
