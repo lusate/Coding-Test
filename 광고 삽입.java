@@ -26,6 +26,9 @@ class Solution {
         //동영상, 공익광고 제한시간이 100시간인데 logs 크기가 30만이면 100 * 3600 * 30만이면
         //int 범위 벗어남. 그래서 long
         long cur = 0;
+        for(int i=0; i<adv; i++){
+            cur += totalSec[i];
+        }
 		
         //adv_time이 한 칸씩 오른쪽으로 이동하면서 최대값을 구함
         long max = 0;
