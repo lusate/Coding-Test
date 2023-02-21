@@ -13,15 +13,15 @@ class Info implements Comparable<Info>{
 		return this.time - ob.time; //시간을 기준으로 오름차순.
 	}
 }
-class Main{
-	private static int getTime(String time){
+class Solution{
+	public int getTime(String time){
 		int H = Integer.parseInt(time.split(":")[0]);
 		int M = Integer.parseInt(time.split(":")[1]);
 
 		return 60 * H + M;
 	}
 
-	private static String[] solution(String[] reports, String times){
+	public String[] solution(String[] reports, String times){
 		ArrayList<Info> arr = new ArrayList<>();
 		
 		//report에 " "를 분리
@@ -57,11 +57,12 @@ class Main{
 	}
 	
 	public static void main(String[] args){
-		System.out.println(Arrays.toString(solution(new String[]{"john 15:23", "daniel 09:30", "tom 07:23",
+		Solution T = new Solution();
+		System.out.println(Arrays.toString(T.solution(new String[]{"john 15:23", "daniel 09:30", "tom 07:23",
 		"park 09:59", "luis 08:57"}, "08:33 09:45")));
 
 
-		System.out.println(Arrays.toString(solution(new String[]{"ami 12:56", "daniel 15:00", "bob 19:59",
+		System.out.println(Arrays.toString(T.solution(new String[]{"ami 12:56", "daniel 15:00", "bob 19:59",
 		"luis 08:57", "bill 17:35", "tom 07:23", "john 15:23", "park 09:59"}, "15:01 19:59")));
 	}
 }
