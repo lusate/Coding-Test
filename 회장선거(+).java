@@ -1,6 +1,6 @@
 import java.util.*;
-class Main{
-	private static String solution(String[] votes, int k){
+class Solution{
+	public String solution(String[] votes, int k){
 		String answer = "";
 		HashMap<String, HashSet<String>> map = new HashMap<>();
 		HashMap<String, Integer> candidate = new HashMap<>();
@@ -41,7 +41,7 @@ class Main{
 			if(present.get(x) == max) arr.add(x);
 		}
 
-		System.out.println(arr);
+		// System.out.println(arr);
 		Collections.sort(arr);
 		answer = arr.get(0);
 
@@ -53,10 +53,11 @@ class Main{
 	//Key값이 존재하지 않는 경우 Key와 Value를 Map에 저장.
 	
 	public static void main(String[] args){
-		System.out.println(solution(new String[]{"john tom", "daniel luis", "john luis", "luis tom", 
+		Solution T = new Solution();
+		System.out.println(T.solution(new String[]{"john tom", "daniel luis", "john luis", "luis tom", 
 		"daniel tom", "luis john"}, 2));
 		
-		System.out.println(solution(new String[]{"john tom", "park luis", 
+		System.out.println(T.solution(new String[]{"john tom", "park luis", 
 		"john luis", "luis tom", "park tom", "luis john", "luis park", "park john", "john park", 
 		"tom john", "tom park", "tom luis"}, 3));
 	}
@@ -66,4 +67,5 @@ class Main{
 
 /* 출력
 daniel
+john
 */
