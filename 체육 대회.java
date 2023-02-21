@@ -3,21 +3,21 @@ class Solution{
 	int answer;
     boolean[] visit;
 
-	public void dfs(int L, int sum, int[][] arr){
-		if(L == arr.length) {
+	public void dfs(int cnt, int sum, int[][] arr){
+		if(cnt == arr.length){
             answer = Math.max(answer, sum);
-            return;
         }
-        
-		for(int j=0; j<arr[0].length; j++){
-			if(!visit[j]){
-				visit[j] = true;
-				sum+=arr[L][j];
-				dfs(L+1,sum,arr);
-				visit[j] = false;
-				sum-=arr[L][j];
-			}
-		}
+        else{
+            for(int j=0; j<arr[0].length; j++){
+                if(!visit[j]){
+                    visit[j] = true;
+                    sum += arr[cnt][j];
+                    dfs(cnt+1, sum, arr);
+                    visit[j] = false;
+                    sum -= arr[cnt][j];
+                }
+            }
+        }
     }
 	
 
@@ -25,15 +25,15 @@ class Solution{
 		answer = Integer.MIN_VALUE;
 		int n = ability.length;
 		int m = ability[0].length;
-
         visit = new boolean[n];
         int[][] arr = new int[m][n];
-        
-        for(int i=0; i<m; i++) {
-            for(int j=0; j<n; j++) {
+
+        for(int i=0; i<m; i++){
+            for(int j=0; j<n; j++){
                 arr[i][j] = ability[j][i];
             }
         }
+        
         dfs(0,0,arr);
         
         return answer;
