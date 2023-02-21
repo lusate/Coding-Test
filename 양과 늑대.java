@@ -70,8 +70,8 @@ class Solution {
     boolean[][][] visit;
     int maxSheep;
     public void dfs(int sheep, int wolf, int now, int[] info){
-        if(infos[now] == 0) sheep++;
-        else if(infos[now] == 1) wolf++;
+        if(info[now] == 0) sheep++;
+        else if(info[now] == 1) wolf++;
         
         if(wolf >= sheep) return;
         maxSheep = Math.max(maxSheep, sheep);
