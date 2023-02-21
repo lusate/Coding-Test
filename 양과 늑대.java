@@ -76,7 +76,7 @@ class Solution {
         if(wolf >= sheep) return;
         maxSheep = Math.max(maxSheep, sheep);
         
-        for(int i=0; i<graph[now].size(); i++){
+        for(int i=0; i<graph[now].size(); i++){ //i는 0 ~ 2까지
 			int next = graph[now].get(i);
 			int tmp = info[now];
 			if(!visit[next][sheep][wolf]){
