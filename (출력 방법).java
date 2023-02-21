@@ -26,3 +26,20 @@ ArrayList<Info> arr = new ArrayList<>(); // 타입이 클래스로 있으면
 for(Info ob : arr){
   System.out.println(ob.name + " " + ob.time);
 }
+
+
+// -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ArrayList<Integer>[] graph = new ArrayList[n];
+for(int i=0; i<n; i++){
+            graph[i] = new ArrayList<>();
+        }
+
+        for(int i=0; i<edges.length; i++){
+            int a = edges[i][0];
+            int b = edges[i][1];
+            
+            graph[a].add(b);
+            graph[b].add(a);
+        }
+System.out.println(Arrays.deepToString(graph));
