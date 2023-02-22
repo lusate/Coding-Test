@@ -10,7 +10,7 @@ class Info implements Comparable<Info>{
 	}
 
 	@Override
-	public int compareTo(Info ob){
+	public int compareTo(Info ob){ // 사전 
 		return path.compareTo(ob.path);
 	}
 }
