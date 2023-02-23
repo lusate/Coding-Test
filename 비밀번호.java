@@ -1,8 +1,8 @@
 import java.util.*;
-class Main{
-	static int[] dx = {-1, -1, 0, 1, 1, 1, 0, -1};
-	static int[] dy = {0, 1, 1, 1, 0, -1, -1, -1}; 
-	private static int solution(int[] key, String password){
+class Solution{
+	int[] dx = {-1, -1, 0, 1, 1, 1, 0, -1};
+	int[] dy = {0, 1, 1, 1, 0, -1, -1, -1}; 
+	public int solution(int[] key, String password){
 		int answer = 0;
 
 		int[][] map = new int[3][3];
@@ -55,8 +55,17 @@ class Main{
 	}
 	
 	public static void main(String[] args){
+		Solution T = new Solution();
 		System.out.println(solution(new int[]{2, 5, 3, 7, 1, 6, 4, 9, 8}, "7596218"));	
 		System.out.println(solution(new int[]{1, 5, 7, 3, 2, 8, 9, 4, 6}, "63855526592"));
 		System.out.println(solution(new int[]{2, 9, 3, 7, 8, 6, 4, 5, 1}, "323254677"));
 	}
 }
+
+
+/* 출력
+8
+12
+13
+8
+*/
