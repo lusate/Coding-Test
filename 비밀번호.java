@@ -18,7 +18,7 @@ class Solution{
 
 		//dist[10][10]를 모두 2로 초기화.
 		for(int i = 0; i < 10; i++){
-			Arrays.fill(dist[i], 2);
+			Arrays.fill(dist[i], 2); //처음에 움직일 때 전부 2초를 가는 것으로 초기화.  이따가 1초 걸리는 것으로 바꿈
 		}
 
 		//자기 자신의 번호로 가는 시간은 0
