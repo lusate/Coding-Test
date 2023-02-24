@@ -24,7 +24,7 @@ public class Main {
 		int min = MIN(fruit);
 
 		for(int x : fruit){
-			if(x == min){
+			if(x == min){ //찾은 최솟값이 한 개뿐이면 유니크함.
 				cnt++;
 			}
 			if(cnt >= 2){
