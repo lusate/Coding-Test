@@ -1,7 +1,7 @@
 import java.util.*;
 public class Main {
 	//최솟값 구해주기 (최솟값의 유니크함을 편하게 하기 위해.)
-	private static int MIN(int[] fruit){
+	public int MIN(int[] fruit){
 		int min = Integer.MAX_VALUE;
 		for(int x : fruit){
 			min = Math.min(min, x);
@@ -10,7 +10,7 @@ public class Main {
 		return min;
 	}
 	//최솟값의 인덱스 구하기
-	private static int MinIndex(int[] fruit){
+	public int MinIndex(int[] fruit){
 		int min = MIN(fruit);
 		for(int i=0; i<3; i++){
 			if(fruit[i] == min) return i;
@@ -19,7 +19,7 @@ public class Main {
 		return 0;
 	}
 
-	private static boolean unique(int[] fruit){
+	public boolean unique(int[] fruit){
 		int cnt = 0;
 		int min = MIN(fruit);
 
