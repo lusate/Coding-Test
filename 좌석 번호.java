@@ -6,7 +6,7 @@ class Solution {
 		int[][] map = new int[c][r];
 		int[] dx = {-1, 0, 1, 0};
 		int[] dy = {0, 1, 0, -1};
-		int x = 0, y = 0, cnt = 1, d = 1;
+		int x = 0, y = 0, cnt = 1, d = 0;
 
 		while(cnt < k){ //이동한 횟수 k보다 작을 때까지 반복
 			int nx = x + dx[d];
