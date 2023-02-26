@@ -1,8 +1,8 @@
 import java.util.*;
 public class Main {
-	static int[] dx = {-1, 0, 1, 0};
-	static int[] dy = {0, 1, 0, -1};
-	private static int[] solution(int[][] board, int k){
+	int[] dx = {-1, 0, 1, 0};
+	int[] dy = {0, 1, 0, -1};
+	public int[] solution(int[][] board, int k){
 		int n = board.length;
 		int[] answer = new int[2];
 		int x=0, y=0;
@@ -39,7 +39,7 @@ public class Main {
 		int[][] board = new int[][]{{0,0,0,0,0},{0,1,1,0,0},{0,0,0,0,0}, {1,0,1,0,1}, {0,0,0,0,0}};
 		int k = 10;
 
-		System.out.println(Arrays.toString(solution(board, k)));
+		System.out.println(Arrays.toString(T.solution(board, k)));
 	}
 }
 
