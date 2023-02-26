@@ -1,6 +1,6 @@
 import java.util.*;
 class Solution {
-	private static int[] solution(int c, int r, int k){
+	public int[] solution(int c, int r, int k){
 		int[] answer = new int[2];
 		//배열로 생각하기 위해 90도 회전한 상태라 생각하고 시작.
 		int[][] map = new int[c][r];
@@ -36,9 +36,10 @@ class Solution {
 	}
 
 	public static void main(String[] args){
-		System.out.println(Arrays.toString(solution(6, 5, 12)));	
-		System.out.println(Arrays.toString(solution(6, 5, 20)));
-		System.out.println(Arrays.toString(solution(6, 5, 30)));
+		Solution T = new Solution();
+		System.out.println(Arrays.toString(T.solution(6, 5, 12)));	
+		System.out.println(Arrays.toString(T.solution(6, 5, 20)));
+		System.out.println(Arrays.toString(T.solution(6, 5, 30)));
 	}
 }
 
