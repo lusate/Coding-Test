@@ -2,7 +2,7 @@ import java.util.*;
 public class Main {
 	int[] dx = {-1, 0, 1, 0};
 	int[] dy = {0, 1, 0, -1};
-	private static int solution(int[][] board){
+	public int solution(int[][] board){
 		int answer = 0;
 		int n = 10;
 		int x1=0, y1=0, x2=0, y2=0;
