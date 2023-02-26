@@ -63,6 +63,7 @@ public class Main {
 	}
 
 	public static void main(String[] args) {
+		Solution T = new Solution();
 		int[][] board = new int[][]{{0,0,0,0,0,0,1,0,0,0},
 									{0,0,0,0,1,0,0,0,0,0},
 									{0,0,0,1,0,0,0,1,0,0}, 
@@ -74,7 +75,7 @@ public class Main {
 									{0,0,0,1,0,1,0,0,0,0},
 									{0,1,0,1,0,0,0,0,0,0}};
 
-		System.out.println(solution(board));
+		System.out.println(T.solution(board));
 	}
 }
 
