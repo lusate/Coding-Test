@@ -7,7 +7,7 @@ public class Main {
 		int[] answer = new int[2];
 		int x=0, y=0;
 		int time = 0;
-		int d = 1;
+		int d = 1; //오른쪽부터 시작하기 때문에 1로 설정해줌.
 		while(time < k){
 			time++;
 			int nx = x + dx[d];
