@@ -1,5 +1,6 @@
 import java.util.*;
 class Solution {
+	//num이 현재 출발점이 맞는지 확인
 	public boolean isGate(int num, int[] gates){
 		for(int x : gates){
 			if(num == x) return true;
@@ -8,6 +9,7 @@ class Solution {
 		return false;
 	}
 
+	//num이 현재 산봉우리가 맞는지 확인
 	public boolean isSummit(int num, int[] summits){
 		for(int x : summits){
 			if(num == x) return true;
@@ -107,3 +109,9 @@ class Solution {
 [5, 1]
 [5, 6]
 */
+
+
+// 문제 핵심
+// 출입구에 연결된 양방향 등산로 -> 출입구에서 다른 지점으로만 이동 가능한 단방향 등산로.
+// 산봉우리 연결된 양방향 등산로 -> 다른 지점에서 산봉우리로만 이동 가능한 단방향 등산로.
+// 별다른 중복처리 없이 등산코스에서 출입구는 처음과 끝에 한 번씩, 산봉우리는 한 번만 포함되어야 하는 규칙을 지킬 수 있다.
