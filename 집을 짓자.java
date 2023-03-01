@@ -10,6 +10,7 @@ class Solution {
 		int emptyLand = 0;
 		for(int i = 0; i < n; i++){
 			for(int j = 0; j < n; j++){
+				//문제에서처럼 출발해야 하는 곳이 여러 곳이면 꼭 이중 for문으로 하기.
 				if(board[i][j] == 1){
 					answer = Integer.MAX_VALUE;
 					Q.offer(new int[]{i, j});
