@@ -1,5 +1,5 @@
 import java.util.*;
-class Main{
+class Solution{
 	public int count(int[] nums, int mid){
 		int cnt = 0;
 
