@@ -20,6 +20,7 @@ class Solution {
 		
         PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[1]-b[1]);
         for(int[] x : time){
+		//처음 x[0]일 때는 pq에 아무것도 없으므로 x를 그냥 삽입.
             while (!pq.isEmpty() && pq.peek()[1]<=x[0]){
                 pq.poll();
             }
