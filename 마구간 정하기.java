@@ -1,7 +1,7 @@
 import java.util.*;
 class Main {
     //말 사이의 거리를 5로 했을 때 몇 마리를 배치할 수 있는지 카운트
-    public int count(int[] arr, int dist){
+    private static int count(int[] arr, int dist){
         int cnt = 1; // 말 한마리 배치
         int ep = arr[0]; //제일 왼쪽에 배치.
 
@@ -18,7 +18,7 @@ class Main {
     // arr[i] - end >= 5 이어야 다음 말을 넣을 수 있다.
     // 즉 1에 말이 배치 되어 있으니 5보다 크거나 같을려면 8에 위치해야 한다.
     // 말은 3 개의 마구간에 배치해야 한다.
-    public int binary(int n, int m, int[] arr){
+    private static int binary(int n, int m, int[] arr){
         int answer = 0;
         int left = 1;
         int right = arr[n-1];
