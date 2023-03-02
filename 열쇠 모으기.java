@@ -22,7 +22,7 @@ class Solution {
 		int keys = (1 << cnt) - 1;
 		Queue<int[]> q = new LinkedList<>();
 		boolean[][][] visit = new boolean[n][m][keys + 1];
-		q.offer(new int[]{0, 0, 0});
+		q.offer(new int[]{0, 0, 0});  //[x 좌표, y 좌표, 열쇠 개수]
 		
 		visit[0][0][0] = true;
 		int L = 0;
