@@ -7,7 +7,7 @@ class Solution {
         ArrayList<Integer> arr = new ArrayList<>();
         for(int i=0; i<n; i++){
             int idx = i;
-            int cnt = 0;
+            int cnt = 0; //각 상자의 그룹에 몇 개의 카드가 들어가는지 카운트.
             while(ch[idx] == 0){
                 cnt++;
                 ch[idx] = 1;
