@@ -60,18 +60,19 @@ class Solution {
 			// System.out.println("size : " + graph.get(now).size());
 
 			for(int i=0; i<graph.get(now).size(); i++){
-				int[] tmp = graph.get(now).get(i);
+				int[] tmp = graph.get(now).get(i);  //[도착 지점, 걸리는 시간]
 				// System.out.println("d : " + Arrays.toString(tmp));
 				
-				int dis = Math.max(cost[now], tmp[1]);
-				if(cost[tmp[0]] > dis){
+				int dis = Math.max(cost[now], tmp[1]); // intensity를 최대값으로 설정.
+				if(cost[tmp[0]] > dis){ //다음 노드로 이동할 때 걸리는 시간이 itensity보다 더 크면
 					cost[tmp[0]] = dis;
 					q.offer(new int[]{tmp[0], dis});
 				}
 			}
 		}
 
-
+		//입구에서 정상까지 가는 경로가 최소이면 돌아오는 경로도 똑같이 최소인 경로로 돌아오면 되므로 
+	    	//입구에서 산봉우리까지 가는 경우의 경로만 생각하면 된다.
 		
 
 		Arrays.sort(summits);
