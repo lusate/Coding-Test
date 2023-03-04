@@ -63,7 +63,8 @@ class Solution {
 				int[] tmp = graph.get(now).get(i);  //[도착 지점, 걸리는 시간]
 				// System.out.println("d : " + Arrays.toString(tmp));
 				
-				int dis = Math.max(cost[now], tmp[1]); // intensity를 최대값으로 설정.
+				// itensity는 휴식 없이 이동해야 하는 시간 중 가장 긴 시간.
+				int dis = Math.max(cost[now], tmp[1]); // 
 				if(cost[tmp[0]] > dis){ //다음 노드로 이동할 때 걸리는 시간이 itensity보다 더 크면
 					cost[tmp[0]] = dis;
 					q.offer(new int[]{tmp[0], dis});
@@ -75,6 +76,7 @@ class Solution {
 	    	//입구에서 산봉우리까지 가는 경우의 경로만 생각하면 된다.
 		
 
+	    	// 이 itensity 중에서의 최소값을 구해야 함.
 		Arrays.sort(summits);
 		Arrays.fill(answer, Integer.MAX_VALUE);
 		for(int x : summits){
