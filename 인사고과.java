@@ -28,6 +28,7 @@ class Solution {
 
             if(sum > wanhooSum){
                 //완호보다 합이 큰 사원들 중에 인센티브를 받을 수 있다면 랭크를 +
+		//완호보다 점수 합이 작다면 랭크를 셀 필요가 없음.
                 if(Incentive(x, scores)) answer++;
             }
         }
