@@ -2,13 +2,13 @@ import java.util.*;
 class Solution {
     //모든 사원들에 대한 인센티브 여부
     public boolean Incentive(int[] score, int[][] scores){
-        for(int[] x : scores){
-            if(x[0] > score[0] && x[1] > score[1]){
-                return true;
+        for(int[] x : scores){ //x는 모든 사원.
+            //현 사원의 점수가 다른 사원들보다 둘다 작다면 인센티브 받지 못함.
+            if(score[0] < x[0] && score[1] < x[1]){
+                return false;
             }
         }
-
-        return false;
+        return true;
     }
 
     public int solution(int[][] scores) {
@@ -28,7 +28,7 @@ class Solution {
 
             if(sum > wanhooSum){
                 //완호보다 합이 큰 사원들 중에 인센티브를 받을 수 있다면 랭크를 +
-                if(!Incentive(x, scores)) answer++;
+                if(Incentive(x, scores)) answer++;
             }
         }
 
