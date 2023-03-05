@@ -1,5 +1,68 @@
 import java.util.*;
 class Solution{
+    int n;
+    int[] dx = {-1, 0, 1, 0};
+    int[] dy = {0, 1, 0, -1};
+    boolean[][] visit;
+
+    public int Correct(String[] str){
+        n = str.length;
+        for(int i=0; i<n; i++){
+            for(int j=0; j<n; j++){
+                if(str[i].charAt(j) == 'P'){
+                    Queue<int[]> q = new LinkedList<>();
+                    q.offer(new int[]{i, j});
+                    visit = new boolean[n][n];
+                    visit[i][j] = true;
+
+                    while(!q.isEmpty()){
+                        int[] tmp = q.poll();
+
+                        for(int k=0; k<4; k++){
+                            int nx = tmp[0] + dx[k];
+                            int ny = tmp[1] + dy[k];
+                            int manhatten = Math.abs(i - nx) + Math.abs(j - ny);
+
+                            if(nx < 0 || nx >= n || ny < 0 || ny >= n) continue;
+
+				            if(visit[nx][ny] || manhatten > 2) continue;
+
+                            visit[nx][ny] = true;
+                            if(str[nx].charAt(ny) == 'X') continue;
+                            if(str[nx].charAt(ny) == 'P') return 0;
+                            q.offer(new int[]{nx, ny});
+                        }
+                    }
+                }
+            }
+        }
+
+        return 1;
+    }
+	public int[] solution(String[][] places) {
+		n = places.length;
+        int[] answer = new int[n];
+
+        for(int i=0; i<n; i++){
+            answer[i] = Correct(places[i]);
+
+        }
+
+        return answer;
+    }
+	public static void main(String[] args){
+		Solution T = new Solution();
+		System.out.println(Arrays.toString(T.solution(new String[][]{{"POOOP", "OXXOX", "OPXPX", "OOXOX", "POXXP"}, {"POOPX", "OXPXP", "PXXXO", "OXXXO", "OOOPP"}, 
+		{"PXOPX", "OXOXP", "OXPOX", "OXXOP", "PXPOX"}, {"OOOXX", "XOOOX", "OOOXX", "OXOOX", "OOOOO"}, {"PXPXP", "XPXPX", "PXPXP", "XPXPX", "PXPXP"}})));
+		
+	}
+}
+
+
+-------------------------------------------------------------------------------------------------------------------
+
+import java.util.*;
+class Solution{
 	int n;
 	int[] dx = {-1, 0, 1, 0};
 	int[] dy = {0, 1, 0, -1};
