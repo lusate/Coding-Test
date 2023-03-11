@@ -20,7 +20,7 @@ class Solution {
 			boolean isExist = true;
 			for(int j=0; j<cnt; j++){
 				int idx = i+j;
-				String idxKey = discount[idx];
+				String idxKey = discount[idx]; // 10개씩
 
 				if(!tmp.containsKey(idxKey)){
 					isExist = false;
