@@ -20,6 +20,7 @@ class Solution {
 		//출발한 곳에서 최단 거리를 구해줘야 하므로 q에 destination을 삽입.
         q.offer(destination);
         cost[destination] = 0;
+	    //그렇지 않으면 계속 목적지의 거리만 최소 거리를 갱신함.
 
         while(!q.isEmpty()){
             int cur = q.poll();
