@@ -7,28 +7,29 @@ class Solution {
         int answer = 0;
         HashSet<Integer> set = new HashSet<>();
         
-        int[] chulsoo = new int[topping.length];
-        int[] brother = new int[topping.length];
+		//자르지 않을 때는 어차피 롤케이크 종류가 다르기 때문에 할 필요 없음.
+        int[] chulsoo = new int[topping.length-1];
+        int[] brother = new int[topping.length-1];
         
-        for(int i=0; i<topping.length; i++){
+        for(int i=0; i<topping.length-1; i++){
             set.add(topping[i]);
             chulsoo[i] = set.size();
         }
         set.clear(); //HashSet을 초기화해서 다시 사용할 수 있도록 해줌.
         
-        for(int i=topping.length-1; i>=0; i--){
+        for(int i=topping.length-1; i>=1; i--){
             set.add(topping[i]);
-            brother[i] = set.size();
+            brother[i-1] = set.size();
             //동생은 반대로 해서 채워줌. -> 형이 인덱스 0을 가져갈 때 동생은 나머지 인덱스를 모두 가져가기 때문
         }
         
-        // System.out.println(Arrays.toString(chulsoo));
-        // 	[1, 2, 2, 3, 3, 4, 4, 4]
-        // System.out.println(Arrays.toString(brother));
-        // 	[0, 4, 4, 4, 3, 3, 2, 1]
+        System.out.println(Arrays.toString(chulsoo));
+        // 	[1, 2, 2, 3, 3, 4, 4]
+        System.out.println(Arrays.toString(brother));
+        // 	[4, 4, 4, 3, 3, 2, 1]
         
         for(int i=0; i<topping.length-1; i++){
-            if(chulsoo[i] == brother[i+1]){
+            if(chulsoo[i] == brother[i]){
                 answer++;
             }
         }
