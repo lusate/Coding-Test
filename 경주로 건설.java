@@ -61,6 +61,89 @@ class Solution{
 }
 
 
+// ------------ ------------ ------------ ------------ ------------ ------------ ------------
+
+
+import java.util.*;
+class Point{
+	int x, y, dir, total;
+	Point(int x, int y, int dir, int total){
+		this.x=x;
+		this.y=y;
+		this.dir=dir;
+		this.total=total;
+	}
+}
+class Solution {
+	int[] dx = {0, 1, 0, -1};
+	int[] dy = {-1, 0, 1, 0};
+	int INF = 10000000;
+	public int solution(int[][] board) {
+		int answer = INF;
+		int n = board.length;
+
+		int[][] cost = new int[n][n];
+		int[][] map = board;
+
+		for(int i=0; i<n; i++){
+			Arrays.fill(cost[i], INF);
+		}
+
+		cost[0][0] = 0;
+
+		Queue<Point> q = new LinkedList<>();
+		q.offer(new Point(0, 0, -1, 0));
+		while(!q.isEmpty()){
+			Point now = q.poll();
+			if(now.x == n-1 && now.y == n-1){
+				answer = Math.min(answer, now.total);
+			}
+
+			for(int k=0; k<4; k++){
+				int nx = now.x + dx[k];
+				int ny = now.y + dy[k];
+				
+				if (nx < 0 || ny < 0 || nx >= n || ny >= n || board[nx][ny] == 1 || cost[nx][ny] <= now.total) continue;
+
+				if(now.dir == -1 || now.dir == k){ //처음 이동할 때 or 같은 방향
+					cost[nx][ny] = now.total + 100;
+					q.offer(new Point(nx, ny, k, now.total+100));
+				}
+				else{ // 방향 바꿀 때
+					cost[nx][ny] = now.total + 100;
+					q.offer(new Point(nx, ny, k, now.total+600));
+				}
+
+				// if(ny >= 0 && ny < n && nx >=0 && nx < n && map[nx][ny] == 0 && cost[nx][ny] > now.total) {
+				// 	if(now.dir == -1 || now.dir == k){ //처음 이동할 때 or 같은 방향
+				// 		cost[nx][ny] = now.total + 100;
+				// 		q.offer(new Point(nx, ny, k, now.total+100));
+				// 	}
+				// 	else{ // 방향 바꿀 때
+				// 		cost[nx][ny] = now.total + 100;
+				// 		q.offer(new Point(nx, ny, k, now.total+600));
+				// 	}
+				// }
+			}
+		}
+
+
+		return answer;
+    }
+
+	public static void main(String[] args){
+		Solution T = new Solution();
+		System.out.println(T.solution(new int[][]{{0,0,0}, {0,0,0}, {0,0,0}}));
+		System.out.println(T.solution(new int[][]{{0,0,0,0,0,0,0,1}, {0,0,0,0,0,0,0,0}, 
+		{0,0,0,0,0,1,0,0}, {0,0,0,0,1,0,0,0}, {0,0,0,1,0,0,0,1}, {0,0,1,0,0,0,1,0}, 
+		{0,1,0,0,0,1,0,0}, {1,0,0,0,0,0,0,0}}));
+
+		System.out.println(T.solution(new int[][]{{0,0,0,0,0,0}, {0,1,1,1,1,0}, 
+		{0,0,1,0,0,0}, {1,0,0,1,0,1}, {0,1,0,0,0,1}, {0,0,0,0,0,0}}));
+	}
+}
+
+
 /* 출력
 900
 3800
