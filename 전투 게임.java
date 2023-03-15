@@ -13,8 +13,8 @@ class Info implements Comparable<Info>{
 		return this.at - ob.at;
 	}
 }
-class Main{
-	private static int[] solution(String[] students){
+class Solution{
+	public int[] solution(String[] students){
 		int n = students.length;
 		int[] answer = new int[n];
 		HashMap<Character, Integer> map = new HashMap<>();
@@ -61,8 +61,9 @@ class Main{
 	}
 	
 	public static void main(String[] args){
-		System.out.println(Arrays.toString(solution(new String[]{"a 20", "b 12", "a 10", "c 11", "e 12"})));
-		System.out.println(Arrays.toString(solution(new String[]{"a 17", "b 12", "a 10", "c 11", "b 24", "a 25", "b 12"})));
+		Solution T = new Solution();
+		System.out.println(T.solution(Arrays.toString(solution(new String[]{"a 20", "b 12", "a 10", "c 11", "e 12"}))));
+		System.out.println(T.solution(Arrays.toString(solution(new String[]{"a 17", "b 12", "a 10", "c 11", "b 24", "a 25", "b 12"}))));
 	}
 }
 
