@@ -21,6 +21,7 @@ class Solution {
             long mid = (lt + rt) / 2; // 시간 (분)
             
             if(count(times, mid) >= n){ //n명 보다 크면 크기 줄여줘야 함.
+		//카운트 할 때 큰 값 -> 작은 값 이므로 >= 로 해준다.
                 answer = mid;
                 rt = mid - 1;
             }
