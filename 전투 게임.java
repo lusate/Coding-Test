@@ -62,8 +62,8 @@ class Solution{
 	
 	public static void main(String[] args){
 		Solution T = new Solution();
-		System.out.println(T.solution(Arrays.toString(solution(new String[]{"a 20", "b 12", "a 10", "c 11", "e 12"}))));
-		System.out.println(T.solution(Arrays.toString(solution(new String[]{"a 17", "b 12", "a 10", "c 11", "b 24", "a 25", "b 12"}))));
+		System.out.println(T.solution(Arrays.toString(new String[]{"a 20", "b 12", "a 10", "c 11", "e 12"})));
+		System.out.println(T.solution(Arrays.toString(new String[]{"a 17", "b 12", "a 10", "c 11", "b 24", "a 25", "b 12"})));
 	}
 }
 
