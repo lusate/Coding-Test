@@ -49,7 +49,7 @@ class Solution{
 				else break; //잡지 못하면 at를 더하지 못하므로 빠져나옴.
 			}
 			//{a=10, b=12, c=11, e=12}
-			answer[arr.get(i).num] = sum - map.getOrDefault(arr.get(i).team, 0);
+			answer[arr.get(i).num] = sum - map.getOrDefault(arr.get(i).team, 0); // 같은 팀의 경우 뺌
 			//answer[3] = 10 - 0
 			//answer[1] = 21 - 0
 			//answer[2] = 0
