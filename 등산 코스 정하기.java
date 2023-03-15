@@ -70,6 +70,16 @@ class Solution {
 					q.offer(new int[]{tmp[0], dis});
 				}
 			}
+			// 같은 결과
+// 			for(int[] x : graph.get(now)){
+// 				int dis = Math.max(cost[now], x[1]);
+// 				if(cost[x[0]] > dis){
+// 					cost[x[0]] = dis;
+// 					q.offer(new int[]{x[0], dis});
+// 				}
+// 			}
+			
+			
 		}
 
 		//입구에서 정상까지 가는 경로가 최소이면 돌아오는 경로도 똑같이 최소인 경로로 돌아오면 되므로 
