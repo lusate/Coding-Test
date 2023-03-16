@@ -14,7 +14,7 @@ class Solution{
 			else if(map.containsKey(ch) && input_string.charAt(i-1) != ch && i>0){
 				map.put(ch, map.get(ch) + 1);
 			}
-			else continue;
+			else continue; // aaa 같은 경우
 		}
 
 		ArrayList<String> res = new ArrayList<>();
