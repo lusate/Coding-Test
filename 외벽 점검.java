@@ -38,6 +38,7 @@ class Solution {
 			//0이면 방문하지 않음, 0이 아니면 이미 방문함
 
 			dfs(cnt+1, i, visit, weak, dist);
+			//dfs(사용할 친구 명수, 취약점 위치 인덱스, 취약점 방문 여부)
 		}
 	}
 
