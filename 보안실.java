@@ -33,7 +33,7 @@ class Solution{
 			int lt=0;
 			for(int rt=0; rt<arr.size(); rt++){
 				while(arr.get(rt) - arr.get(lt) > 60) lt++;
-				if(rt-lt+1 == k){
+				if(rt-lt+1 >= k){
 					res.add(key);
 					break;
 				}
