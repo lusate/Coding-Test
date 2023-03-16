@@ -67,13 +67,13 @@ mirkovniz
 FRULA
 */
 
+*****
 
-------------------------------------------------------------------------------------------
 프로그래머스 방식
 import java.util.*;
-class Main{
-	static String s, bomb;
-	static Stack<Character> stack;
+class Solution{
+	String s, bomb;
+	Stack<Character> stack;
 
 	public String solution(String s, String bomb) {
 		String answer="";
@@ -113,7 +113,7 @@ class Main{
 		return answer;
 	}
 	public static void main(String[] args) throws Exception{
-		Main T = new Main();
+		Solution T = new Solution();
 
 		System.out.println(T.solution("mirkovC4nivCC44", "C4"));
 		System.out.println(T.solution("12ab112ab2ab", "12ab"));
