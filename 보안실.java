@@ -13,7 +13,7 @@ class Solution{
 			String a = x.split(" ")[0];
 			String b = x.split(" ")[1];
 
-			// map.put(a, new ArrayList<Integer>());
+			// map.put(a, new ArrayList<Integer>());  같은 사람의 시간끼리 list로 묶어줌.
 			map.putIfAbsent(a, new ArrayList<Integer>());
 			map.get(a).add(getTime(b));
 		}
