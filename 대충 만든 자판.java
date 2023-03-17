@@ -47,8 +47,8 @@ class Solution {
 	public static void main(String[] args){
 		Solution T = new Solution();
 		System.out.println(Arrays.toString(T.solution(new String[]{"ABACD", "BCEFD"}, new String[]{"ABCD","AABB"})));
-		System.out.println(T.solution(new String[]{"AA"}, new String[]{"B"}));
-		System.out.println(T.solution(new String[]{"AGZ", "BSSS"}, new String[]{"ASA","BGZ"}));
+		System.out.println(Arrays.toString(T.solution(new String[]{"AA"}, new String[]{"B"})));
+		System.out.println(Arrays.toString(T.solution(new String[]{"AGZ", "BSSS"}, new String[]{"ASA","BGZ"})));
 	}
 }
 
