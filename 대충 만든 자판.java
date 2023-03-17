@@ -5,9 +5,9 @@ class Solution {
         HashMap<Character,Integer> map = new HashMap<>();
 
 		//버튼 눌렀을 때 알파벳 별로 몇 번 눌러야 하는지 map에 저장.
-        for (String key : keymap) {
+        for(int i=0; i<keymap.length; i++){
             for (int j = 0; j < key.length(); j++) {
-                char ch = key.charAt(j);
+                char ch = keymap[i].charAt(j);
 
                 if (map.containsKey(ch)){
 					// j는 각 문자열의 인덱스이다.
@@ -24,19 +24,19 @@ class Solution {
 		// System.out.println(map);
 		// {A=1, B=1, C=2, D=5, E=3, F=4}
 
-        for(int i=0; i< targets.length;i++){
+        for(int i=0; i<targets.length; i++){
             int sum = 0;
             for(int j=0; j<targets[i].length();j++){
                 char ch = targets[i].charAt(j);
 
 				//이제 target에서 같은 알파벳이 있으면 sum 구해줌.
                 if(map.containsKey(ch)){
-                    sum+=map.get(ch);
-                }
-				else{
-                    sum = -1;
-                    break;
-                }
+			sum += map.get(ch);
+		}
+		else {
+			sum = -1;
+			break;
+		}
             }
             answer[i] = sum;
         }
