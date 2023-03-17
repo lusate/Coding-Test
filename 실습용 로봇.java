@@ -4,13 +4,13 @@
 import java.util.*;
 class Solution {
 	//방향 조심
-	int[] dx = {0, 1, 0, -1};
-    int[] dy = {1, 0, -1, 0};
+	int[] dx = {-1, 0, 1, 0};
+	int[] dy = {0, 1, 0, -1};
 
     public int[] solution(String command) {
 		int[] answer = new int[2];
 		int x=0, y=0;
-		int dir = 0;
+		int dir = 1; //오른쪽 회전이면 오른쪽부터 시작하기 위해 dir을 1로 함.
 		for(char c : command.toCharArray()){
 			if(c == 'G'){
 				x += dx[dir];
