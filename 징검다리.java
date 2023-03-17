@@ -28,7 +28,7 @@ class Solution {
 
 			//mid 대로 count()에서 제거한 바위 개수가 n보다 작으면 크기 늘려서 다시.
 			if(count(rocks, mid, distance) <= n){
-				//카운트 할 때 작은 값 -> 큰 값 이므로 <= 로 해준다.
+				//카운트 할 때 큰 값 ->은작은 값 이므로 <= 로 해준다.
 				answer = mid;
 				lt = mid + 1;
 			}
