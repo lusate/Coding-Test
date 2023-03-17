@@ -1,6 +1,6 @@
 import java.util.*;
 class Solution {
-    public int solution(int[] enter, int[] exit) {
+    public int[] solution(int[] enter, int[] exit) {
 		int n = enter.length;
 
 		for(int i=0; i<n; i++){
@@ -44,9 +44,9 @@ class Solution {
 
 	public static void main(String args[]){
 		Solution T = new Solution();
-		System.out.println(T.solution(new int[]{1, 2, 3, 4}, new int[]{2, 4, 1, 3}));
-		System.out.println(T.solution(new int[]{1, 2, 5, 3, 4}, new int[]{2, 3, 1, 4, 5}));
-		System.out.println(T.solution(new int[]{1, 3, 2, 4, 5, 7, 6, 8}, new int[]{2, 3, 5, 6, 1, 4, 8, 7}));
+		System.out.println(Arrays.toString(T.solution(new int[]{1, 2, 3, 4}, new int[]{2, 4, 1, 3})));
+		System.out.println(Arrays.toString(T.solution(new int[]{1, 2, 5, 3, 4}, new int[]{2, 3, 1, 4, 5})));
+		System.out.println(Arrays.toString(T.solution(new int[]{1, 3, 2, 4, 5, 7, 6, 8}, new int[]{2, 3, 5, 6, 1, 4, 8, 7})));
 	}
 }
 
