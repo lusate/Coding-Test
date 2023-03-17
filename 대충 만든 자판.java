@@ -6,7 +6,7 @@ class Solution {
 
 		//버튼 눌렀을 때 알파벳 별로 몇 번 눌러야 하는지 map에 저장.
         for(int i=0; i<keymap.length; i++){
-            for (int j = 0; j < key.length(); j++) {
+            for(int j=0; j<keymap[i].length(); j++){
                 char ch = keymap[i].charAt(j);
 
                 if (map.containsKey(ch)){
