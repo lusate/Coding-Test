@@ -6,7 +6,7 @@ class Solution {
 		int[][] map = new int[c][r];
 		int[] dx = {-1, 0, 1, 0};
 		int[] dy = {0, 1, 0, -1};
-		int x = 0, y = 0, cnt = 1, d = 1; //회전 상태면 오른쪽부터 이동하기 때문에 1로 설정.
+		int x = 0, y = 0, cnt = 1, d = 1; //처음 앉는 좌석 위치, count는 k번째 사람, d는 방향(3시 방향부터 움직이기 때문)
 
 		while(cnt < k){ //이동한 횟수 k보다 작을 때까지 반복
 			int nx = x + dx[d];
