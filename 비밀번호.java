@@ -46,7 +46,7 @@ class Solution{
 
 		//여기서 탐색하면서 password
 		for(int k=0; k<password.length()-1; k++){
-			int start = (int)password.charAt(k)-48; //55 - 48
+			int start = (int)password.charAt(k)-48; //55 - 48(문자 '0')
 			int end = (int)password.charAt(k+1)-48;
 			answer += dist[start][end];
 		}
