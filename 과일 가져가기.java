@@ -54,7 +54,9 @@ public class Main {
 				//교환하기 전 처음에 초기값이 같으면 이득을 보지 못하므로 유니크 해야 함.
 				if(!unique(fruit[j])) continue;
 
+				// 같은 과일 교환 X, i번 학생은 b 과일을 줄 때 0보다 커야 줄 수 있다.
 				if(a != b && fruit[i][b] > 0 && fruit[j][a] > 0){
+					// 1개 증가한 과일의 개수가 그대로 최솟값을 유지 -> (최솟값 + 1) <= X-1
 					//교환하고 나서는 최솟값이 서로 같아도 상관없으므로 <=
 					if(fruit[i][a]+1 <= fruit[i][b]-1 && fruit[j][a]-1 >= fruit[j][b]+1){
 						fruit[i][a]++;
