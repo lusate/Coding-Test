@@ -7,6 +7,8 @@ class Solution {
         int n = maps.length;
         int m = maps[0].length();
         char[][] board = new char[n][m];
+        boolean[][] visit = new boolean[n][m];
+	    
         for(int i=0; i<n; i++){
             String s = maps[i];
             for(int j=0; j<m; j++){
@@ -14,13 +16,11 @@ class Solution {
             }
         }
         
-        boolean[][] visit = new boolean[n][m];
         ArrayList<Integer> res = new ArrayList<>();
-        
         
         for(int i=0; i<n; i++){
             for(int j=0; j<m; j++){
-                if(!visit[i][j] && board[i][j] != 'X'){
+                if(!visit[i][j] && board[i][j] != 'X'){ // 방문한 적이 없어야 그 지역을 탐색할 수 있다. (이것 때문에 못풀었음.)
                     Queue<int[]> q = new LinkedList<>();
                     q.offer(new int[]{i, j});
                     visit[i][j] = true;
