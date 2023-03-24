@@ -19,7 +19,7 @@ class Solution {
 
 		int cnt = 0;
 		int j = 0;
-		for(int i=0; i<n; i++){
+		for(int i=0; i<n; i++){ //i는 나가는 사람 번호, j는 들어오는 사람 번호
 			while(j < n && j <= enterIdx[exit[i]]){ // 0번이 나갈려면 1번과 2번이 나가야 함. 그 시간을 구해줌.
 				enterT[enter[j]] = cnt++; // 1번이 나가는 것은 0번 들어오고 1번 들어오고 1번이 나가면 됨.
 				j++;
