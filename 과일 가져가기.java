@@ -1,5 +1,5 @@
 import java.util.*;
-public class Main {
+class Solution {
 	//최솟값 구해주기 (최솟값의 유니크함을 편하게 하기 위해.)
 	public int MIN(int[] fruit){
 		int min = Integer.MAX_VALUE;
@@ -45,6 +45,7 @@ public class Main {
 
 		for(int i=0; i<n; i++){
 			if(!unique(fruit[i])) continue; //유니크하지 않으면 continue;
+			if(ch[i] == 1) continue;
 			for(int j=i+1; j<n; j++){ //짝지을려면 j=i+1로 해야함.
 				if(ch[i] == 1) continue; //교환 2번은 안됨.
 				
