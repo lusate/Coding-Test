@@ -1,5 +1,5 @@
 import java.util.*;
-class Main{
+class Solution{
 	public int solution(int[][] board){
 		//이 방법은 장애물이 없는 경우만 가능한 로직.
 		int answer = 0;
@@ -39,6 +39,7 @@ class Main{
 	}
 	
 	public static void main(String[] args){
+		Solution T = new Solution();
 		System.out.println(T.solution(new int[][]{{1, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 1},
 		{0, 0, 0, 0, 0}, {0, 0, 1, 0, 0}}));
 		System.out.println(T.solution(new int[][]{{1, 0, 0, 0, 1}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0},
