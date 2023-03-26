@@ -9,8 +9,6 @@ class Solution {
         }
         Arrays.sort(res, Collections.reverseOrder());
         
-        int sum = 0;
-        int idx = 0;
         for(int i=0; i<res.length; i++){
             if((i+1) % m == 0){
                 answer += res[i] * m;
