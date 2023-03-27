@@ -1,8 +1,8 @@
 import java.util.*;
 class Solution {
-    int answer;
     int[] visit;
-    public void dfs(int cnt, int k, int[][] dungeons){
+    int count;
+    public int dfs(int cnt, int k, int[][] dungeons){
         for(int i=0; i<dungeons.length; i++){
             if(visit[i] == 0 && k >= dungeons[i][0]){
                 visit[i] = 1;
@@ -10,13 +10,14 @@ class Solution {
                 visit[i] = 0;
             }
         }
-        answer = Math.max(answer, cnt);
+        count = Math.max(a, count);
+        return count;
     }
     public int solution(int k, int[][] dungeons) {
-        answer = 0;
+        int answer = 0;
         visit = new int[dungeons.length];
-        dfs(0, k, dungeons);
-
+        answer = dfs(0, k, dungeons);
+        
         return answer;
     }
 
