@@ -9,8 +9,8 @@ class Solution {
     }
 
 	public String solution(String play_time, String adv_time, String[] logs) {
-		int play = getTime(play_time);
-		int adv = getTime(adv_time);
+		int play = getTime(play_time); // 총 재생 길이
+		int adv = getTime(adv_time); // 광고 재생 길이
 
 		//전체 시간이 1초 ~ 99시간 59분 59초
         int[] totalSec = new int[100 * 3600];
@@ -27,7 +27,7 @@ class Solution {
         //int 범위 벗어남. 그래서 long
         long cur = 0;
         for(int i=0; i<adv; i++){
-            cur += totalSec[i];
+            cur += totalSec[i]; // 윈도우 만들어서 가기 위함.
         }
 		
         //adv_time이 한 칸씩 오른쪽으로 이동하면서 최대값을 구함
