@@ -36,7 +36,7 @@ class Solution {
 			sum += map.get(ch);
 		}
 		else {
-			sum = -1;
+			sum = -1; //목표 문자를 작성할 수 없음.
 			break;
 		}
             }
