@@ -1,5 +1,5 @@
 import java.util.*;
-class Main{
+class Solution{
 	public int[] solution(int[] nums){
 		HashMap<Integer, Integer> map = new HashMap<>();
 		int[] answer = new int[nums.length/2];
