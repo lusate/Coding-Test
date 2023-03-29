@@ -1,6 +1,6 @@
 import java.util.*;
-class Main{
-	private static int solution(String s){
+class Solution{
+	public int solution(String s){
 		int answer = 0;
 		HashMap<Character, Integer> map = new HashMap<>();
 		HashSet<Integer> set = new HashSet<>();
@@ -28,10 +28,11 @@ class Main{
 	}
 	
 	public static void main(String[] args){
-		System.out.println(solution("aaabbbcc"));
-		System.out.println(solution("aaabbc"));
-		System.out.println(solution("aebbbbc"));
-		System.out.println(solution("aaabbbccde"));
+		Solution T = new Solution();
+		System.out.println(T.solution("aaabbbcc"));
+		System.out.println(T.solution("aaabbc"));
+		System.out.println(T.solution("aebbbbc"));
+		System.out.println(T.solution("aaabbbccde"));
 	}
 }
 
