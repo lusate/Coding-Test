@@ -37,7 +37,7 @@ class Solution {
             if(!map.isEmpty()){ //조합이 하나라도 잘 만들어졌다면
                 //list는 courseLength가 2,3,5일 때 map의 value들을 저장.
                 List<Integer> list = new ArrayList<>(map.values());
-                int max = Collections.max(list); //2, 3, 5일 때 각각 value들의 최댓값.
+                int max = Collections.max(list); //2, 3, 5개 조합일 때 각각 value들의 최댓값.
 
                 if(max > 1){
                     for(String key : map.keySet()){
