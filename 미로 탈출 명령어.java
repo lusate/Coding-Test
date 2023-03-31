@@ -28,7 +28,7 @@ class Solution {
 			Info tmp = pq.poll();
 			//도착지점까지 최소 거리 계산
 			int minDist = Math.abs(tmp.r - r) + Math.abs(tmp.c - c);
-			//남은 거리 계산
+			//남은 거리 계산 -> S에서 E로 갈 때 총 이동거리가 k이어야 하기 때문에 계산해줌.
 			int remainDist = k - tmp.dist;
 
 			//최소 거리가 3인데 남은 거리가 3보다 작아질 수 없음.
