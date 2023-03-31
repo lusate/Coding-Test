@@ -35,6 +35,7 @@ class Solution{
 
 			Collections.sort(nums);
 
+			// 수용 인원수를 넘어가면 nums의 뒤에서 빼줌.
 			while(nums.size() > arr[i]){
 				nums.pollLast();
 			}
