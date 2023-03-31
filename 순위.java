@@ -37,7 +37,7 @@ class Solution{
 
     public static void main(String[] args){
         Solution T = new Solution();
-        System.out.println(T.solution(8, new int[][]{{4, 3}, {4, 2}, {3, 2}, {1, 2}, {2, 5}}));
+        System.out.println(T.solution(5, new int[][]{{4, 3}, {4, 2}, {3, 2}, {1, 2}, {2, 5}}));
 
     }
 }
