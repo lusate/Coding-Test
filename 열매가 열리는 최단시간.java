@@ -1,6 +1,6 @@
 import java.util.*;
-class Main{
-	private static int solution(int[] plantTime, int[] growTime){
+class Solution{
+	public int solution(int[] plantTime, int[] growTime){
 		int answer=0;
 		int n = growTime.length;
 
@@ -30,9 +30,10 @@ class Main{
 	}
 	
 	public static void main(String[] args){
-		System.out.println(solution(new int[]{1, 3, 2}, new int[]{2, 3, 2}));
-		System.out.println(solution(new int[]{2, 1, 4, 3}, new int[]{2, 5, 3, 1}));
-		System.out.println(solution(new int[]{5, 7, 10, 15, 7, 3, 5}, new int[]{6, 7, 2, 10, 15, 6, 7}));
+		Solution T = new Solution();
+		System.out.println(T.solution(new int[]{1, 3, 2}, new int[]{2, 3, 2}));
+		System.out.println(T.solution(new int[]{2, 1, 4, 3}, new int[]{2, 5, 3, 1}));
+		System.out.println(T.solution(new int[]{5, 7, 10, 15, 7, 3, 5}, new int[]{6, 7, 2, 10, 15, 6, 7}));
 	}
 }
 
