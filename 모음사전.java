@@ -1,5 +1,5 @@
 import java.util.*;
-public class Main {
+public class Solution {
 	public int solution(String word) {
 		int answer=word.length();
 		char[] ch = {'A','E','I','O','U'};
@@ -15,7 +15,7 @@ public class Main {
 		return answer;
 	}
 	public static void main(String[] args){
-		Main T = new Main();
+		Solution T = new Solution();
 		System.out.println(T.solution("AAAAE"));
 		System.out.println(T.solution("AAAE"));
 		System.out.println(T.solution("I"));
