@@ -21,3 +21,10 @@ class Solution {
         System.out.println(T.solution(4, 1, new int[]{1, 2, 3, 4}));
     }
 }
+
+
+/* 출력
+2
+1
+4
+*/
