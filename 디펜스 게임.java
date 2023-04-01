@@ -6,7 +6,7 @@ class Solution {
 			return enemy.length;
 		}
 
-		int cnt=0;
+		int cnt=0; //무적권수개수
 		int remain=n;
 		int i=0;
 		PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
