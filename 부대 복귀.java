@@ -25,13 +25,20 @@ class Solution {
         while(!q.isEmpty()){
             int cur = q.poll();
 
-            for(int t=0; t<graph.get(cur).size(); t++){
-                int tmp = graph.get(cur).get(t); //도착 정점
-                // System.out.println(tmp);
+//             for(int t=0; t<graph.get(cur).size(); t++){
+//                 int tmp = graph.get(cur).get(t); //도착 정점
+//                 // System.out.println(tmp);
 
-                if(cost[tmp] > cost[cur] + 1){
-                    cost[tmp] = cost[cur] + 1;
-                    q.offer(tmp);
+//                 if(cost[tmp] > cost[cur] + 1){
+//                     cost[tmp] = cost[cur] + 1;
+//                     q.offer(tmp);
+//                 }
+//             }
+		
+	    for(int t : graph.get(cur)){
+                if(cost[t] > cost[cur] + 1){
+                    cost[t] = cost[cur] + 1;
+                    q.offer(t);
                 }
             }
         }
