@@ -77,19 +77,10 @@ class Main{
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
         map = new char[n][n];
-        student = new ArrayList<>();
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 map[i][j] = sc.next().charAt(0);
-            }
-        }
-
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                if(map[i][j] == 'S') {
-                    student.add(new int[]{i, j});
-                }
             }
         }
 
