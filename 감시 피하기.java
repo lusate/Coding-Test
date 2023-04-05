@@ -5,7 +5,6 @@ class Main{
     static char[][] map;
     static int[] dx = {-1, 0, 1, 0};
     static int[] dy = {0, 1, 0, -1};
-    static ArrayList<int[]> student;
 
     public static void dfs(int cnt) {
         if (cnt == 3) { // 장애물 개수 3개
