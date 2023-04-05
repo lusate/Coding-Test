@@ -98,3 +98,26 @@ class Main{
         System.out.println("NO");
     }
 }
+
+
+/* 입력
+5
+X S X X T
+T X S X X
+X X X X X
+X T X X X
+X X T X X
+
+
+4
+S S S T
+X X X X
+X X X X
+T T T X
+*/
+
+
+/* 출력
+"YES"
+"NO"
+*/
