@@ -12,6 +12,7 @@ class Solution{
         int cnt = 0; // 작업 개수
         while(cnt < jobs.length){
             // 시작시간보다 끝나는 시간이 크면 추가가 불가능.
+            // 그리고 현재 ed가 다음 시작 시간보다 크거나 같으면 계속 pq에 추가
             while(idx<jobs.length && jobs[idx][0] <= ed) {
                 pq.add(new int[]{jobs[idx][0], jobs[idx][1]});
                 idx++;
