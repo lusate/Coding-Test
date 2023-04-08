@@ -43,15 +43,15 @@ class Solution {
 			// [1, 0, 3, 0]
         }
         
-		//이제 1,3만 answer에 저장.
-        int a = 0;
+	//이제 1,3만 answer에 저장.
+        int len = 0;
         for(int i=0; i<arr.length; i++){
             if(arr[i] > 0){
-                a++;
+                len++;
             }
         }
         
-        int[] answer = new int[a];
+        int[] answer = new int[len];
         int idx = 0;
         for(int i=0; i<arr.length; i++){
             if(arr[i] > 0){
