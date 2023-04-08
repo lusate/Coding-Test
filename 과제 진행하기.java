@@ -43,6 +43,8 @@ class Solution{
                 answer[idx++] = cur.sub;
 
                 int rest = next.st - (cur.st + cur.play); // 현재 과제가 끝나고 다음 과제까지 남은 시간.
+                
+                // 과제를 끝낸 시각에 새로 시작해야 되는 과제와 잠시 멈춰둔 과제가 모두 있다면, 새로 시작해야 하는 과제부터 진행
                 while (!stack.isEmpty()) {
                     Info tmp = stack.pop();
                     if (tmp.play <= rest) { // ???? 나중에 다시
