@@ -43,11 +43,10 @@ class Solution{
                 answer[idx++] = cur.sub;
 
                 int rest = next.st - (cur.st + cur.play); // 현재 과제가 끝나고 다음 과제까지 남은 시간.
-                
                 // 과제를 끝낸 시각에 새로 시작해야 되는 과제와 잠시 멈춰둔 과제가 모두 있다면, 새로 시작해야 하는 과제부터 진행
                 while (!stack.isEmpty()) {
                     Info tmp = stack.pop();
-                    if (tmp.play <= rest) { // ???? 나중에 다시
+                    if (tmp.play <= rest) {
                         rest -= tmp.play;
                         answer[idx++] = tmp.sub;
                     }
@@ -77,8 +76,8 @@ class Solution{
 
     public static void main(String[] args){
         Solution T = new Solution();
-        System.out.println(Arrays.toString(T.solution(new String[][]{{"korean", "11:40", "30"}, {"english", "12:10", "20"}, {"math", "12:30", "40"}})));
+       System.out.println(Arrays.toString(T.solution(new String[][]{{"korean", "11:40", "30"}, {"english", "12:10", "20"}, {"math", "12:30", "40"}})));
         System.out.println(Arrays.toString(T.solution(new String[][]{{"science", "12:40", "50"}, {"music", "12:20", "40"}, {"history", "14:00", "30"}, {"computer", "12:30", "100"}})));
-        System.out.println(Arrays.toString(T.solution(new String[][]{{"aaa", "12:00", "20"}, {"bbb", "12:10", "30"}, {"ccc", "12:40", "10"}})));
+       System.out.println(Arrays.toString(T.solution(new String[][]{{"aaa", "12:00", "20"}, {"bbb", "12:10", "30"}, {"ccc", "12:40", "10"}})));
     }
 }
