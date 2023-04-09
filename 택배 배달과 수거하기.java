@@ -6,8 +6,8 @@ class Solution {
 		int p = 0; //수거 택배 수
 
 		for(int i=n-1; i>=0; i--){
-			//제일 멀리 있는 배달 혹은 수거가 남아있다면 무조건 그 거리를 다시 방문해야 하므로 deliveries 배열과
-			//pickups 배열을 동시에 확인한다.
+			//제일 멀리 있는 배달 혹은 수거가 남아있다면 무조건 그 거리를 다시 방문해야 하므로 
+			//deliveries 배열과 pickups 배열을 동시에 확인한다.
 			if(deliveries[i] != 0 || pickups[i] != 0){
 				int cnt = 0; //해당 장소를 방문한 횟수.
 
