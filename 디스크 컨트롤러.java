@@ -38,3 +38,8 @@ class Solution{
         System.out.println(T.solution(new int[][]{{0, 3}, {1, 9}, {2, 6}}));
     }
 }
+
+
+/* 출력
+9
+*/
