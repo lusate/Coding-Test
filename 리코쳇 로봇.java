@@ -42,9 +42,9 @@ class Solution{
                     ny += dy[k];
 
 			//범위 벗어나거나 벽이라면 빼줌.
-                	if(nx<0 || nx>=n || ny<0 || ny>=m || map[nx][ny] == 'D'){
-                     	nx -= dx[k];
-                     	ny -= dy[k];
+                    if(nx<0 || nx>=n || ny<0 || ny>=m || map[nx][ny] == 'D'){
+                     	    nx -= dx[k];
+                     	    ny -= dy[k];
                     }
                 }
 
@@ -109,7 +109,7 @@ class Solution{
 
         while(!q.isEmpty()){
             int[] cur = q.poll();
-		visit[cur[0]][cur[1]] = true;
+	    visit[cur[0]][cur[1]] = true;
             if(cur[0] == x && cur[1] == y) return cur[2];
 
             for(int k=0; k<4; k++){
@@ -119,21 +119,21 @@ class Solution{
 		//최대 움직일 수 있는 거리로 해줌. Math.max(n, m)
                 for(int i=0; i<4; i++){
 
-			//범위 벗어나거나 벽이라면 빼줌.
+		    //범위 벗어나거나 벽이라면 빼줌.
                     while(nx>=0 && nx<n && ny>=0 && ny<m && map[nx][ny] != 'D'){
                         nx += dx[k];
                     	ny += dy[k];
                     }
-			nx -= dx[k];
-			ny -= dy[k];
+			
+		    nx -= dx[k];
+		    ny -= dy[k];
 
-			if(visit[nx][ny]) continue;
-
-			visit[nx][ny] = true;
-			q.add(new int[]{nx, ny, cur[2]+1});
-                }
+		    if(visit[nx][ny]) continue;
+		    
+		    visit[nx][ny] = true;
+		    q.add(new int[]{nx, ny, cur[2]+1});
+		}
             }
-
         }
 
         return -1;
