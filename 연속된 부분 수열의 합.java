@@ -13,7 +13,7 @@ class Solution {
             }
 
             if (sum == k) {
-                if (min > rt - lt + 1) { // 길이가 최소이면
+                if (rt - lt + 1 < min) { // 길이가 최소이면
                     min = rt - lt + 1;
                     answer[0] = lt;
                     answer[1] = rt;
