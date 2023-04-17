@@ -51,18 +51,18 @@ import java.util.*;
 
 class Solution {
     public int solution(int[] priorities, int location) {
-        int answer = 0;
+        int answer = 1;
         PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
         for (int i = 0; i < priorities.length; i++) {
             pq.add(priorities[i]);
         }
-        System.out.println(pq);
+//         System.out.println(pq);
 
         while (!pq.isEmpty()) {
             for (int i = 0; i < priorities.length; i++) {
+                // 등수를 구하기 위함.
                 if (priorities[i] == pq.peek()) {
                     if (i == location) {
-                        answer++;
                         return answer;
                     }
 
