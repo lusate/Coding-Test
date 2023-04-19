@@ -53,3 +53,48 @@ class Solution {
 101
 110
 */
+
+
+
+// -----------------------------------------------------------------------------------------------------------------------------------------------
+
+// 다른 방법
+import java.util.*;
+class Solution {
+    public int solution(int bridge_length, int weight, int[] truck_weights) {
+        int answer = 0;
+        Queue<Integer> q = new LinkedList<>();
+        for (int i = 0; i < bridge_length; i++) {
+            q.add(0);
+        }
+        // 처음에 그냥 0을 삽입.
+
+        int idx = 0;
+        int nowWeight = 0; // 다리에 있는 현재 트럭의 무게
+
+        while(idx < truck_weights.length){
+            // 현재 다리에 있는 트럭 무게에서 나갈 트럭의 무게를 빼줌.
+            nowWeight -= q.poll();
+            answer++; // 새 트럭이 들어옴.
+
+            // 현재 다리에 있는 트럭 무게와 곧 들어올 트럭 무게의 합과 비교
+            if (nowWeight + truck_weights[idx] <= weight) { // 트럭 추가 가능
+                q.add(truck_weights[idx]);
+                nowWeight += truck_weights[idx++];
+            }
+            else{ // 0을 추가
+                q.offer(0);
+            }
+        }
+
+        answer += bridge_length;
+        return answer;
+    }
+
+    public static void main(String[] args) {
+        Solution T = new Solution();
+        System.out.println(T.solution(2, 10, new int[]{7, 4, 5, 6}));
+        System.out.println(T.solution(100, 100, new int[]{10}));
+        System.out.println(T.solution(100, 100, new int[]{10,10,10,10,10,10,10,10,10,10}));
+    }
+}
