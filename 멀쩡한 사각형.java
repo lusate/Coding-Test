@@ -1,27 +1,16 @@
 import java.util.*;
 class Solution {
     public long gcd(int a, int b) {
-        long small = 0;
-        long big = 0;
+        if(a == 0) return b;
 
-        if (a < b) {
-            big = b;
-            small = a;
-        }
-
-        long tmp = 0;
-        while (small > 0) {
-            tmp = big % small;
-            big = small;
-            small = tmp;
-        }
-
-        return big;
+        return gcd(b % a, a);
     }
     public long solution(int w, int h) {
         long answer = 1;
+        long a = Long.valueOf(w);
+        long b = Long.valueOf(h);
 
-        answer = (long) (w * h) - (long)(w + h - gcd(w, h)); //최대 공약수를 구해서 빼준다.
+        answer = a * b - (a + b - gcd(w, h)); // 최대공약수를 빼준다.
         return answer;
     }
 
