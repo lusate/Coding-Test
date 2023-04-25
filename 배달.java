@@ -81,7 +81,7 @@ class Solution{
         for (int i = 1; i <= N; i++) {
             for (int j = 1; j <= N; j++) {
                 if (i == j) {
-                    map[i][j] = 0;
+                    continue; //기존에 플로이드 할 때는 여기를 0으로 초기화를 했는데 에러남. (이유는 모르겠음.)
                 }
                 map[i][j] = 1000000;
             }
