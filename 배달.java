@@ -76,28 +76,26 @@ class Main {
 import java.util.*;
 class Solution{
     public int solution(int N, int[][] road, int K) {
-        int[][] map = new int[N][N];
+        int[][] map = new int[N+1][N+1];
 
-        for (int i = 0; i < map.length; i++) {
-            for (int j = 0; j < map[0].length; j++) {
+        for (int i = 1; i <= N; i++) {
+            for (int j = 1; j <= N; j++) {
                 if (i == j) {
                     map[i][j] = 0;
-                    continue;
                 }
-                map[i][j] = 500001;
+                map[i][j] = 1000000;
             }
         }
 
-        for (int[] x : road) { // road배열 적용
-            if(map[x[0]-1][x[1]-1] < x[2])  continue;   //원래 있는 길이 더 적은 길이면 무시.
-            map[x[0]-1][x[1]-1] = x[2]; //양쪽으로 연결.
-            map[x[1]-1][x[0]-1] = x[2];
+        for (int[] x : road) {
+            if(map[x[0]][x[1]] < x[2])  continue;   //원래 있는 길이 더 적은 길이면 무시.
+            map[x[0]][x[1]] = x[2];
+            map[x[1]][x[0]] = x[2];
         }
 
-        for (int k = 0; k < N; k++) {                                           //플로이드 와샬 알고리즘
-            for (int i = 0; i < N; i++) {
-                for (int j = 0; j < N; j++) {
-                    if(i == j) continue;
+        for (int k = 1; k <= N; k++) {
+            for (int i = 1; i <= N; i++) {
+                for (int j = 1; j <= N; j++) {
                     if (map[i][j] > map[i][k] + map[k][j]) {
                         map[i][j] = map[i][k] + map[k][j];
                     }
@@ -105,10 +103,10 @@ class Solution{
             }
         }
 
-        int count = 0;                                                        //1번 도시에 K이하만큼 연결돼있는 도시 개수
+        int count = 0;
 
-        for (int i = 0; i < map[0].length; i++) {
-            if (map[0][i] <= K)
+        for (int i = 1; i <= N; i++) {
+            if (map[1][i] <= K)
                 count++;
         }
 
