@@ -30,6 +30,11 @@ class Solution {
 
         return answer;
     }
+    public static void main(String[] args) {
+        Solution T = new Solution();
+        System.out.println(T.solution(5, 3, 2));
+        System.out.println(T.solution(10, 3, 2));
+    }
 }
 
 
