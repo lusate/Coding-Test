@@ -1,6 +1,6 @@
 import java.util.*;
 class Solution{
-	private static int solution(int[][] meetings){
+	public int solution(int[][] meetings){
 		int answer = 0;
 		ArrayList<int[]> arr = new ArrayList<>();
 
