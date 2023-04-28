@@ -1,5 +1,5 @@
 import java.util.*;
-public class Main {
+public class Solution {
 	int[] dx = {-1, 0, 1, 0};
 	int[] dy = {0, 1, 0, -1};
 	public int solution(int[][] board){
