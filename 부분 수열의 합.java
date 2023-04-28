@@ -1,6 +1,6 @@
 import java.util.*;
 class Solution{
-	private static int solution(int[] nums) {
+	public int solution(int[] nums) {
 		int answer=0;
 		int sum=0;
 		int[] arr = new int[2];
@@ -27,9 +27,10 @@ class Solution{
 	}
 	
 	public static void main(String[] args){
-		System.out.println(solution(new int[]{1, 3, 5}));
-		System.out.println(solution(new int[]{2, 3, 2, 4, 5}));
-		System.out.println(solution(new int[]{1, 2, 6, 2, 4, 3, 5, 3, 5, 3, 6, 3, 5, 4, 2, 3, 5, 1, 4, 3, 6}));
+		Solution T = new Solution();
+		System.out.println(T.solution(new int[]{1, 3, 5}));
+		System.out.println(T.solution(new int[]{2, 3, 2, 4, 5}));
+		System.out.println(T.solution(new int[]{1, 2, 6, 2, 4, 3, 5, 3, 5, 3, 6, 3, 5, 4, 2, 3, 5, 1, 4, 3, 6}));
 	}
 }
 
