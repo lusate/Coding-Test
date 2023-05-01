@@ -18,16 +18,16 @@ class Solution {
 			}
 
 			boolean isExist = true;
-			for(int j=0; j<cnt; j++){
+			for(int j=0; j<cnt; j++){ //열흘동안
 				int idx = i+j;
-				String idxKey = discount[idx]; // 10개씩
+				String idxKey = discount[idx];
 
 				if(!tmp.containsKey(idxKey)){ // tmp에 없으면 break;
-					isExist = false;
+					isExist = false; //존재하지 않으므로 회원가입 안함.
 					break;
 				}
 
-				int valueCnt = tmp.get(idxKey);
+				int valueCnt = tmp.get(idxKey); //tmp의 값들
 				if(valueCnt - 1 < 0){ //tmp의 값에서 -1을 했을 때 0보다 작으면 break
 					isExist = false;
 					break;
@@ -45,7 +45,8 @@ class Solution {
 				}
 
 			}
-
+			
+			// tmp의 값이 0이어야 개수만큼 모두 할인한 것.
 			if(isExist) answer++;
 		}
 
