@@ -5,7 +5,9 @@ class Solution {
         int[] mapY = new int[10];
 
         for (char c : X.toCharArray()) {
-            mapX[c - 48]++; //mapX에 int형으로 저장.
+            mapX[c - 48]++; // 인덱스의 숫자가 X에 몇 개있는지를 저장
+            // ex) 100이면 mapX[0]은 0이 100에 2개 있기 때문에 mapX[0] = 2
+            // mapX[1] 은 1이 100에 1개 있기 때문에 mapX[1] = 1
         }
         for (char c : Y.toCharArray()) {
             mapY[c - 48]++;
@@ -14,7 +16,7 @@ class Solution {
         StringBuilder answer = new StringBuilder();
         for (int i = 9; i >= 0; i--) {
             for (int j=0; j<Math.min(mapX[i], mapY[i]); j++) {
-                answer.append(i);
+                answer.append(i); // mapX와 mapY의 인덱스로 answer를 구한다.
             }
         }
 
