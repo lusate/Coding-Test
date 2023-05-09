@@ -1,8 +1,22 @@
 import java.util.*;
+class Edge implements Comparable<Edge> {
+    int vex;
+    int cost;
+
+    public Edge(int vex, int cost) {
+        this.vex = vex;
+        this.cost = cost;
+    }
+
+    @Override
+    public int compareTo(Edge o) {
+        return this.cost - o.cost;
+    }
+}
 
 public class Main {
     static int N, P, K;
-    static List<Edge>[] adj;
+    static List<Edge>[] graph;
     static final int INF = 1000000;
     static int answer = -1;
 
@@ -13,9 +27,9 @@ public class Main {
         P = sc.nextInt();
         K = sc.nextInt();
 
-        adj = new ArrayList[N + 1];
+        graph = new ArrayList[N + 1];
         for (int i = 1; i <= N; i++)
-            adj[i] = new ArrayList<>();
+            graph[i] = new ArrayList<>();
 
         for (int i = 0; i < P; i++) {
             int v1, v2, cost;
@@ -23,8 +37,8 @@ public class Main {
             v2 = sc.nextInt();
             cost = sc.nextInt();
 
-            adj[v1].add(new Edge(v2, cost));
-            adj[v2].add(new Edge(v1, cost));
+            graph[v1].add(new Edge(v2, cost));
+            graph[v2].add(new Edge(v1, cost));
         }
 
         int left = 0, right = INF;
@@ -51,36 +65,22 @@ public class Main {
         pq.add(new Edge(1, 0));
 
         while (!pq.isEmpty()) {
-            Edge now = pq.poll();
+            Edge cur = pq.poll();
+            int now = cur.vex;
+            int nowCost = cur.cost;
+            if (nowCost > dist[cur.vex]) continue;
 
-            if (now.cost > dist[now.vertex]) continue;
-
-            for (Edge next : adj[now.vertex]) {
+            for (Edge next : graph[now]) {
                 int cost = (next.cost > mid) ? 1 : 0;
 
-                if (dist[next.vertex] > now.cost + cost) {
-                    dist[next.vertex] = now.cost + cost;
-                    pq.add(new Edge(next.vertex, dist[next.vertex]));
+                if (dist[next.vex] > nowCost + cost) {
+                    dist[next.vex] = nowCost + cost;
+                    pq.add(new Edge(next.vex, dist[next.vex]));
                 }
             }
         }
 
         return dist[N] <= K;
-    }
-
-    static class Edge implements Comparable<Edge> {
-        int vertex;
-        int cost;
-
-        public Edge(int vertex, int cost) {
-            this.vertex = vertex;
-            this.cost = cost;
-        }
-
-        @Override
-        public int compareTo(Edge o) {
-            return this.cost - o.cost;
-        }
     }
 }
 
