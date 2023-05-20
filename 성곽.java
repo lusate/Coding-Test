@@ -13,7 +13,7 @@ class Main {
 	static int[] dx = {0, -1, 0, 1}; //서북동남 순서대로.
 	static int[] dy = {-1, 0, 1, 0};
 	static int[] dis = {1,2,4,8};
-	static int room, maxRoom, wallRoom = 0;
+	static int room, maxRoom, wallRoom = 0; //wallRoom : 하나의 벽을 제거하여 얻을 수 있는 가장 넓은 방의 크기
 	static int[][][] wallCount; // [0] 방의 id 저장, [1] 이어진 방의 개수.
 	//벽을 id 기준으로 나눈 결과와 벽을 이어진 칸수로 나눈 결과를 알 수 있다.
 	private static void bfs(int x, int y, int id){
