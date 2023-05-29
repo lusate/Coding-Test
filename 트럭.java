@@ -10,35 +10,34 @@ class Main {
         int L = Integer.parseInt(st.nextToken()); // 가능한 취대 무게
 
         int answer = 0;
-        Queue<Integer> q = new LinkedList<>();
-        int time = 0;
         int sum = 0;
+        int time = 0;
+        Queue<Integer> q = new LinkedList<>();
 
-        int[] truck = new int[n];
         st = new StringTokenizer(br.readLine());
-
         for (int i = 0; i < n; i++) {
-            truck[i] = Integer.parseInt(st.nextToken());
-
+            int truck = Integer.parseInt(st.nextToken());
             while (true) {
                 if (q.isEmpty()) {
-                    q.add(truck[i]);
-                    sum += truck[i];
+                    q.add(truck);
+                    sum += truck;
                     time++;
                     break;
                 }
-                else if(q.size() < w) {
-                    if (sum + truck[i] <= L) {
-                        q.add(truck[i]);
-                        sum += truck[i];
+
+                else if (q.size() < w) {
+                    if (sum + truck <= L) {
+                        q.add(truck);
+                        sum += truck;
                         time++;
                         break;
                     }
-                    else {
+                    else{
                         q.add(0);
                         time++;
                     }
                 }
+
                 else if(q.size() == w){
                     sum -= q.poll();
                 }
@@ -58,5 +57,4 @@ class Main {
 
 /* 출력
 8
-프로그래머스 다리를 지나는 트럭과 같은 
 */
