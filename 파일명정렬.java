@@ -109,7 +109,7 @@ public class 파일명정렬 {
         str = str.substring(head.length()); // head 길이만큼 잘라서 숫자부터 시작하게 만들어줌
         String result = "";
         for (char ch : str.toCharArray()) {
-            if (Character.isDigit(ch) && result.length() < 5){
+            if (Character.isDigit(ch) && result.length() <= 5){
                 result += ch;
             } else break;
         }
