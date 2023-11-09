@@ -42,7 +42,7 @@ class File implements Comparable<File> {
             }
             return num1 - num2;
         }
-        return str1.compareTo(str2);
+        return str1.compareTo(str2); // head로 정렬
     }
 }
 public class 파일명정렬 {
