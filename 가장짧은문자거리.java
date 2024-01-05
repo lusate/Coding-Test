@@ -7,6 +7,7 @@ public class 가장_짧은_문자거리 {
         int[] answer = new int[s.length()];
         int dis = 1000;
 
+        // i가 0일 때 -> 가면서 e와 얼마나 떨어져있는지 찾음.
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) == t) {
                 dis = 0;
@@ -17,13 +18,14 @@ public class 가장_짧은_문자거리 {
             }
         }
 
+        // i가 마지막 인덱스일 때 <- 가면서 e와 얼마나 떨어져있는지 찾음.
         dis = 1000;
         for (int i = s.length() - 1; i >= 0; i--) {
             if (s.charAt(i) == t) {
                 dis = 0;
             }else{
                 dis++;
-                answer[i] = Math.min(dis, answer[i]);
+                answer[i] = Math.min(dis, answer[i]); // 그렇게 -> , <- 이동하면서 최솟값을 구함.
             }
         }
 
