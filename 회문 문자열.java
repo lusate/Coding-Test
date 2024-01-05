@@ -8,6 +8,7 @@ class Main {
         String str = new StringBuilder(s).reverse().toString();
 
         //문자 s 와 s를 거꾸로한 str이 같다면 answer = Yes
+        //equalsIgnoreCase()는 대소문자 비교 안 함.
         if(s.equalsIgnoreCase(str)){
             answer = "Yes";
         }
