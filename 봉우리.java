@@ -7,7 +7,7 @@ class Main {
 		int n=board.length;
 		for(int i=0; i<n; i++){
 			for(int j=0; j<n; j++){
-				boolean flag=true;
+				boolean visit = true;
 				for(int k=0; k<4; k++){
 					int nx=i+dx[k];
 					int ny=j+dy[k];
@@ -16,10 +16,10 @@ class Main {
 						//봉우리(board[i][j])가 상하좌우 값보다 작은 경우 false하고 break
 						//즉 봉우리가 아닌 경우(false) 하고 break
 						flag=false;
-						break;
+						break; // 4방향 모두 다 볼 필요가 없기 때문에
 					}
 				}
-				if(flag) answer++;
+				if(visit) answer++;
 			}
 		}
 		return answer;
