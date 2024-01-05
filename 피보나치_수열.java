@@ -17,3 +17,8 @@ public class 피보나치_수열 {
         for(int x :T.solution(n)) System.out.print(x+" ");
     }
 }
+
+▣ 입력예제 1 
+10
+▣ 출력예제 1
+1 1 2 3 5 8 13 21 34 55
