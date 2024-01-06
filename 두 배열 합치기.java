@@ -7,7 +7,7 @@ import java.util.*;
 class Main{
 	public ArrayList<Integer> solution(int N, int M, int[] num1, int[] num2){
 		ArrayList<Integer> answer = new ArrayList<>();
-		int p1=0, p2=0;
+		int p1=0, p2=0; // p1은 a 인덱스, p2는 b 인덱스
 
 		while(p1 < N && p2 < M){
 			if(num1[p1] < num2[p2]){
