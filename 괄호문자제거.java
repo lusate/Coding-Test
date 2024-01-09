@@ -41,7 +41,8 @@ class Main{
 		String answer = "";
 		for(char x : s.toCharArray()){
 			if(x == ')'){
-				while(stack.pop() != '('); //( 만날 때까지 반복해서 pop()
+				// ), 알파벳 따로 pop이 아닌 while로 '('를 만날 때까지 pop하는 방법도 있음.
+				while(stack.pop() != '('); // '(' 가 아니면 계속 pop
 			}
 			else{//닫는 괄호가 아니면 다 넣음
 				stack.push(x);
