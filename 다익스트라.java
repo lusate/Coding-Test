@@ -11,6 +11,7 @@ class Edge implements Comparable<Edge>{
 	}
 }
 class Main{
+	// static ArrayList<Edge>[] graph; 다른 이중 ArrayList 방식
 	static ArrayList<ArrayList<Edge>> graph;
 	static int[] dis;
 	static int n,m;
@@ -22,7 +23,8 @@ class Main{
 			Edge tmp = pQ.poll();
 			int now = tmp.vex;
 			int nowCost = tmp.cost;
-			if(nowCost > dis[now]) continue;
+			if(nowCost > dis[now]) continue; // 가중치가 최소가 되지 않으므로 continue
+			// for(Edge ob : graph[now]){
 			for(Edge ob : graph.get(now)){
 				if(dis[ob.vex] > nowCost + ob.cost){
 					dis[ob.vex] = nowCost + ob.cost;
@@ -41,6 +43,11 @@ class Main{
 		for(int i=0; i<=n; i++){
 			graph.add(new ArrayList<Edge>());
 		}
+		// graph = new ArrayList[m];
+	        // for (int i = 0; i <= n; i++) {
+	        //     graph[i] = new ArrayList<>();
+	        // }
+		
 		dis = new int[n+1];
 		Arrays.fill(dis, Integer.MAX_VALUE);
 		for(int i=0; i<m; i++){
@@ -48,6 +55,7 @@ class Main{
 			int b = sc.nextInt();
 			int c = sc.nextInt();
 			graph.get(a).add(new Edge(b, c));
+			// graph[a].add(new Edge(b, c));
 		}
 
 		T.solution(1);
