@@ -87,11 +87,12 @@ class Solution{
 
         //먼저 처음 단어를 set에 넣고 그 다음 단어와 비교.
         for (int i = 1; i < words.length; i++) {
-            if(set.contains(words[i])) break; // 이미 존재하면 바로 빠져나옴.
+            // 이미 존재하면 바로 빠져나옴.
+            if(set.contains(words[i])) break; // 같은 단어라 하더라도 끝말잇기가 가능하면 계속 이어서 함. 같은 단어가 나오면 멈춰야 함.
 
             if (words[i].charAt(0) == words[i - 1].charAt(words[i - 1].length() - 1)) {
                 set.add(words[i]);
-                cnt++;
+                cnt++; // cnt가 아닌 set.size()로 계산해도 가능
             }
             else break;
         }
