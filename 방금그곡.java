@@ -6,49 +6,54 @@ class Solution {
         
         return H * 60 + M;
     }
-    
-    public String replace_code(String code) {
-        code = code.replaceAll("C#", "c");
-        code = code.replaceAll("D#", "d");
-        code = code.replaceAll("F#", "f");
-        code = code.replaceAll("G#", "g");
-        code = code.replaceAll("A#", "a");
-
-        return code;
-    }
-    
     public String solution(String m, String[] musicinfos) {
-        String answer = "";
-        int max = 0;
+        String answer = "(None)";
+        int maxTime = 0;
+        m = m.replace("C#", "c")
+            .replace("D#", "d")
+            .replace("F#", "f")
+            .replace("G#", "g")
+            .replace("A#", "a");
+        System.out.println(m);
         
-        for(String musicinfo : musicinfos){
-            String[] result = musicinfo.split(",");
-            int start = getTime(result[0]);
-            int end = getTime(result[1]);
-
+        for(int i = 0; i < musicinfos.length; i++) {
+            String[] tmp = musicinfos[i].split(",");
+            
+            int start = getTime(tmp[0]);
+            int end = getTime(tmp[1]);
+            
             int dif = end - start;
             
-            String replace = replace_code(result[3]);
+            tmp[3] = tmp[3].replace("C#", "c")
+                            .replace("D#", "d")
+                            .replace("F#", "f")
+                            .replace("G#", "g")
+                            .replace("A#", "a");
             
-            String code = "";
-            int value = dif / replace.length();
-            int remain = dif % replace.length();
-            while(value > 0){
-                code += replace;
-                value--;
+            String result = tmp[3];
+            
+            int value = dif / tmp[3].length();
+            int remain = dif % tmp[3].length();
+
+            if(dif <= tmp[3].length()) {
+                result = tmp[3].substring(0, dif);
+            }
+            else {
+                while(value > 0){
+                    result += tmp[3];
+                    value--;
+                }
+                // for(int j = 0; j < value; j++) {
+                //     result += tmp[3];
+                // }
+                result += tmp[3].substring(0, remain);
             }
             
-            code += replace.substring(0, remain);
-            // System.out.println(code);
-            
-            if(code.contains(replace_code(m))){
-                if(max < dif){
-                    max = dif;
-                    answer = result[2];
-                }
+            if(result.contains(m) && dif > maxTime) {
+                maxTime = dif;
+                answer = tmp[2];
             }
         }
-        
         
         return answer;
     }
