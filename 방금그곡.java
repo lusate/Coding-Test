@@ -8,7 +8,7 @@ class Solution {
     }
     public String solution(String m, String[] musicinfos) {
         String answer = "(None)";
-        int maxTime = 0;
+        int maxTime = -1;
         m = m.replace("C#", "c")
             .replace("D#", "d")
             .replace("F#", "f")
@@ -49,8 +49,9 @@ class Solution {
                 result += tmp[3].substring(0, remain);
             }
             
+            // 실제로 재생된 result에 기억한 멜로디인 m이 포함되고 dif 차이가 0보다 크면
             if(result.contains(m) && dif > maxTime) {
-                maxTime = dif;
+                maxTime = dif; // 조건이 일치하는 음악이 여러 개일 때에는 라디오에서 재생된 시간이 제일 긴 음악 제목을 반환
                 answer = tmp[2];
             }
         }
