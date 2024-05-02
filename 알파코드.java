@@ -35,7 +35,6 @@ class Solution{
 }
 
 
-
 /* 출력
 6
 12
