@@ -29,6 +29,8 @@ class Main { //시작점에서 도착점으로 이동을 하므로 BFS로 한다
 	public static void main(String[] args){
 		Main T = new Main();
 		System.out.println(T.solution(new int[]{2, 2, 0, 2, 1, 1}));
-		//System.out.println(T.solution(new int[]{1, 0, 1, 1, 3, 1, 2, 1}));
+		System.out.println(T.solution(new int[]{1, 0, 1, 1, 3, 1, 2, 1}));
+		System.out.println(T.solution(new int[]{2, 3, 1, 0, 1, 1, 2, 3, 1, 5, 1, 3, 1}));
+		System.out.println(T.solution(new int[]{1, 2, 1, 2, 1, 2, 1, 1, 3, 1, 2, 1}));
 	}
 }
