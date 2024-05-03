@@ -36,7 +36,7 @@ public class Main {
             }
         }
 
-        count += virus.size() - M; // 입력한 연구소의 바이러스 개수 - m
+        count += virus.size() - M; // 입력한 연구소의 바이러스 개수 - m => 총 0의 개수
         check = new boolean[virus.size()];
 
         if (count == 0) answer = 0;
@@ -46,6 +46,7 @@ public class Main {
     }
 
     private static void dfs(int depth, int start) {
+        // depth는 바이러스 개수 , start는 
         if (depth == M) {
             int[][] copyMap = copy();
             bfs(copyMap, count);
@@ -62,16 +63,18 @@ public class Main {
     private static void bfs(int[][] map, int count) {
         Queue<Node> queue = new LinkedList<>();
 
+        // 바이러스 시작할 위치 정해서 3개 부분이 true 인 상태 -> dfs를 돌렸기 때문에
+        // 그래서 현재 q에는 바이러스로 위치 잡은 좌표가 들어가있음.
         for (int i = 0; i < virus.size(); i++) {
             if (check[i]) queue.add(virus.get(i));
         }
 
         int time = 0;
         while (!queue.isEmpty()) {
-            if (answer <= time) break; // 해당 조합은 이전 조합보다 느리다는 뜻.
+            if (answer <= time) break; // 최소값을 뽑기 위함.
 
             int len = queue.size();
-            for (int t = 0; t < len; t++) { // 시작 지점이 여러 개이기 때문에 반복문으로 한 번더 감싼다.
+            for (int t = 0; t < len; t++) { // 시작 지점이 여러 개이기 때문에 반복문으로 한 번 더 감싼다.
                 Node now = queue.poll();
 
                 for (int i = 0; i < 4; i++) {
@@ -83,12 +86,12 @@ public class Main {
 
                     map[nx][ny] = 2;
                     queue.add(new Node(nx, ny));
-                    count--; // 지날 수 있는 길 -1
+                    count--; // 지날 수 있는 길 -1 -> 0 개수가 줄어듬.
                 }
             }
 
             time++;
-            if (count == 0) { // 더이상 지날 수 있는 길이 없다면 (탐색 가능한 길이 없다면)
+            if (count == 0) { // 더 이상 이동 불가능 -> 바이러스 모두 퍼짐.
                 answer = time;
                 return;
             }
