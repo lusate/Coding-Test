@@ -1,98 +1,117 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.*;
-class Point {
-	int x, y, time;
-    public Point(int x, int y){
-        this.x=x;
-        this.y=y;
-    }
 
-	public Point(int x, int y, int time) {
-		this.x = x;
-		this.y = y;
-        this.time = time;
-	}
-}
 public class Main {
-	static int n,m, count = 0, answer = Integer.MAX_VALUE;
-    static Point sel[];
-    static int[][] map;
-    static boolean[][] visit;
-    static ArrayList<Point> arr;
-    static int[] dx = {-1, 0, 1, 0};
-    static int[] dy = {0, 1, 0, -1};
- 
-    private static void dfs(int idx, int cnt) {
-        if (cnt == m) {
-            bfs();
-            return;
-        }
- 
-        if(idx == arr.size()){
-            return;
-        }
-        
-        sel[cnt] = arr.get(idx);
-        dfs(idx+1, cnt+1);
-        dfs(idx+1, cnt);
-    }
- 
-    private static void bfs() {
-        int zero = count;
-        Queue<Point> Q = new LinkedList<>();
 
-        for(int i=0; i<m; i++){
-            visit[sel[i].x][sel[i].y] = true;
-			Q.offer(new Point(sel[i].x, sel[i].y, 0));
+    private static int N, M, count = 0, answer = Integer.MAX_VALUE;
+    private static int[][] map;
+    private static boolean[] check;
+    private static List<Node> virus = new ArrayList<>();
+    private static final int[] dx = {0, 0, -1, 1};
+    private static final int[] dy = {-1, 1, 0, 0};
+
+    private static class Node {
+        int x, y;
+
+        public Node(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+    }
+
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        N = Integer.parseInt(st.nextToken());
+        M = Integer.parseInt(st.nextToken());
+
+        map = new int[N][N];
+        for (int i = 0; i < N; i++) {
+            st = new StringTokenizer(br.readLine());
+            for (int j = 0; j < N; j++) {
+                map[i][j] = Integer.parseInt(st.nextToken());
+                if (map[i][j] == 2) virus.add(new Node(i, j));
+                if (map[i][j] == 0) count++;
+            }
+        }
+
+        count += virus.size() - M; // 입력한 연구소의 바이러스 개수 - m
+        check = new boolean[virus.size()];
+
+        if (count == 0) answer = 0;
+        else dfs(0, 0);
+
+        System.out.println((answer == Integer.MAX_VALUE) ? -1 : answer);
+    }
+
+    private static void dfs(int depth, int start) {
+        if (depth == M) {
+            int[][] copyMap = copy();
+            bfs(copyMap, count);
+            return;
+        }
+
+        for (int i = start; i < virus.size(); i++) {
+            check[i] = true;
+            dfs(depth + 1, i + 1);
+            check[i] = false;
+        }
+    }
+
+    private static void bfs(int[][] map, int count) {
+        Queue<Node> queue = new LinkedList<>();
+
+        for (int i = 0; i < virus.size(); i++) {
+            if (check[i]) queue.add(virus.get(i));
         }
 
         int time = 0;
-        while(!Q.isEmpty()){
-            Point tmp = Q.poll();
-            time = tmp.time;
-            for(int i=0; i<4; i++){
-                int nx = tmp.x + dx[i];
-                int ny = tmp.y + dy[i];
+        while (!queue.isEmpty()) {
+            if (answer <= time) break; // 해당 조합은 이전 조합보다 느리다는 뜻.
 
-                if(nx>=0 && nx<n && ny>=0 && ny<n && !visit[nx][ny]){
-                    if(map[nx][ny] != 1){
-                        Q.offer(new Point(nx, ny, tmp.time+1));
-                        visit[nx][ny] = true;
-                    }
+            int len = queue.size();
+            for (int t = 0; t < len; t++) { // 시작 지점이 여러 개이기 때문에 반복문으로 한 번더 감싼다.
+                Node now = queue.poll();
 
-                    if(map[nx][ny] == 0){
-                        zero--;
-                    }
+                for (int i = 0; i < 4; i++) {
+                    int nx = now.x + dx[i];
+                    int ny = now.y + dy[i];
+
+                    if (nx < 0 || nx >= N || ny < 0 || ny >= N) continue;
+                    if (map[nx][ny] != 0) continue;
+
+                    map[nx][ny] = 2;
+                    queue.add(new Node(nx, ny));
+                    count--; // 지날 수 있는 길 -1
                 }
             }
-        }
 
-        if(zero == 0){
-            answer = Math.min(answer, time);
-        }
-        
-    }
-
-
-    public static void main(String[] args) throws Exception {
-		Scanner sc = new Scanner(System.in);
-        n = sc.nextInt();
-        m = sc.nextInt();
- 
-        map = new int[n][n];
-        visit = new boolean[n][n];
-        arr = new ArrayList<>();
-
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                map[i][j] = sc.nextInt();
-                if (map[i][j] == 2) arr.add(new Point(i, j)); //현재 바이러스 설치 가능한 위치.
-                if (map[i][j] == 0) count++; // 0 개수.
+            time++;
+            if (count == 0) { // 더이상 지날 수 있는 길이 없다면 (탐색 가능한 길이 없다면)
+                answer = time;
+                return;
             }
         }
- 
-        sel = new Point[m];
-        dfs(0, 0);
-        System.out.println((answer == Integer.MAX_VALUE) ? -1 : answer);
+    }
+
+    private static int[][] copy() {
+        int[][] copyMap = new int[N][N];
+        // 바이러스 2일 것을 0으로 만들고 벽은 1로 한 2차원 배열
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++)
+                copyMap[i][j] = (map[i][j] == 2 ? 0 : map[i][j]);
+        }
+
+        // 바이러스 개수 만큼 for문
+        for (int i = 0; i < virus.size(); i++) {
+            if (check[i]) {
+                Node node = virus.get(i);
+                copyMap[node.x][node.y] = 2;
+            }
+        }
+
+        return copyMap;
     }
 }
 
