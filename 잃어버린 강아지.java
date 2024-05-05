@@ -32,20 +32,33 @@ public class Solution {
 			int nx2 = x2 + dx[d2]; //강아지
 			int ny2 = y2 + dy[d2];
 
-			if(nx1<0 || nx1>=n || ny1<0 || ny1>=n || board[nx1][ny1] == 1){
-				d1 = (d1+1) % 4;
-			}
-			else{
+			// if(nx1<0 || nx1>=n || ny1<0 || ny1>=n || board[nx1][ny1] == 1){
+			// 	d1 = (d1+1) % 4;
+			// }
+			// else{
+			// 	x1 = nx1;
+			// 	y1 = ny1;
+			// }
+
+			// if(nx2<0 || nx2>=n || ny2<0 || ny2>=n || board[nx2][ny2] == 1){
+			// 	d2 = (d2+1) % 4;
+			// }
+			// else{
+			// 	x2 = nx2;
+			// 	y2 = ny2;
+			// }
+			if (nx1 >= 0 && ny1 >= 0 && nx1 < n && ny1 < n && board[nx1][ny1] != 1) { // 0 만이 아니라 2나 3의 위치로도 이동이 가능하기 때문에 != 1 로 해줌
 				x1 = nx1;
 				y1 = ny1;
+			}else{
+				d1 = (d1 + 1) % 4;
 			}
-
-			if(nx2<0 || nx2>=n || ny2<0 || ny2>=n || board[nx2][ny2] == 1){
-				d2 = (d2+1) % 4;
-			}
-			else{
+		
+			if (nx2 >= 0 && ny2 >= 0 && nx2 < n && ny2 < n && board[nx2][ny2] != 1) {
 				x2 = nx2;
 				y2 = ny2;
+			} else{
+				d2 = (d2 + 1) % 4;
 			}
 
 
