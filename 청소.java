@@ -13,12 +13,11 @@ public class Main {
 			int nx = x + dx[d];
 			int ny = y + dy[d];
 
-				// if(nx>=0 && nx<n && ny>=0 && ny<n){
-				// 	if(board[nx][ny] == 1 || nx > n || ny > n){
-				// 		time = (time+1) % 4;
-				// 		continue;
-				// 	}
-				// } if일 때 이동, else일 때 회전.
+			if(nx>=0 && nx<n && ny>=0 && ny<n){
+		                if(board[nx][ny] == 0){
+		                    d = (d+1) % 4;
+		                }
+	             	} // if일 때 이동, else일 때 회전.
 
 
 			if(nx<0 || nx>=n || ny<0 || ny>=n || board[nx][ny] == 1){
