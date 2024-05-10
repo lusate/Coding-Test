@@ -1,63 +1,81 @@
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.*;
+import java.io.*;
+import java.util.Arrays;
+import java.util.StringTokenizer;
 
-class Edge{
-    int st, ed, cost;
+class Edge {
+    int st;
+    int end;
+    int cost;
 
-    Edge(int st, int ed, int cost) {
-        this.st = st;
-        this.ed = ed;
-        this.cost = cost;
+    public Edge(int s, int e, int c) {
+        this.st = s;
+        this.end = e;
+        this.cost = c;
     }
 }
+
 public class Main {
-    public static void main(String[] args) throws Exception {
+    static Edge[] graph;
+
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int N = Integer.parseInt(st.nextToken()); // 도시 수
-        int S = Integer.parseInt(st.nextToken()); // 시작 도시
+
+        int N = Integer.parseInt(st.nextToken()); // 노드의 수
+        int S = Integer.parseInt(st.nextToken()); // 시작도시
         int E = Integer.parseInt(st.nextToken()); // 도착 도시
-        int M = Integer.parseInt(st.nextToken()); // 교통 수단 개수
+        int M = Integer.parseInt(st.nextToken()); // 에지의 수
 
-        Edge[] graph = new Edge[N + 1];
+        graph = new Edge[M + 1];
+        long[] cost = new long[N + 1];
 
-
-        
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < M; i++) {
             st = new StringTokenizer(br.readLine());
-            for (int j = 0; j < N; j++) {
-                int a = Integer.parseInt(st.nextToken()); // 시작
-                int b = Integer.parseInt(st.nextToken());
-                int c = Integer.parseInt(st.nextToken()); // 비용
+            int a = Integer.parseInt(st.nextToken());
+            int b = Integer.parseInt(st.nextToken());
+            int c = Integer.parseInt(st.nextToken()); // 버는 돈이 아닌 쓰는 돈이다!!!
+            graph[i] = new Edge(a, b, c);
+        }
+        long[] money = new long[N+1];
 
-                graph[i] = new Edge(a, b, c);
-            }
+        st = new StringTokenizer(br.readLine());
+        for(int i = 0 ; i < N; i++){
+            money[i] = Integer.parseInt(st.nextToken()); // 벌 수 있는 최대 돈
         }
 
-        int[] cost = new int[N + 1]; // 도시 지나갈 때마다 비용
-        int[] earnMoney = new int[N + 1]; // 벌 수 있는 최대 돈
-        // 0번 도시부터 차례대로 각 도시에서 벌 수 있는 돈의 최댓값
-        for (int i = 0; i < N; i++) {
-            st = new StringTokenizer(br.readLine());
-            earnMoney[i] = Integer.parseInt(st.nextToken());
-        }
+        // 벨만 포드 알고리즘
+        Arrays.fill(cost, Long.MIN_VALUE);
+        cost[S] = money[S];
 
-        Arrays.fill(cost, Integer.MIN_VALUE);
-        cost[0] = 0;
-
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < M; j++) {
+        /**
+         * a -> b && b -> a 둘 다 가능
+         * 무한히 계속 돌 수 있기 때문에 최대인 도시의 개수 100으로 설정하고
+         */
+        for(int i = 0 ; i <= N+100; i++){
+            for(int j = 0 ; j < M; j++){
                 Edge tmp = graph[j];
+
                 int nowSt = tmp.st;
-                int nowEd = tmp.ed;
+                int nowEd = tmp.end;
                 int nowCost = tmp.cost;
 
-                if()
+                if(cost[nowSt]==Long.MIN_VALUE)
+                    continue; // [0] 제외하고 모든 cost가 현재 MIN이기 때문에 continue로 넘어감.
+                else if(cost[nowSt]==Long.MAX_VALUE){
+                    cost[nowEd] = Long.MAX_VALUE; // 최대라면 Gee를 출력하기 위해
+                }
+                // 번 돈에서 사용한 돈을 빼준다.  cost[nowSt] 는 총 합을 구하기 위함.
+                else if(cost[nowEd] < cost[nowSt]+money[nowEd]-nowCost){
+                    cost[nowEd] = cost[nowSt]+money[nowEd]-nowCost;
+                    if(i > N) // 현 도시의 개수를 넘으면 cost는 MAX가 됨.
+                        cost[nowEd] = Long.MAX_VALUE;
+                }
             }
         }
-
-
-//        System.out.println(answer);
+        if(cost[E] == Long.MIN_VALUE)
+            System.out.println("gg");
+        else if(cost[E] == Long.MAX_VALUE)
+            System.out.println("Gee");
+        else System.out.println(cost[E]);
     }
 }
