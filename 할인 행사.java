@@ -7,7 +7,7 @@ class Solution {
 		int cnt = 0;
 		for(int i=0; i<want.length; i++){
 			map.put(want[i], number[i]);
-			cnt += number[i];
+			cnt += number[i]; // 10일 동안 이기 때문에 이렇게 한 것인데 문제에서는 10으로 고정했으므로 그냥 10으로 초기화해도 무관
 		}
 
 		for(int i=0; i<=discount.length-cnt; i++){
@@ -17,7 +17,7 @@ class Solution {
 				tmp.put(key, map.get(key));
 			}
 
-			boolean isExist = true;
+			boolean isExist = true; // 회원 가입을 할 것인지 안 할 것인지 여부
 			for(int j=0; j<cnt; j++){ //열흘동안
 				int idx = i+j;
 				String idxKey = discount[idx];
@@ -65,6 +65,57 @@ class Solution {
 	}
 }
 
+// ---------------------------------------------------------------------------------------------------------
+
+// 다시 푼 문제 풀이
+import java.util.HashMap;
+import java.util.Map;
+
+class Solution {
+    public int solution(String[] want, int[] number, String[] discount) {
+        int answer = 0;
+
+        int st = 0;
+        int day = 10;
+        int ed = discount.length;
+
+        // Map으로
+        Map<String, Integer> map = new HashMap<>();
+        for (int i = 0; i < want.length; i++) {
+            map.put(want[i], number[i]);
+        }
+
+        for (int i = 0; i < ed - day + 1; i++) {
+            HashMap<String, Integer> tmp = new HashMap<>();
+            for (int j = st; j < st + day; j++) { // 10번을 해야 함
+                if (st + 10 <= ed) {
+                    tmp.put(discount[j], tmp.getOrDefault(discount[j], 0) + 1);
+                }
+            }
+//            for(int j = 0; j < day; j++){
+//                tmp.put(discount[i + j], tmp.getOrDefault(discount[i + j], 0) + 1);
+//            }
+
+
+            boolean flag = true;
+            for (String key : map.keySet()) {
+                if (map.get(key) != tmp.get(key)) {
+                    flag = false;
+                }
+            }
+            if (flag) {
+              answer += 1;
+            } else {
+              answer += 0;
+            }
+             // answer += flag ? 1 : 0;
+
+            st++;
+        }
+
+        return answer;
+    }
+}
 
 /* 출력
 3
