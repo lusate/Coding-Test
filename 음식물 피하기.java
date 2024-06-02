@@ -2,14 +2,15 @@ import java.io.*;
 import java.util.*;
 
 class Main{
-    static int N, M, K;
+    static int N, M, K, cnt;
     static int[] dx = new int[]{-1, 0, 1, 0};
     static int[] dy = new int[]{0, 1, 0, -1};
     static boolean[][] visit;
     static int[][] map;
 
-    static private int bfs(int x, int y) {
+    static private void bfs(int x, int y) {
         Queue<int[]> q = new LinkedList<>();
+        visit[x][y] = true;
         q.add(new int[]{x, y});
 
         while (!q.isEmpty()) {
@@ -17,8 +18,6 @@ class Main{
             for (int k = 0; k < 4; k++) {
                 int nx = tmp[0] + dx[k];
                 int ny = tmp[1] + dy[k];
-
-
                 if (nx >= 0 && ny >= 0 && nx < N && ny < M && !visit[nx][ny] && map[nx][ny] == 1) {
                     q.add(new int[]{nx, ny});
                     visit[nx][ny] = true;
@@ -26,7 +25,6 @@ class Main{
                 }
             }
         }
-        return cnt;
     }
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -49,16 +47,25 @@ class Main{
         int max = Integer.MIN_VALUE;
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < M; j++) {
-                cnt = 1;
+                /**
+                 * 처음 위치에서의 값은 1로 고정을 해야 함.
+                 */
                 if (map[i][j] == 1) {
+                    cnt = 1;
                     bfs(i, j);
                     max = Math.max(max, cnt);
                 }
             }
         }
-
-        System.out.println(bfs());
-
+        System.out.println(max);
     }
 }
 
+/*
+3 4 5
+3 2
+2 2
+3 1
+2 3
+1 1
+*/
