@@ -31,7 +31,7 @@ for(Info ob : arr){
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ArrayList<Integer>[] graph = new ArrayList[n];
-for(int i=0; i<n; i++){
+for(int i=0; i<=n; i++){
     graph[i] = new ArrayList<>();
 }
 
@@ -40,45 +40,7 @@ for(int i=0; i<edges.length; i++){
     int b = edges[i][1];
 
     graph[a].add(b);
-    graph[b].add(a);
-}
-System.out.println("list " + list[0].get(1));
-System.out.println(list[0].size());
-System.out.println(list[1].size());
-
-System.out.println(Arrays.deepToString(graph));
-
-
-// -------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-//이중 ArrayList의 경우에는 그냥 System.out.println(graph) 하면 됨.
-
-ArrayList<ArrayList<Integer>> graph = new ArrayList<>();
-for (int i = 0; i < N; i++) {
-    graph.add(new ArrayList<>());
-}
-
-for (int i = 0; i < M; i++) {
-    int v1 = sc.nextInt();
-    int v2 = sc.nextInt();
-
-    graph.get(v1).add(v2);
-    graph.get(v2).add(v1);
-}
-System.out.println("graph " + graph.get(0).get(1));
-System.out.println(graph.get(1).size());
-
-for(int num : graph.get(x)){
-	//num은 양방향으로 x와 연결된 
-}
-
-
-💎 요즘에는 요 방식 사용 중
-ArrayList<Node> graph = new ArrayList[N + 1];
-for (int i = 0; i <= N; i++) {
-    graph[i] = new ArrayList<>();
-}
-for (int i = 0; i < N - 1; i++) {
+서; i++) {
     st = new StringTokenizer(br.readLine());
     int u = Integer.parseInt(st.nextToken());
     int v = Integer.parseInt(st.nextToken());
