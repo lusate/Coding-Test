@@ -73,7 +73,39 @@ for(int num : graph.get(x)){
 }
 
 
-// -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+💎 요즘에는 요 방식 사용 중
+ArrayList<Node> graph = new ArrayList[N + 1];
+for (int i = 0; i <= N; i++) {
+    graph[i] = new ArrayList<>();
+}
+for (int i = 0; i < N - 1; i++) {
+    st = new StringTokenizer(br.readLine());
+    int u = Integer.parseInt(st.nextToken());
+    int v = Integer.parseInt(st.nextToken());
+
+    graph[u].add(new Node(v, 1));
+    graph[v].add(new Node(u, 1));
+}
+
+// --------------------------------------------------------------------------------------------------------------------------------------
+
+// 정렬하는 방법
+1. ArrayList<T>
+//오름차순, 내림차순
+Collections.sort(), Collections.sort(arr, Collections.reverseOrder())
+
+2. ArrayList<T> arr = new ArrayList<>(Arrays.asList(5,3,1,4,2)); // List.sort()
+// 오름차순, 내림차순
+arr.sort(Comparator.naturalOrder()); , arr.sort(Comparator.reverseOrder());
+
+3. ArrayList<int[]> list = new ArrayList<>();
+list.sort((a, b) -> a[0] == b[0] ? b[1] - a[1] : a[0] - b[0]);
+
+
+4. PriorityQueue 정렬
+PriorityQueue<Time> pq = new PriorityQueue<>((a, b) -> a.end - b.end);
+
+// --------------------------------------------------------------------------------------------------------------------------------------
 /*
 아스키 코드
 알파벳 소문자 -> 97 ~ 122
