@@ -71,3 +71,68 @@ public class Solution {
 //                new String[]{"a b", "b a", "c a", "a c", "a c", "c a"}));
     }
 }
+
+
+// ------------------------------------------------------------------------------------------------------------------------
+
+/**
+더 간단한 코드
+이중 HashMap하지 않고도 가능
+*/    
+
+import java.util.HashMap;
+
+public class Solution {
+
+    public int solution(String[] friends, String[] gifts) {
+        int answer = 0;
+        int friendsLength = friends.length;
+        HashMap<String, Integer> map = new HashMap<>();
+
+        int[] giftDegree = new int[friendsLength];
+        int[][] giftGraph = new int[friendsLength][friendsLength];
+
+        for(int i=0; i<friendsLength; i++) {
+            map.put(friends[i], i);
+        }
+
+        for (String gift : gifts) {
+            String[] giftName = gift.split(" ");
+            giftDegree[map.get(giftName[0])]++; // 선물 주는 사람에 대해
+            giftDegree[map.get(giftName[1])]--; // 선물 받은 사람에 대해
+
+            giftGraph[map.get(giftName[0])][map.get(giftName[1])]++;
+        }
+
+        for(int i=0; i<friendsLength; i++) {
+            int nextMonthGift = 0;
+            for(int j=0; j<friendsLength; j++) {
+                if(i == j){
+                    continue;
+                }
+
+                // 선물 주고 받았을 때 준 쪽이 더 크면 다음 달 선물 추가, 같다면 선물 지수 비교해서 추가
+                if(giftGraph[i][j] > giftGraph[j][i] || giftGraph[i][j] == giftGraph[j][i] && giftDegree[i] > giftDegree[j]){
+                    nextMonthGift++;
+                }
+            }
+
+            if(answer < nextMonthGift){
+                answer = nextMonthGift;
+            }
+        }
+
+        return answer;
+    }
+
+    public static void main(String[] args) {
+        Solution T = new Solution();
+        System.out.println(T.solution(new String[]{"muzi", "ryan", "frodo", "neo"},
+                new String[]{"muzi frodo", "muzi frodo", "ryan muzi", "ryan muzi", "ryan muzi", "frodo muzi", "frodo ryan", "neo muzi"}));
+
+//        System.out.println(T.solution(new String[]{"a", "b", "c"},
+//                new String[]{"a b", "b a", "c a", "a c", "a c", "c a"}));
+    }
+}
+
+
