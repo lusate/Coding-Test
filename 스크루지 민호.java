@@ -1,6 +1,7 @@
 import java.io.*;
 import java.util.*;
 
+
 class Node{
     int vest, cost;
 
