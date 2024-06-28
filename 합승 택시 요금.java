@@ -15,6 +15,7 @@ class Solution {
 			dy[x[1]][x[0]] = x[2];
 		}
 
+		// 플로이드 와샬
 		for(int k=1; k<=n; k++){
 			for(int i=1; i<=n; i++){
 				for(int j=1; j<=n; j++){
