@@ -1,12 +1,15 @@
+package 프로그래머스문제;
+
+import java.util.*;
 public class 산모양타일링 {
-    /*public int solution(int n, int[] tops) {
+    public int solution(int n, int[] tops) {
         int answer = 0;
 
-        *//**
+        /**
          * 마름모 타일로 끝나지 않은 경우의 수를 dp[n][0], 마름모 타일로 끝나는 경우의 수를 dp[n][1]
          * dp[n][0] = dp[n - 1][0] * 2 + dp[n - 1][1]
          * dp[n][1] = dp[n - 1][0] + dp[n - 1][1]
-         *//*
+         */
         int[][] dp = new int[n+1][2];
         dp[1][0] = tops[0] == 1 ? 3 : 2;
         dp[1][1] = 1;
@@ -24,12 +27,34 @@ public class 산모양타일링 {
 
         answer = (dp[n][0] + dp[n][1]) % 10007;
         return answer;
-    }*/
+    }
+
+    /*int[][] dp;
+    int[] topList;
+
+    // ind 위치에 num 모양을 놓았을 때 총 경우의 수
+    int dfs(int ind, int num) {
+        //기저조건
+        if (num == 1 && topList[ind] == 0) return dp[ind][num] = 0;
+        if (ind == 0) return 1;
+        if (dp[ind][num] != -1) return dp[ind][num];
+
+        int result = 0;
+        for (int i = 0; i < 4; i++) {
+            if (num == 2 && i == 3) continue;
+            result = (dfs(ind-1, i) + result) % 10007;
+        }
+        return dp[ind][num] = result;
+    }
 
     public int solution(int n, int[] tops) {
-        //이 풀이 방식든 집에서 다시
-//        https://velog.io/@funnysunny08/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%B9%B4%EC%B9%B4%EC%98%A4-%EC%82%B0-%EB%AA%A8%EC%96%91-%ED%83%80%EC%9D%BC%EB%A7%81-java
-    }
+        //초기화
+        dp = new int[n+1][4];
+        topList = tops;
+        for (int i = 0; i <= n; i++)
+            Arrays.fill(dp[i], -1);
+        return dfs(n, 0);
+    }*/
 
     public static void main(String[] args) {
         산모양타일링 T = new 산모양타일링();
