@@ -9,7 +9,7 @@ class Solution {
 
 			String str = s.substring(0, i);
 			for(int j=i; j<=s.length(); j+=i){
-				int end = Math.min(j+i, s.length());
+				int end = Math.min(j+i, s.length()); // j+=i가 될 때 s.length()를 넘어서 가버리기 때문에 end가 필요하다.
 
 				String tmp = s.substring(j, end);
 				if(str.equals(tmp)){ //맨 앞의 str과 그 다음 tmp와 같은지 확인하면서 진행
