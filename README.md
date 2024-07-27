@@ -106,30 +106,30 @@ for (int i = 0; i < N - 1; i++) {
 
 
 
-// 정렬하는 방법
-1. ArrayList<T>
+### 정렬하는 방법
+**1. ArrayList<T>**
 //오름차순, 내림차순
 Collections.sort(), Collections.sort(arr, Collections.reverseOrder())
 
-2. ArrayList<T> arr = new ArrayList<>(Arrays.asList(5,3,1,4,2)); // List.sort()
+**2. ArrayList<T> arr = new ArrayList<>(Arrays.asList(5,3,1,4,2)); // List.sort()**
 // 오름차순, 내림차순
 arr.sort(Comparator.naturalOrder()); , arr.sort(Comparator.reverseOrder());
 
-3. ArrayList<int[]> list = new ArrayList<>();
+**3. ArrayList<int[]> list = new ArrayList<>();**
 list.sort((a, b) -> a[0] == b[0] ? b[1] - a[1] : a[0] - b[0]);
 
 
-4. PriorityQueue 정렬
+**4. PriorityQueue 정렬**
 PriorityQueue<Time> pq = new PriorityQueue<>((a, b) -> a.end - b.end);
 
-// --------------------------------------------------------------------------------------------------------------------------------------
-/*
-아스키 코드
+
+
+**아스키 코드**
 알파벳 소문자 -> 97 ~ 122
 알파벳 대문자 -> 65 ~ 90
 문자 0 ~ 9 -> 48 ~ 57
 
-그래프
+**그래프**
 간선이 적은 희소 그래프일 때, 정점 아주 많을 때 인접리스트
 간선이 많은 밀집 그래프일 때, 정점 적을 때 인접행렬
-*/
+
